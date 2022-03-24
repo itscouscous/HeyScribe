@@ -1,22 +1,327 @@
+<!DOCTYPE html>
 <html lang="en">
+
+<!-- Bulma Template from https://bulmatemplates.github.io/bulma-templates/-->
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <!-- Bulma CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+
+    <!--Random Stuff-->
+    <link rel="stylesheet" href="style.css">
+    <title>HeyScribe</title>
 </head>
 
 <body>
-    <div id="header">
-        <p>aaaa</p>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="">
+                    <i class="fas fa-4x fa-scroll"></i>
+                </a>
+                <h1 class="ml-3 is-size-2 has-text-link has-text-weight-bold">HeyScribe</h1>
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                    data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+            <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-end">
+                    <a class="navbar-item"> Scribe Portal </a>
+                    <a class="navbar-item"> Client Portal </a>
+                    <!--I want a better word than client-->
+                    <a class="navbar-item"> Create Account </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section class="hero is-medium">
+        <div class="hero-body has-text-centered">
+            <h1 class="title is-2">Connect with a client</h1>
+            <div id="hero-input-group" class="field has-addons has-addons-centered">
+                <div class="control">
+                    <input class="input is-medium" type="text" placeholder="Search..." />
+                </div>
+                <div class="control">
+                    <a class="button is-medium is-link">
+                        <i class="fas fa-search"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="section container is-max-widescreen">
+        <section class="featured">
+            <div class="level">
+                <div class="level-left">
+                    <div class="level-item">
+                        <h2 class="subtitle">Urgent Requests</h2>
+                    </div>
+                </div>
+                <div class="level-right">
+                    <div class="level-item">
+                        <div class="field has-addons has-addons-centered">
+                            <div class="control">
+                                <a class="button is-small" disabled>
+                                    <i class="fas fa-chevron-left"></i>
+                                </a>
+                            </div>
+                            <div class="control">
+                                <a class="button is-small">
+                                    <i class="fas fa-chevron-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column is-3">
+                    <article>
+                        <figure class="image is-5by3">
+                            <img src="https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png" />
+                        </figure>
+                        <h2 class="subtitle">Court Hearing</h2>
+                        <span class="tag is-rounded">Legal</span>
+                        <span class="tag is-rounded">8:53</span>
+                    </article>
+                </div>
+                <div class="column is-3">
+                    <article>
+                        <figure class="image is-5by3">
+                            <img src="https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png" />
+                        </figure>
+                        <h2 class="subtitle">Physician's Notes</h2>
+                        <span class="tag is-rounded">Medical</span>
+                        <span class="tag is-rounded">38:55</span>
+                    </article>
+                </div>
+                <div class="column is-3">
+                    <article>
+                        <figure class="image is-5by3">
+                            <img src="https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png" />
+                        </figure>
+                        <h2 class="subtitle">Riverdale Season 3 Captions</h2>
+                        <span class="tag is-rounded">Entertainment</span>
+                        <span class="tag is-rounded">50:55</span>
+                    </article>
+                </div>
+                <div class="column is-3">
+                    <article>
+                        <figure class="image is-5by3">
+                            <img src="https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png" />
+                        </figure>
+                        <h2 class="subtitle">My dissertation</h2>
+                        <span class="tag is-rounded">Education</span>
+                        <span class="tag is-rounded">7:44:23</span>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <br>
+        <br>
+        <br>
+        <br>
+        <section class="categories">
+            <div class="columns is-multiline">
+                <div class="column is-6">
+                    <div class="category">
+                        <h1 class="title is-5">
+                            Legal
+                        </h1>
+                        <hr />
+                        <ul>
+                            <li>
+                                <i class="fas fa-caret-right has-text-link fa-xs icon-padding-right"></i>
+                                Lorem ipsum dolor sit.
+                                <span class="tag is-rounded">38:55</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-caret-right has-text-link fa-xs icon-padding-right"></i>
+                                Lorem ipsum dolor sit amet consectetur.
+                            </li>
+                            <li>
+                                <i class="fas fa-caret-right has-text-link fa-xs icon-padding-right"></i>
+                                Lorem, ipsum.
+                            </li>
+                            <li>
+                                <i class="fas fa-caret-right has-text-link fa-xs icon-padding-right"></i>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                <span class="tag is-rounded">8:55</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-caret-right has-text-link fa-xs icon-padding-right"></i>
+                                Lorem ipsum dolor sit.
+                            </li>
+                        </ul>
+                        <h3 class="has-text-link category-more">View All <i
+                                class="far fa-arrow-right icon-padding-left">
+                            </i>
+                        </h3>
+                    </div>
+                </div>
+                <div class="column is-6">
+                    <div class="category">
+                        <h1 class="title is-5">
+                            Medical
+                        </h1>
+                        <hr />
+                        <ul>
+                            <li>
+                                <i class="fas fa-caret-right has-text-link fa-xs icon-padding-right"></i>
+                                Lorem ipsum dolor sit.
+                                <span class="tag is-rounded">38:55</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-caret-right has-text-link fa-xs icon-padding-right"></i>
+                                Lorem ipsum dolor sit amet consectetur.
+                            </li>
+                            <li>
+                                <i class="fas fa-caret-right has-text-link fa-xs icon-padding-right"></i>
+                                Lorem, ipsum.
+                            </li>
+                            <li>
+                                <i class="fas fa-caret-right has-text-link fa-xs icon-padding-right"></i>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                <span class="tag is-rounded">8:55</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-caret-right has-text-link fa-xs icon-padding-right"></i>
+                                Lorem ipsum dolor sit.
+                            </li>
+                        </ul>
+                        <h3 class="has-text-link category-more">View All <i
+                                class="far fa-arrow-right icon-padding-left">
+                            </i>
+                        </h3>
+                    </div>
+                </div>
+                <div class="column is-6">
+                    <div class="category">
+                        <h1 class="title is-5">
+                            Entertainment
+                        </h1>
+                        <hr>
+                        <ul>
+                            <li>
+                                <i class="fas fa-caret-right has-text-link fa-xs icon-padding-right"></i>
+                                Lorem ipsum dolor sit.
+                                <span class="tag is-rounded">38:55</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-caret-right has-text-link fa-xs icon-padding-right"></i>
+                                Lorem ipsum dolor sit amet consectetur.
+                            </li>
+                            <li>
+                                <i class="fas fa-caret-right has-text-link fa-xs icon-padding-right"></i>
+                                Lorem, ipsum.
+                            </li>
+                            <li>
+                                <i class="fas fa-caret-right has-text-link fa-xs icon-padding-right"></i>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                <span class="tag is-rounded">8:55</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-caret-right has-text-link fa-xs icon-padding-right"></i>
+                                Lorem ipsum dolor sit.
+                            </li>
+                        </ul>
+                        <h3 class="has-text-link category-more">View All <i
+                                class="far fa-arrow-right icon-padding-left">
+                            </i>
+                        </h3>
+                    </div>
+                </div>
+                <div class="column is-6">
+                    <div class="category">
+                        <h1 class="title is-5">
+                            Educational
+                        </h1>
+                        <hr>
+                        <ul>
+                            <li>
+                                <i class="fas fa-caret-right has-text-link fa-xs icon-padding-right"></i>
+                                Lorem ipsum dolor sit.
+                                <span class="tag is-rounded">38:55</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-caret-right has-text-link fa-xs icon-padding-right"></i>
+                                Lorem ipsum dolor sit amet consectetur.
+                            </li>
+                            <li>
+                                <i class="fas fa-caret-right has-text-link fa-xs icon-padding-right"></i>
+                                Lorem, ipsum.
+                            </li>
+                            <li>
+                                <i class="fas fa-caret-right has-text-link fa-xs icon-padding-right"></i>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                <span class="tag is-rounded">8:55</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-caret-right has-text-link fa-xs icon-padding-right"></i>
+                                Lorem ipsum dolor sit.
+                            </li>
+                        </ul>
+                        <h3 class="has-text-link category-more">View All <i
+                                class="far fa-arrow-right icon-padding-left">
+                            </i>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-    <div id="main">
-        <p>hello there</p>
-    </div>
-    <div id="footer">
-        <p>bbbb</p>
-    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+                <div class="links">
+
+                    <div class="level-item">
+                        <a href="#">Support</a>
+                    </div>
+                    <div class="level-item">
+                        <a href="#"></a>
+                    </div>
+                    <div class="level-item">
+                        <a href="#"></a>
+                    </div>
+                </div><br>
+                <p>
+                    <a class="navbar-item center" href="">
+                        <i class="fas fa-4x fa-scroll"></i>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Hamburger menu functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+            if ($navbarBurgers.length > 0) {
+                $navbarBurgers.forEach(el => {
+                    el.addEventListener('click', () => {
+                        const target = el.dataset.target;
+                        const $target = document.getElementById(target);
+                        el.classList.toggle('is-active');
+                        $target.classList.toggle('is-active');
+                    });
+                });
+            }
+        });
+    </script>
+
 </body>
 
 </html>
