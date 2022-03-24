@@ -16,8 +16,10 @@
         integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
         crossorigin="anonymous" />
 
-    <!--Random Stuff-->
+    <!--CSS Link-->
     <link rel="stylesheet" href="style.css">
+
+    <!--Webpage Title-->
     <title>HeyScribe</title>
 </head>
 
@@ -25,9 +27,11 @@
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="container">
             <div class="navbar-brand">
+                <!--Logo in upper left (I want to shift it further left though)-->
                 <a class="navbar-item" href="">
                     <i class="fas fa-4x fa-scroll"></i>
                 </a>
+                <!--Title-->
                 <h1 class="ml-3 is-size-2 has-text-link has-text-weight-bold">HeyScribe</h1>
                 <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
                     data-target="navbarBasicExample">
@@ -36,6 +40,7 @@
                     <span aria-hidden="true"></span>
                 </a>
             </div>
+            <!--Upper Right -->
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-end">
                     <a class="navbar-item"> Scribe Portal </a>
@@ -48,6 +53,7 @@
     </nav>
     <section class="hero is-medium">
         <div class="hero-body has-text-centered">
+            <!--Main Search Bar-->
             <h1 class="title is-2">Connect with a client</h1>
             <div id="hero-input-group" class="field has-addons has-addons-centered">
                 <div class="control">
@@ -61,11 +67,13 @@
             </div>
         </div>
     </section>
+    <!--NEEDS SECTION CLASS FOR MOBILE SPACING AND CONTAINER CLASS FOR DESKTOP DO NOT REMOVE EITHER PLEASE FOR THE LOVE OF GOD-->
     <div class="section container is-max-widescreen">
         <section class="featured">
             <div class="level">
                 <div class="level-left">
                     <div class="level-item">
+                        <!--These are actually stale requests but it sounds bad-->
                         <h2 class="subtitle">Urgent Requests</h2>
                     </div>
                 </div>
@@ -86,6 +94,7 @@
                     </div>
                 </div>
             </div>
+            <!--These are the four main displays for the stale requests. Should fill with JS eventually.-->
             <div class="columns">
                 <div class="column is-3">
                     <article>
@@ -133,6 +142,7 @@
         <br>
         <br>
         <br>
+        <!--Extended offerings, probably also going to be sorted by oldest-->
         <section class="categories">
             <div class="columns is-multiline">
                 <div class="column is-6">
@@ -282,6 +292,8 @@
             </div>
         </section>
     </div>
+
+    <!--Footer currently just has a dead link and the logo-->
     <footer class="footer">
         <div class="container">
             <div class="content has-text-centered">
@@ -297,6 +309,7 @@
                         <a href="#"></a>
                     </div>
                 </div><br>
+                <!--Only use of CSS in the entire website-->
                 <p>
                     <a class="navbar-item center" href="">
                         <i class="fas fa-4x fa-scroll"></i>
@@ -306,7 +319,7 @@
         </div>
     </footer>
     <script>
-        // Hamburger menu functionality
+        // Hamburger Menu
         document.addEventListener('DOMContentLoaded', () => {
             const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
             if ($navbarBurgers.length > 0) {
