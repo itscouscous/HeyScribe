@@ -24,57 +24,74 @@
 </head>
 
 <body>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="container">
-            <div class="navbar-brand">
-                <!--Logo in upper left (I want to shift it further left though)-->
-                <a class="navbar-item" href="">
-                    <i class="fas fa-4x fa-scroll"></i>
-                </a>
-                <!--Title-->
-                <h1 class="ml-3 is-size-2 has-text-link has-text-weight-bold">HeyScribe</h1>
-                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
-                    data-target="navbarBasicExample">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                </a>
-            </div>
-            <!--Upper Right -->
-            <div id="navbarBasicExample" class="navbar-menu">
-                <div class="navbar-end">
-                    <a class="navbar-item"> Scribe Portal </a>
-                    <a class="navbar-item"> Client Portal </a>
-                    <!--I want a better word than client-->
-                    <a class="navbar-item"> Create Account </a>
-                </div>
-            </div>
+    <div class="navbar p-1">
+        <!-- NAVBAR BRAND -->
+        <div class="navbar-brand">
+
+            <!-- LOGO -->
+            <a class="navbar-item mr-4">
+                <i class="fas fa-scroll has-text-primary is-size-5"></i>
+                <h1 class="ml-2 is-size-4 has-text-black has-text-weight-bold">HeyScribe</h1>
+            </a>
+
+            <!-- NAVBAR MENU -->
+            <a class="navbar-item" id="link-scribers">Find Scribers</a>
+            <a class="navbar-item" id="link-work">Find Work</a>
+            <a class="navbar-item" id="link-about-us">About Us</a>
+
+            <!-- BURGER -->
+            <a class="navbar-burger burger" data-target="navbarMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
         </div>
-    </nav>
-    <section class="hero is-medium">
-        <div class="hero-body has-text-centered">
-            <!--Main Search Bar-->
-            <h1 class="title is-2">Connect with a client</h1>
-            <div id="hero-input-group" class="field has-addons has-addons-centered">
-                <div class="control">
-                    <input class="input is-medium" type="text" placeholder="Search..." />
-                </div>
-                <div class="control">
-                    <a class="button is-medium is-link">
-                        <i class="fas fa-search"></i>
+
+
+
+        <!-- NAVBAR END -->
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="buttons">
+                    <div class="navbar-item signedin">
+                        <a id="user_email" class="has-text-black mr-2"></a>
+                    </div>
+                    
+                    <!-- LOG IN -->
+                    <a class="button is-light signedout" id="btn-log-in">
+                        <strong>Log In</strong>
+                    </a>
+                    <!-- SIGN UP -->
+                    <a class="button is-primary signedout" id="btn-sign-up">
+                        <strong>Sign Up</strong>
                     </a>
                 </div>
             </div>
         </div>
+    </div>
+
+    <section class="columns mt-6" style="margin: 0% 15% 0 15%">
+        <div class="column is-half has-text-right">
+            <img src="images/highfive.webp" alt="illust" style="width: 300px;">
+        </div>
+        <div class="column is-half mt-6">
+            <!--Main Search Bar-->
+            <h1 class="title is-2">Connect with a transcriber!</h1>
+            <!-- SIGN UP -->
+            <a class="button is-primary signedout" id="btn-sign-up">
+                <strong>Let's go!</strong>
+            </a>
+        </div>
     </section>
+
     <!--NEEDS SECTION CLASS FOR MOBILE SPACING AND CONTAINER CLASS FOR DESKTOP DO NOT REMOVE EITHER PLEASE FOR THE LOVE OF GOD-->
     <div class="section container is-max-widescreen">
-        <section class="featured">
+        <section class="featured"  style="margin-bottom: 8%">
             <div class="level">
                 <div class="level-left">
                     <div class="level-item">
                         <!--These are actually stale requests but it sounds bad-->
-                        <h2 class="subtitle">Urgent Requests</h2>
+                        <h2 class="subtitle has-text-weight-bold">Urgent Requests</h2>
                     </div>
                 </div>
                 <div class="level-right">
@@ -101,9 +118,12 @@
                         <figure class="image is-5by3">
                             <img src="https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png" />
                         </figure>
-                        <h2 class="subtitle">Court Hearing</h2>
-                        <span class="tag is-rounded">Legal</span>
-                        <span class="tag is-rounded">8:53</span>
+                        <div class="my-2">
+                            <span class="tag is-rounded">Legal</span>
+                            <span class="tag is-rounded">8:53</span>
+                            <span class="tag is-rounded">$1.50/min</span>
+                        </div>
+                        <p>Court Hearing</p>
                     </article>
                 </div>
                 <div class="column is-3">
@@ -111,9 +131,12 @@
                         <figure class="image is-5by3">
                             <img src="https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png" />
                         </figure>
-                        <h2 class="subtitle">Physician's Notes</h2>
-                        <span class="tag is-rounded">Medical</span>
-                        <span class="tag is-rounded">38:55</span>
+                        <div class="my-2">
+                            <span class="tag is-rounded">Medical</span>
+                            <span class="tag is-rounded">38:55</span>
+                            <span class="tag is-rounded">$2.50/min</span>
+                        </div>
+                        <p>Physician's Notes</p>
                     </article>
                 </div>
                 <div class="column is-3">
@@ -121,9 +144,12 @@
                         <figure class="image is-5by3">
                             <img src="https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png" />
                         </figure>
-                        <h2 class="subtitle">Riverdale Season 3 Captions</h2>
-                        <span class="tag is-rounded">Entertainment</span>
-                        <span class="tag is-rounded">50:55</span>
+                        <div class="my-2">
+                            <span class="tag is-rounded">Entertainment</span>
+                            <span class="tag is-rounded">50:55</span>
+                            <span class="tag is-rounded">$1.50/min</span>
+                        </div>
+                        <p>Riverdale S3 E1 Captions</p>
                     </article>
                 </div>
                 <div class="column is-3">
@@ -131,17 +157,17 @@
                         <figure class="image is-5by3">
                             <img src="https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png" />
                         </figure>
-                        <h2 class="subtitle">My dissertation</h2>
-                        <span class="tag is-rounded">Education</span>
-                        <span class="tag is-rounded">7:44:23</span>
+                        <div class="my-2">
+                            <span class="tag is-rounded">Education</span>
+                            <span class="tag is-rounded">7:44:23</span>
+                            <span class="tag is-rounded">$2.25/min</span>
+                        </div>
+                        <p>My dissertation</p>
                     </article>
                 </div>
             </div>
         </section>
-        <br>
-        <br>
-        <br>
-        <br>
+        
         <!--Extended offerings, probably also going to be sorted by oldest-->
         <section class="categories">
             <div class="columns is-multiline">
@@ -293,31 +319,19 @@
         </section>
     </div>
 
-    <!--Footer currently just has a dead link and the logo-->
-    <footer class="footer">
-        <div class="container">
-            <div class="content has-text-centered">
-                <div class="links">
-
-                    <div class="level-item">
-                        <a href="#">Support</a>
-                    </div>
-                    <div class="level-item">
-                        <a href="#"></a>
-                    </div>
-                    <div class="level-item">
-                        <a href="#"></a>
-                    </div>
-                </div><br>
-                <!--Only use of CSS in the entire website-->
-                <p>
-                    <a class="navbar-item center" href="">
-                        <i class="fas fa-4x fa-scroll"></i>
-                    </a>
-                </p>
-            </div>
+    <!-- FOOTER -->
+    <footer class="footer has-background-black is-active">
+        <div class="content has-text-centered has-text-white">
+            <p class="is-size-4 has-text-white has-text-weight-bold mb-0">HeyScribe</p>
+            <p class="mb-0"><small>Copyright &copy; 2022 HeyScribe, LLC.</small></p>
+            <p><small>mvwinarta@wisc.edu | *insert everyone's emails here</small></p>
+            <a href="http://www.facebook.com"><i class="fab fa-2x fa-facebook ml-3"></i></a>
+            <a href="http://www.twitter.com"><i class="fab fa-2x fa-twitter ml-3"></i></a>
+            <a href="http://www.instagram.com"><i class="fab fa-2x fa-instagram ml-3"></i></a>
         </div>
     </footer>
+
+
     <script>
         // Hamburger Menu
         document.addEventListener('DOMContentLoaded', () => {

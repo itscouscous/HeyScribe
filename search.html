@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- DISCOVER PAGE -->
+    <section class="container" id="discover">
+        <div class="columns my-4 is-centered">
+            <!-- LEFT COLUMN -->
+            <div class="column is-2 p-5 has-background-white-ter">
+                <h1 class="title is-4 has-text-weight-bold"
+                style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Who's dining today?</h1>
+                <!-- SEARCH BAR-  -->
+                <div class="control has-icons-left">
+                    <input class="input is-rounded" type="text" placeholder="Restaurant Name" id="search_bar">
+                    <span class="icon is-medium is-left">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </span>
+                    <!-- SUBMIT & RESET -->
+                    <div class="field is-grouped">
+                        <button class="button is-primary is-rounded has-text-weight-bold mt-4" id="search_button">Search</button>
+                        <button class="button is-rounded mt-4 ml-2" id="reset_button">Reset</button>
+                    </div>
+                </div>
+                <!-- SUBMIT -->
+
+
+                <form class="mb-0" id="filter_form">
+                    <div class="control">
+                        <!-- ALLERGIES -->
+                        <label class="label mt-5">Allergies</label>
+                        <label class="radio">
+                        <!--  onclick="load_data_conditions('cars','type', '==', 'gas')"*** -->
+                        <input type="radio" name="filter" value="Dairy" class="test_allergies"
+                            onclick="load_data_conditions('restaurants','best', '==', 'Dairy')">
+                        Dairy
+                        </label>
+                        <label class="radio">
+                        <input type="radio" name="filter" value="Eggs" class="test_allergies"
+                            onclick="load_data_conditions('restaurants','best', '==', 'Eggs')">
+                        Eggs
+                        </label>
+                        <label class="radio">
+                        <input type="radio" name="filter" value="Nuts" class="test_allergies"
+                            onclick="load_data_conditions('restaurants','best', '==', 'Nuts')">
+                        Nuts
+                        </label>
+                        <label class="radio">
+                        <input type="radio" name="filter" value="Seafood" class="test_allergies"
+                            onclick="load_data_conditions('restaurants','best', '==', 'Seafood')">
+                        Seafood
+                        </label>
+
+                        <!-- DIETARY RESTRICTIONS -->
+                        <label class="label mt-5">Dietary Restrictions</label>
+                        <label class="radio">
+                        <input type="radio" name="filter" value="Halal" class="test_allergies"
+                            onclick="load_data_conditions('restaurants','best', '==', 'Halal')">
+                        Halal
+                        </label>
+                        <label class="radio">
+                        <input type="radio" name="filter" value="Kosher" class="test_allergies"
+                            onclick="load_data_conditions('restaurants','best', '==', 'Kosher')">
+                        Kosher
+                        </label>
+                        <label class="radio">
+                        <input type="radio" name="filter" value="Vegan" class="test_allergies"
+                            onclick="load_data_conditions('restaurants','best', '==', 'Vegan')">
+                        Vegan
+                        </label>
+                        <label class="radio">
+                        <input type="radio" name="filter" value="Vegetarian" class="test_allergies"
+                            onclick="load_data_conditions('restaurants','best', '==', 'Vegetarian')">
+                        Vegetarian
+                        </label>
+
+                        <!-- DISABILITY ACCOMMODATIONS -->
+                        <label class="label mt-5">Disability Accommodations</label>
+                        <label class="radio">
+                        <input type="radio" name="filter" value="Wheelchair" class="test_allergies"
+                            onclick="load_data_conditions('restaurants','best', '==', 'Wheelchair')">
+                        Wheelchair
+                        </label>
+                        <label class="radio">
+                        <input type="radio" name="filter" value="Service Animal" class="test_allergies"
+                            onclick="load_data_conditions('restaurants','best', '==', 'Service Animal')">
+                        Service Animal
+                        </label>
+                    </div>
+                <!-- <a class="button is-block is-primary is-fullwidth is-rounded mt-6" href="#">Submit</a> -->
+                </form>
+            </div>
+
+
+            <!-- MID COLUMN -->
+            <!-- RESTAURANT LIST -->
+
+            <div class="column is-6">
+                <h1 class="title has-text-weight-bold is-4 ml-3 mt-3" id="restaurantslength"
+                style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif"></h1>
+                <h2 class="subtitle has-text-primary is-6 ml-3">Based on your preferences</h2>
+                <!-- CARDS -->
+                <div class="column" id="restaurant_data">
+                <!-- SAMPLE CARD -->
+                <!-- PICTURES, TITLE, *****(5), KNOWN FOR, ADDRESS, CLOSING TIME, REVIEWS -->
+                <div class="card large mb-4">
+                    <!-- IMAGE -->
+                    <div class="card-image">
+                    <figure class="image is-16by9">
+                        <img src="images/restaurant2.jpeg" alt="Restaurant" style="object-fit: cover;">
+                    </figure>
+                    </div>
+                    <!-- CONTENT -->
+                    <div class="card-content">
+                    <div class="media">
+                        <div class="content">
+                        <h1 class="title has-text-weight-bold has-text-primary is-4 mb-1"
+                            style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Mediterranean
+                            Cafe</h1>
+                        <i class="fas fa-star has-text-warning"></i><i class="fas fa-star has-text-warning"></i><i
+                            class="fas fa-star has-text-warning"></i><i class="fas fa-star has-text-warning"></i><i
+                            class="fas fa-star-half has-text-warning"></i>
+                        <p class="subtitle is-6 mt-1"><b>Kosher &#8226; Vegetarian &#8226; Wheelchair</b></p>
+                        <p class="subtitle is-6 mb-0"><b>Address: </b>625 State St, Madison, WI 53703</p>
+                        <p class="subtitle is-6 mb-0"><b>Hours: </b> 8AM – 10PM</p>
+                        <p class="subtitle is-6"><b>Phone: </b>608 XXX XXXX</p>
+                        </div>
+                        <div class="column is-right">
+                        </div>
+                        <a class="btn-rate button is-primary has-icons-right">
+                        <strong>Rate</strong>
+                        <span class="icon is-medium is-right ml-1">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </span>
+                        </a>
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+            </div>
+
+            <!-- THIRD COLUMN -->
+            <!-- YOUR REVIEWS -->
+            <div class="column has-background-white-ter is-2 has-text-centered">
+                Advertisements
+                <img src="images/duolingo.png" alt="">
+            </div>
+        </div>
+    </section>
+
+
+
+
+</body>
+</html>

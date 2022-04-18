@@ -21,46 +21,45 @@
     <div class="navbar p-1">
         <!-- NAVBAR BRAND -->
         <div class="navbar-brand">
+            <!-- LOGO -->
+            <a class="navbar-item mr-4">
+                <i class="fas fa-scroll has-text-primary is-size-5"></i>
+                <h1 class="ml-2 is-size-4 has-text-black has-text-weight-bold">HeyScribe</h1>
+            </a>
 
-        <!-- LOGO -->
-        <a class="navbar-item mr-4">
-            <i class="fas fa-scroll has-text-primary is-size-5"></i>
-            <h1 class="ml-2 is-size-4 has-text-black has-text-weight-bold">HeyScribe</h1>
-        </a>
+            <!-- NAVBAR MENU -->
+            <a class="navbar-item" id="link-scribers">Find Scribers</a>
+            <a class="navbar-item" id="link-work">Find Work</a>
+            <a class="navbar-item" id="link-about-us">About Us</a>
 
-        <!-- NAVBAR MENU -->
-        <a class="navbar-item" id="link-scribers">Find Scribers</a>
-        <a class="navbar-item" id="link-work">Find Work</a>
-        <a class="navbar-item" id="link-about-us">About Us</a>
-
-        <!-- BURGER -->
-        <a class="navbar-burger burger" data-target="navbarMenu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </a>
+            <!-- BURGER -->
+            <a class="navbar-burger burger" data-target="navbarMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
         </div>
 
 
 
         <!-- NAVBAR END -->
         <div class="navbar-end">
-        <div class="navbar-item">
-            <div class="buttons">
-            <div class="navbar-item signedin">
-                <a id="user_email" class="has-text-black mr-2"></a>
+            <div class="navbar-item">
+                <div class="buttons">
+                    <div class="navbar-item signedin">
+                        <a id="user_email" class="has-text-black mr-2"></a>
+                    </div>
+                    
+                    <!-- LOG IN -->
+                    <a class="button is-light signedout" id="btn-log-in">
+                        <strong>Log In</strong>
+                    </a>
+                    <!-- SIGN UP -->
+                    <a class="button is-primary signedout" id="btn-sign-up">
+                        <strong>Sign Up</strong>
+                    </a>
+                </div>
             </div>
-            
-            <!-- LOG IN -->
-            <a class="button is-light signedout" id="btn-log-in">
-                <strong>Log In</strong>
-            </a>
-            <!-- SIGN UP -->
-            <a class="button is-primary signedout" id="btn-sign-up">
-                <strong>Sign Up</strong>
-            </a>
-            </div>
-        </div>
         </div>
     </div>
 
@@ -100,42 +99,6 @@
             <br>
             <a id="link-log-in"><small><em>Already have an account? Log in.</em></small></a>
         </form>
-
-
-        <div class="columns" style="margin: 0% 17% 10%;">
-            <!-- LEFT COLUMN -->
-            <div class="column left has-text-centered p-6">
-                <!-- error msg -->
-                <div class="error has-text-danger is-italic"></div>
-                <!-- sign up form -->
-                <form id="accounttype_form">
-        
-                <div class="field">
-                    <div class="control">
-                    <input class="input is-rounded" id="email" type="email" placeholder="Email">
-                    </div>
-                </div>
-        
-                <div class="field">
-                    <div class="control">
-                    <input class="input is-rounded" id="password" type="password" placeholder="Password">
-                    </div>
-                </div>
-        
-                <!-- <a class="button is-block is-primary is-fullwidth is-rounded" id="btn-sign-up-submit">Submit</a> -->
-                <input type="submit" class="button is-block is-primary is-fullwidth is-rounded mt-3" value="Submit" id="btn-sign-up-submit">
-                <br>
-                <a id="link-log-in"><small><em>Already have an account? Log in.</em></small></a>
-                </form>
-            </div>
-            <!-- RIGHT COLUMN -->
-            <div class="column right p-6">
-                <h1 class="title is-2 has-text-weight-bold">All your transcription needs in one place.
-                </h1>
-                <h2 class="subtitle has-text-primary is-4">Get connected.</h2>
-                <p><b>HeyScribe</b> is an online marketplace for freelance transcription services.</p>
-            </div>
-        </div>
     </section>
     
     
