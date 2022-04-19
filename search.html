@@ -4,26 +4,83 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <!-- Bulma CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+
+    <!--CSS Link-->
+    <link rel="stylesheet" href="style.css">
+
+    <title>Search</title>
 </head>
 <body>
-    <!-- DISCOVER PAGE -->
+
+    <div class="navbar p-1">
+        <!-- NAVBAR BRAND -->
+        <div class="navbar-brand">
+
+            <!-- LOGO -->
+            <a class="navbar-item mr-4">
+                <i class="fas fa-scroll has-text-primary is-size-5"></i>
+                <h1 class="ml-2 is-size-4 has-text-black has-text-weight-bold">HeyScribe</h1>
+            </a>
+
+            <!-- NAVBAR MENU -->
+            <a class="navbar-item" id="link-scribers">Find Scribers</a>
+            <a class="navbar-item" id="link-work">Find Work</a>
+            <a class="navbar-item" id="link-about-us">About Us</a>
+
+            <!-- BURGER -->
+            <a class="navbar-burger burger" data-target="navbarMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+        </div>
+
+
+
+        <!-- NAVBAR END -->
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="buttons">
+                    <div class="navbar-item signedin">
+                        <a id="user_email" class="has-text-black mr-2"></a>
+                    </div>
+                    
+                    <!-- LOG IN -->
+                    <a class="button is-light signedout" id="btn-log-in">
+                        <strong>Log In</strong>
+                    </a>
+                    <!-- SIGN UP -->
+                    <a class="button is-primary signedout" id="btn-sign-up">
+                        <strong>Sign Up</strong>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- SEARCH JOBS PAGE -->
     <section class="container" id="discover">
         <div class="columns my-4 is-centered">
+
             <!-- LEFT COLUMN -->
-            <div class="column is-2 p-5 has-background-white-ter">
-                <h1 class="title is-4 has-text-weight-bold"
-                style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Who's dining today?</h1>
+            <div class="column is-3 p-5" style="border: solid #cecece 0.5px;">
+                <h1 class="title is-4 has-text-weight-bold">Filter</h1>
                 <!-- SEARCH BAR-  -->
                 <div class="control has-icons-left">
-                    <input class="input is-rounded" type="text" placeholder="Restaurant Name" id="search_bar">
+                    <input class="input is-rounded" type="text" placeholder="Search jobs" id="search_bar">
                     <span class="icon is-medium is-left">
                         <i class="fa fa-search" aria-hidden="true"></i>
                     </span>
                     <!-- SUBMIT & RESET -->
                     <div class="field is-grouped">
-                        <button class="button is-primary is-rounded has-text-weight-bold mt-4" id="search_button">Search</button>
-                        <button class="button is-rounded mt-4 ml-2" id="reset_button">Reset</button>
+                        <button class="button is-black has-text-weight-bold mt-4" id="search_button">Search</button>
+                        <button class="button mt-4 ml-2" id="reset_button">Reset</button>
                     </div>
                 </div>
                 <!-- SUBMIT -->
@@ -31,32 +88,32 @@
 
                 <form class="mb-0" id="filter_form">
                     <div class="control">
-                        <!-- ALLERGIES -->
-                        <label class="label mt-5">Allergies</label>
+                        <!-- INDUSTRY -->
+                        <label class="label mt-5">Industry</label>
                         <label class="radio">
                         <!--  onclick="load_data_conditions('cars','type', '==', 'gas')"*** -->
                         <input type="radio" name="filter" value="Dairy" class="test_allergies"
                             onclick="load_data_conditions('restaurants','best', '==', 'Dairy')">
-                        Dairy
+                        Legal
                         </label>
                         <label class="radio">
                         <input type="radio" name="filter" value="Eggs" class="test_allergies"
                             onclick="load_data_conditions('restaurants','best', '==', 'Eggs')">
-                        Eggs
+                        Medical
                         </label>
                         <label class="radio">
                         <input type="radio" name="filter" value="Nuts" class="test_allergies"
                             onclick="load_data_conditions('restaurants','best', '==', 'Nuts')">
-                        Nuts
+                        Educational
                         </label>
                         <label class="radio">
                         <input type="radio" name="filter" value="Seafood" class="test_allergies"
                             onclick="load_data_conditions('restaurants','best', '==', 'Seafood')">
-                        Seafood
+                        Entertainment
                         </label>
 
-                        <!-- DIETARY RESTRICTIONS -->
-                        <label class="label mt-5">Dietary Restrictions</label>
+                        <!-- RATES $$$ -->
+                        <label class="label mt-5">Rates</label>
                         <label class="radio">
                         <input type="radio" name="filter" value="Halal" class="test_allergies"
                             onclick="load_data_conditions('restaurants','best', '==', 'Halal')">
@@ -78,8 +135,8 @@
                         Vegetarian
                         </label>
 
-                        <!-- DISABILITY ACCOMMODATIONS -->
-                        <label class="label mt-5">Disability Accommodations</label>
+                        <!-- DURATION -->
+                        <label class="label mt-5">Duration</label>
                         <label class="radio">
                         <input type="radio" name="filter" value="Wheelchair" class="test_allergies"
                             onclick="load_data_conditions('restaurants','best', '==', 'Wheelchair')">
@@ -143,18 +200,21 @@
                 </div>
 
             </div>
-
-            <!-- THIRD COLUMN -->
-            <!-- YOUR REVIEWS -->
-            <div class="column has-background-white-ter is-2 has-text-centered">
-                Advertisements
-                <img src="images/duolingo.png" alt="">
-            </div>
         </div>
     </section>
 
 
-
+    <!-- FOOTER -->
+    <footer class="footer has-background-black is-active">
+        <div class="content has-text-centered has-text-white">
+            <p class="is-size-4 has-text-white has-text-weight-bold mb-0">HeyScribe</p>
+            <p class="mb-0"><small>Copyright &copy; 2022 HeyScribe, LLC.</small></p>
+            <p><small>mvwinarta@wisc.edu | *insert everyone's emails here</small></p>
+            <a href="http://www.facebook.com"><i class="fab fa-2x fa-facebook ml-3"></i></a>
+            <a href="http://www.twitter.com"><i class="fab fa-2x fa-twitter ml-3"></i></a>
+            <a href="http://www.instagram.com"><i class="fab fa-2x fa-instagram ml-3"></i></a>
+        </div>
+    </footer>
 
 </body>
 </html>
