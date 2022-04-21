@@ -159,7 +159,8 @@
                                 <label for="job_title">
                                     <h5>Job Title</h5>
                                 </label>
-                                <input type="text" id="job_title" name="job_title" size="50"><br><br>
+                                <textarea name="job_title" id="job_title" cols="1" rows="1"></textarea><br>
+
                                 <!-- job descrption  -->
                                 <label for="job_descrp">
                                     <h5>Job Description</h5>
@@ -178,8 +179,26 @@
                                 <label for="Education">Education</label><br>
                                 <input type="radio" id="Medical" name="job_cat" value="Medical">
                                 <label for="Medical">Medical</label><br><br>
+                                <!-- Transcriptionist Criteria -->
+                                <label for="criteria">
+                                    <h5>Transcriptionist Criteria</h5>
+                                </label>
+                                <textarea name="criteria" id="criteria" cols="30" rows="5"></textarea>
+                                <br>
+                                <!-- pay -->
+                                <label for="payrate">
+                                    <h5>Pay Rate</h5>
+                                </label>
+                                <input type="number" min="0.01" step="0.01" max="10000" value="000.00"
+                                    name="payrate"><br><br>
+
+                                <!-- deadline -->
+                                <label for="deadline">
+                                    <h5>Deadline</h5>
+                                </label>
+                                <input type="date" id="deadline" name="deadline"><br>
                                 <!-- upload file  -->
-                                <label for="Script">
+                                <br><label for="Script">
                                     <h5>Upload Script</h5>
                                 </label>
                                 <h6>Acceptable formats: .doc, .docx, .pdf</h6>
