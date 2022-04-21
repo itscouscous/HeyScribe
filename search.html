@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,13 +10,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
     <!--CSS Link-->
     <link rel="stylesheet" href="style.css">
 
     <title>Search</title>
 </head>
+
 <body>
 
     <div class="navbar p-1">
@@ -29,9 +31,8 @@
             </a>
 
             <!-- NAVBAR MENU -->
-            <a class="navbar-item" id="link-scribers">Find Scribers</a>
-            <a class="navbar-item" id="link-work">Find Work</a>
-            <a class="navbar-item" id="link-about-us">About Us</a>
+            <a class="navbar-item" id="link-work" href="search.html">Find Work</a>
+            <a class="navbar-item" id="link-about-us" href="about_us.html">About Us</a>
 
             <!-- BURGER -->
             <a class="navbar-burger burger" data-target="navbarMenu">
@@ -50,7 +51,7 @@
                     <div class="navbar-item signedin">
                         <a id="user_email" class="has-text-black mr-2"></a>
                     </div>
-                    
+
                     <!-- LOG IN -->
                     <a class="button is-light signedout" id="btn-log-in">
                         <strong>Log In</strong>
@@ -63,7 +64,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- SEARCH JOBS PAGE -->
     <section class="container" id="discover">
         <div class="columns my-4 is-centered">
@@ -91,64 +92,64 @@
                         <!-- INDUSTRY -->
                         <label class="label mt-5">Industry</label>
                         <label class="radio">
-                        <!--  onclick="load_data_conditions('cars','type', '==', 'gas')"*** -->
-                        <input type="radio" name="filter" value="Dairy" class="test_allergies"
-                            onclick="load_data_conditions('restaurants','best', '==', 'Dairy')">
-                        Legal
+                            <!--  onclick="load_data_conditions('cars','type', '==', 'gas')"*** -->
+                            <input type="radio" name="filter" value="Dairy" class="test_allergies"
+                                onclick="load_data_conditions('restaurants','best', '==', 'Dairy')">
+                            Legal
                         </label>
                         <label class="radio">
-                        <input type="radio" name="filter" value="Eggs" class="test_allergies"
-                            onclick="load_data_conditions('restaurants','best', '==', 'Eggs')">
-                        Medical
+                            <input type="radio" name="filter" value="Eggs" class="test_allergies"
+                                onclick="load_data_conditions('restaurants','best', '==', 'Eggs')">
+                            Medical
                         </label>
                         <label class="radio">
-                        <input type="radio" name="filter" value="Nuts" class="test_allergies"
-                            onclick="load_data_conditions('restaurants','best', '==', 'Nuts')">
-                        Educational
+                            <input type="radio" name="filter" value="Nuts" class="test_allergies"
+                                onclick="load_data_conditions('restaurants','best', '==', 'Nuts')">
+                            Educational
                         </label>
                         <label class="radio">
-                        <input type="radio" name="filter" value="Seafood" class="test_allergies"
-                            onclick="load_data_conditions('restaurants','best', '==', 'Seafood')">
-                        Entertainment
+                            <input type="radio" name="filter" value="Seafood" class="test_allergies"
+                                onclick="load_data_conditions('restaurants','best', '==', 'Seafood')">
+                            Entertainment
                         </label>
 
                         <!-- RATES $$$ -->
                         <label class="label mt-5">Rates</label>
                         <label class="radio">
-                        <input type="radio" name="filter" value="Halal" class="test_allergies"
-                            onclick="load_data_conditions('restaurants','best', '==', 'Halal')">
-                        Halal
+                            <input type="radio" name="filter" value="Halal" class="test_allergies"
+                                onclick="load_data_conditions('restaurants','best', '==', 'Halal')">
+                            Halal
                         </label>
                         <label class="radio">
-                        <input type="radio" name="filter" value="Kosher" class="test_allergies"
-                            onclick="load_data_conditions('restaurants','best', '==', 'Kosher')">
-                        Kosher
+                            <input type="radio" name="filter" value="Kosher" class="test_allergies"
+                                onclick="load_data_conditions('restaurants','best', '==', 'Kosher')">
+                            Kosher
                         </label>
                         <label class="radio">
-                        <input type="radio" name="filter" value="Vegan" class="test_allergies"
-                            onclick="load_data_conditions('restaurants','best', '==', 'Vegan')">
-                        Vegan
+                            <input type="radio" name="filter" value="Vegan" class="test_allergies"
+                                onclick="load_data_conditions('restaurants','best', '==', 'Vegan')">
+                            Vegan
                         </label>
                         <label class="radio">
-                        <input type="radio" name="filter" value="Vegetarian" class="test_allergies"
-                            onclick="load_data_conditions('restaurants','best', '==', 'Vegetarian')">
-                        Vegetarian
+                            <input type="radio" name="filter" value="Vegetarian" class="test_allergies"
+                                onclick="load_data_conditions('restaurants','best', '==', 'Vegetarian')">
+                            Vegetarian
                         </label>
 
                         <!-- DURATION -->
                         <label class="label mt-5">Duration</label>
                         <label class="radio">
-                        <input type="radio" name="filter" value="Wheelchair" class="test_allergies"
-                            onclick="load_data_conditions('restaurants','best', '==', 'Wheelchair')">
-                        Wheelchair
+                            <input type="radio" name="filter" value="Wheelchair" class="test_allergies"
+                                onclick="load_data_conditions('restaurants','best', '==', 'Wheelchair')">
+                            Wheelchair
                         </label>
                         <label class="radio">
-                        <input type="radio" name="filter" value="Service Animal" class="test_allergies"
-                            onclick="load_data_conditions('restaurants','best', '==', 'Service Animal')">
-                        Service Animal
+                            <input type="radio" name="filter" value="Service Animal" class="test_allergies"
+                                onclick="load_data_conditions('restaurants','best', '==', 'Service Animal')">
+                            Service Animal
                         </label>
                     </div>
-                <!-- <a class="button is-block is-primary is-fullwidth is-rounded mt-6" href="#">Submit</a> -->
+                    <!-- <a class="button is-block is-primary is-fullwidth is-rounded mt-6" href="#">Submit</a> -->
                 </form>
             </div>
 
@@ -158,45 +159,49 @@
 
             <div class="column is-6">
                 <h1 class="title has-text-weight-bold is-4 ml-3 mt-3" id="restaurantslength"
-                style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif"></h1>
+                    style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif"></h1>
                 <h2 class="subtitle has-text-primary is-6 ml-3">Based on your preferences</h2>
                 <!-- CARDS -->
                 <div class="column" id="restaurant_data">
-                <!-- SAMPLE CARD -->
-                <!-- PICTURES, TITLE, *****(5), KNOWN FOR, ADDRESS, CLOSING TIME, REVIEWS -->
-                <div class="card large mb-4">
-                    <!-- IMAGE -->
-                    <div class="card-image">
-                    <figure class="image is-16by9">
-                        <img src="images/restaurant2.jpeg" alt="Restaurant" style="object-fit: cover;">
-                    </figure>
-                    </div>
-                    <!-- CONTENT -->
-                    <div class="card-content">
-                    <div class="media">
-                        <div class="content">
-                        <h1 class="title has-text-weight-bold has-text-primary is-4 mb-1"
-                            style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Mediterranean
-                            Cafe</h1>
-                        <i class="fas fa-star has-text-warning"></i><i class="fas fa-star has-text-warning"></i><i
-                            class="fas fa-star has-text-warning"></i><i class="fas fa-star has-text-warning"></i><i
-                            class="fas fa-star-half has-text-warning"></i>
-                        <p class="subtitle is-6 mt-1"><b>Kosher &#8226; Vegetarian &#8226; Wheelchair</b></p>
-                        <p class="subtitle is-6 mb-0"><b>Address: </b>625 State St, Madison, WI 53703</p>
-                        <p class="subtitle is-6 mb-0"><b>Hours: </b> 8AM – 10PM</p>
-                        <p class="subtitle is-6"><b>Phone: </b>608 XXX XXXX</p>
+                    <!-- SAMPLE CARD -->
+                    <!-- PICTURES, TITLE, *****(5), KNOWN FOR, ADDRESS, CLOSING TIME, REVIEWS -->
+                    <div class="card large mb-4">
+                        <!-- IMAGE -->
+                        <div class="card-image">
+                            <figure class="image is-16by9">
+                                <img src="images/restaurant2.jpeg" alt="Restaurant" style="object-fit: cover;">
+                            </figure>
                         </div>
-                        <div class="column is-right">
+                        <!-- CONTENT -->
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="content">
+                                    <h1 class="title has-text-weight-bold has-text-primary is-4 mb-1"
+                                        style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
+                                        Mediterranean
+                                        Cafe</h1>
+                                    <i class="fas fa-star has-text-warning"></i><i
+                                        class="fas fa-star has-text-warning"></i><i
+                                        class="fas fa-star has-text-warning"></i><i
+                                        class="fas fa-star has-text-warning"></i><i
+                                        class="fas fa-star-half has-text-warning"></i>
+                                    <p class="subtitle is-6 mt-1"><b>Kosher &#8226; Vegetarian &#8226; Wheelchair</b>
+                                    </p>
+                                    <p class="subtitle is-6 mb-0"><b>Address: </b>625 State St, Madison, WI 53703</p>
+                                    <p class="subtitle is-6 mb-0"><b>Hours: </b> 8AM – 10PM</p>
+                                    <p class="subtitle is-6"><b>Phone: </b>608 XXX XXXX</p>
+                                </div>
+                                <div class="column is-right">
+                                </div>
+                                <a class="btn-rate button is-primary has-icons-right">
+                                    <strong>Rate</strong>
+                                    <span class="icon is-medium is-right ml-1">
+                                        <i class="fa fa-plus" aria-hidden="true"></i>
+                                    </span>
+                                </a>
+                            </div>
                         </div>
-                        <a class="btn-rate button is-primary has-icons-right">
-                        <strong>Rate</strong>
-                        <span class="icon is-medium is-right ml-1">
-                            <i class="fa fa-plus" aria-hidden="true"></i>
-                        </span>
-                        </a>
                     </div>
-                    </div>
-                </div>
                 </div>
 
             </div>
@@ -217,4 +222,5 @@
     </footer>
 
 </body>
+
 </html>
