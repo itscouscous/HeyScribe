@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -69,8 +68,8 @@
     <section class="container" id="discover">
         <div class="columns my-4 is-centered">
 
-            <!-- LEFT COLUMN -->
-            <div class="column is-3 p-5" style="border: solid #cecece 0.5px;">
+            <!-- FILTER COLUMN -->
+            <div class="column is-3 p-5 mr-4" style="border: solid #cecece 0.5px; height: 10%;">
                 <h1 class="title is-4 has-text-weight-bold">Filter</h1>
                 <!-- SEARCH BAR-  -->
                 <div class="control has-icons-left">
@@ -79,10 +78,10 @@
                         <i class="fa fa-search" aria-hidden="true"></i>
                     </span>
                     <!-- SUBMIT & RESET -->
-                    <div class="field is-grouped">
+                    <!-- <div class="field is-grouped">
                         <button class="button is-black has-text-weight-bold mt-4" id="search_button">Search</button>
                         <button class="button mt-4 ml-2" id="reset_button">Reset</button>
-                    </div>
+                    </div> -->
                 </div>
                 <!-- SUBMIT -->
 
@@ -91,65 +90,92 @@
                     <div class="control">
                         <!-- INDUSTRY -->
                         <label class="label mt-5">Industry</label>
-                        <label class="radio">
-                            <!--  onclick="load_data_conditions('cars','type', '==', 'gas')"*** -->
-                            <input type="radio" name="filter" value="Dairy" class="test_allergies"
+                        <label class="checkbox">
+                            <input type="checkbox" name="filter" value="Dairy" class="test_allergies"
                                 onclick="load_data_conditions('restaurants','best', '==', 'Dairy')">
                             Legal
-                        </label>
-                        <label class="radio">
-                            <input type="radio" name="filter" value="Eggs" class="test_allergies"
+                        </label> <br>
+                        <label class="checkbox">
+                            <input type="checkbox" name="filter" value="Eggs" class="test_allergies"
                                 onclick="load_data_conditions('restaurants','best', '==', 'Eggs')">
                             Medical
-                        </label>
-                        <label class="radio">
-                            <input type="radio" name="filter" value="Nuts" class="test_allergies"
+                        </label> <br>
+                        <label class="checkbox">
+                            <input type="checkbox" name="filter" value="Nuts" class="test_allergies"
                                 onclick="load_data_conditions('restaurants','best', '==', 'Nuts')">
                             Educational
-                        </label>
-                        <label class="radio">
-                            <input type="radio" name="filter" value="Seafood" class="test_allergies"
+                        </label> <br>
+                        <label class="checkbox">
+                            <input type="checkbox" name="filter" value="Seafood" class="test_allergies"
                                 onclick="load_data_conditions('restaurants','best', '==', 'Seafood')">
                             Entertainment
                         </label>
 
-                        <!-- RATES $$$ -->
-                        <label class="label mt-5">Rates</label>
-                        <label class="radio">
-                            <input type="radio" name="filter" value="Halal" class="test_allergies"
-                                onclick="load_data_conditions('restaurants','best', '==', 'Halal')">
-                            Halal
-                        </label>
-                        <label class="radio">
-                            <input type="radio" name="filter" value="Kosher" class="test_allergies"
-                                onclick="load_data_conditions('restaurants','best', '==', 'Kosher')">
-                            Kosher
-                        </label>
-                        <label class="radio">
-                            <input type="radio" name="filter" value="Vegan" class="test_allergies"
-                                onclick="load_data_conditions('restaurants','best', '==', 'Vegan')">
-                            Vegan
-                        </label>
-                        <label class="radio">
-                            <input type="radio" name="filter" value="Vegetarian" class="test_allergies"
-                                onclick="load_data_conditions('restaurants','best', '==', 'Vegetarian')">
-                            Vegetarian
-                        </label>
-
                         <!-- DURATION -->
                         <label class="label mt-5">Duration</label>
+                        <label class="checkbox">
+                            <input type="checkbox" name="filter" value="Dairy" class="test_allergies"
+                                onclick="load_data_conditions('restaurants','best', '==', 'Dairy')">
+                            Under 30 min
+                        </label> <br>
+                        <label class="checkbox">
+                            <input type="checkbox" name="filter" value="Eggs" class="test_allergies"
+                                onclick="load_data_conditions('restaurants','best', '==', 'Eggs')">
+                            30 - 60 min
+                        </label> <br>
+                        <label class="checkbox">
+                            <input type="checkbox" name="filter" value="Nuts" class="test_allergies"
+                                onclick="load_data_conditions('restaurants','best', '==', 'Nuts')">
+                            60 - 120 min
+                        </label> <br>
+                        <label class="checkbox">
+                            <input type="checkbox" name="filter" value="Seafood" class="test_allergies"
+                                onclick="load_data_conditions('restaurants','best', '==', 'Seafood')">
+                            Over 120 min
+                        </label>
+
+                        <!-- RATES $$$ -->
+                        <label class="label mt-5">Rates</label>
+                        <label class="checkbox">
+                        <input type="checkbox" name="filter" value="Halal" class="test_allergies"
+                            onclick="load_data_conditions('restaurants','best', '==', 'Halal')">
+                        Under $1 per min
+                        </label>
+                        <label class="checkbox">
+                        <input type="checkbox" name="filter" value="Kosher" class="test_allergies"
+                            onclick="load_data_conditions('restaurants','best', '==', 'Kosher')">
+                        $1 - $2 per min
+                        </label>
+                        <label class="checkbox">
+                        <input type="checkbox" name="filter" value="Vegan" class="test_allergies"
+                            onclick="load_data_conditions('restaurants','best', '==', 'Vegan')">
+                        $2 - $3 per min
+                        </label>
+                        <label class="checkbox">
+                        <input type="checkbox" name="filter" value="Vegetarian" class="test_allergies"
+                            onclick="load_data_conditions('restaurants','best', '==', 'Vegetarian')">
+                        Over $3 per min
+                        </label>
+
+                        <!-- APPROVAL -->
+                        <label class="label mt-5">Approval Required</label>
                         <label class="radio">
-                            <input type="radio" name="filter" value="Wheelchair" class="test_allergies"
-                                onclick="load_data_conditions('restaurants','best', '==', 'Wheelchair')">
-                            Wheelchair
+                        <input type="radio" name="filter" value="Wheelchair" class="test_allergies"
+                            onclick="load_data_conditions('restaurants','best', '==', 'Wheelchair')">
+                        Yes
                         </label>
                         <label class="radio">
-                            <input type="radio" name="filter" value="Service Animal" class="test_allergies"
-                                onclick="load_data_conditions('restaurants','best', '==', 'Service Animal')">
-                            Service Animal
+                        <input type="radio" name="filter" value="Service Animal" class="test_allergies"
+                            onclick="load_data_conditions('restaurants','best', '==', 'Service Animal')">
+                        No
                         </label>
                     </div>
-                    <!-- <a class="button is-block is-primary is-fullwidth is-rounded mt-6" href="#">Submit</a> -->
+                    <!-- SUBMIT & RESET -->
+                    <div class="field is-grouped">
+                        <button class="button is-black has-text-weight-bold mt-4" id="search_button">Search</button>
+                        <button class="button mt-4 ml-2" id="reset_button">Reset</button>
+                    </div>
+                <!-- <a class="button is-block is-primary is-fullwidth is-rounded mt-6" href="#">Submit</a> -->
                 </form>
             </div>
 
@@ -158,52 +184,236 @@
             <!-- RESTAURANT LIST -->
 
             <div class="column is-6">
-                <h1 class="title has-text-weight-bold is-4 ml-3 mt-3" id="restaurantslength"
-                    style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif"></h1>
-                <h2 class="subtitle has-text-primary is-6 ml-3">Based on your preferences</h2>
+                <h1 class="title has-text-weight-bold is-4 ml-3 mt-3" id="restaurantslength"></h1>
+                <h2 class="subtitle is-6 mb-0"> <b>2,721</b> Results</h2>
+                <hr class="mt-2 mb-2">
                 <!-- CARDS -->
                 <div class="column" id="restaurant_data">
                     <!-- SAMPLE CARD -->
                     <!-- PICTURES, TITLE, *****(5), KNOWN FOR, ADDRESS, CLOSING TIME, REVIEWS -->
-                    <div class="card large mb-4">
-                        <!-- IMAGE -->
-                        <div class="card-image">
-                            <figure class="image is-16by9">
-                                <img src="images/restaurant2.jpeg" alt="Restaurant" style="object-fit: cover;">
-                            </figure>
-                        </div>
-                        <!-- CONTENT -->
-                        <div class="card-content">
-                            <div class="media">
-                                <div class="content">
-                                    <h1 class="title has-text-weight-bold has-text-primary is-4 mb-1"
-                                        style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
-                                        Mediterranean
-                                        Cafe</h1>
-                                    <i class="fas fa-star has-text-warning"></i><i
-                                        class="fas fa-star has-text-warning"></i><i
-                                        class="fas fa-star has-text-warning"></i><i
-                                        class="fas fa-star has-text-warning"></i><i
-                                        class="fas fa-star-half has-text-warning"></i>
-                                    <p class="subtitle is-6 mt-1"><b>Kosher &#8226; Vegetarian &#8226; Wheelchair</b>
-                                    </p>
-                                    <p class="subtitle is-6 mb-0"><b>Address: </b>625 State St, Madison, WI 53703</p>
-                                    <p class="subtitle is-6 mb-0"><b>Hours: </b> 8AM – 10PM</p>
-                                    <p class="subtitle is-6"><b>Phone: </b>608 XXX XXXX</p>
-                                </div>
-                                <div class="column is-right">
-                                </div>
-                                <a class="btn-rate button is-primary has-icons-right">
-                                    <strong>Rate</strong>
-                                    <span class="icon is-medium is-right ml-1">
-                                        <i class="fa fa-plus" aria-hidden="true"></i>
-                                    </span>
-                                </a>
+                    <section class="container">
+                        
+                        <!-- first row -->
+                        <div class="columns features">
+                            <div class="column">
+                                <article class="card is-shady">
+                                    <figure class="card-image" style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: contain;">
+                                        <div class="columns">
+                                            <div class="column" style="margin-right: 50%;"></div>
+                                            <div class="column mr-3 mt-3">
+                                                <a class="button is-primary" id="btn-sign-up">
+                                                    <strong class="is-size-7">Accept</strong>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </figure>
+                                    <div class="card-content pt-0 px-3">
+                                        <div class="mb-2">
+                                            <span class="tag is-rounded mt-2">Legal</span>
+                                            <span class="tag is-rounded mt-2">8:53</span>
+                                            <span class="tag is-rounded mt-2">$1.50/min</span>
+                                        </div>
+                                        <p>Court Hearing</p>
+                                        <p class="is-size-7">judgejudy@lawfirm.com</p>
+                                        <a href="jobinfo.html" class="has-text-primary is-size-7"> <u>Details</u></a>
+                                        <br><span class="tag is-rounded is-white has-text-white mt-2">Approval Required</span>
+                                    </div>
+                                    
+                                </article>
+                            </div>
+                            <div class="column">
+                                <article class="card is-shady">
+                                    <figure class="card-image" style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: contain;">
+                                        <div class="columns">
+                                            <div class="column" style="margin-right: 50%;"></div>
+                                            <div class="column mr-3 mt-3">
+                                                <a class="button is-primary" id="btn-sign-up">
+                                                    <strong class="is-size-7">Request</strong>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </figure>
+                                    <div class="card-content pt-0 px-3">
+                                        <div class="mb-2">
+                                            <span class="tag is-rounded mt-2">Legal</span>
+                                            <span class="tag is-rounded mt-2">8:53</span>
+                                            <span class="tag is-rounded mt-2">$1.50/min</span>
+                                        </div>
+                                        <p>Court Hearing</p>
+                                        <p class="is-size-7">judgejudy@lawfirm.com</p>
+                                        <a href="jobinfo.html" class="has-text-primary is-size-7"> <u>Details</u></a>
+                                        <br><span class="tag is-rounded is-danger has-text-white mt-2">Approval Required</span>
+                                    </div>
+                                </article>
                             </div>
                         </div>
-                    </div>
-                </div>
+                        
+                        <!-- Second row -->
+                        <div class="columns features">
+                            <div class="column">
+                                <article class="card is-shady">
+                                    <figure class="card-image" style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: contain;">
+                                        <div class="columns">
+                                            <div class="column" style="margin-right: 50%;"></div>
+                                            <div class="column mr-3 mt-3">
+                                                <a class="button is-primary" id="btn-sign-up">
+                                                    <strong class="is-size-7">Accept</strong>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </figure>
+                                    <div class="card-content pt-0 px-3">
+                                        <div class="mb-2">
+                                            <span class="tag is-rounded mt-2">Legal</span>
+                                            <span class="tag is-rounded mt-2">8:53</span>
+                                            <span class="tag is-rounded mt-2">$1.50/min</span>
+                                        </div>
+                                        <p>Court Hearing</p>
+                                        <p class="is-size-7">judgejudy@lawfirm.com</p>
+                                        <a href="jobinfo.html" class="has-text-primary is-size-7"> <u>Details</u></a>
+                                        <br><span class="tag is-rounded is-white has-text-white mt-2">Approval Required</span>
+                                    </div>
+                                    
+                                </article>
+                            </div>
+                            <div class="column">
+                                <article class="card is-shady">
+                                    <figure class="card-image" style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: contain;">
+                                        <div class="columns">
+                                            <div class="column" style="margin-right: 50%;"></div>
+                                            <div class="column mr-3 mt-3">
+                                                <a class="button is-primary" id="btn-sign-up">
+                                                    <strong class="is-size-7">Request</strong>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </figure>
+                                    <div class="card-content pt-0 px-3">
+                                        <div class="mb-2">
+                                            <span class="tag is-rounded mt-2">Legal</span>
+                                            <span class="tag is-rounded mt-2">8:53</span>
+                                            <span class="tag is-rounded mt-2">$1.50/min</span>
+                                        </div>
+                                        <p>Court Hearing</p>
+                                        <p class="is-size-7">judgejudy@lawfirm.com</p>
+                                        <a href="jobinfo.html" class="has-text-primary is-size-7"> <u>Details</u></a>
+                                        <br><span class="tag is-rounded is-danger has-text-white mt-2">Approval Required</span>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
 
+                        <!-- third row -->
+                        <div class="columns features">
+                            <div class="column">
+                                <article class="card is-shady">
+                                    <figure class="card-image" style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: contain;">
+                                        <div class="columns">
+                                            <div class="column" style="margin-right: 50%;"></div>
+                                            <div class="column mr-3 mt-3">
+                                                <a class="button is-primary" id="btn-sign-up">
+                                                    <strong class="is-size-7">Accept</strong>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </figure>
+                                    <div class="card-content pt-0 px-3">
+                                        <div class="mb-2">
+                                            <span class="tag is-rounded mt-2">Legal</span>
+                                            <span class="tag is-rounded mt-2">8:53</span>
+                                            <span class="tag is-rounded mt-2">$1.50/min</span>
+                                        </div>
+                                        <p>Court Hearing</p>
+                                        <p class="is-size-7">judgejudy@lawfirm.com</p>
+                                        <a href="jobinfo.html" class="has-text-primary is-size-7"> <u>Details</u></a>
+                                        <br><span class="tag is-rounded is-white has-text-white mt-2">Approval Required</span>
+                                    </div>
+                                    
+                                </article>
+                            </div>
+                            <div class="column">
+                                <article class="card is-shady">
+                                    <figure class="card-image" style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: contain;">
+                                        <div class="columns">
+                                            <div class="column" style="margin-right: 50%;"></div>
+                                            <div class="column mr-3 mt-3">
+                                                <a class="button is-primary" id="btn-sign-up">
+                                                    <strong class="is-size-7">Request</strong>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </figure>
+                                    <div class="card-content pt-0 px-3">
+                                        <div class="mb-2">
+                                            <span class="tag is-rounded mt-2">Legal</span>
+                                            <span class="tag is-rounded mt-2">8:53</span>
+                                            <span class="tag is-rounded mt-2">$1.50/min</span>
+                                        </div>
+                                        <p>Court Hearing</p>
+                                        <p class="is-size-7">judgejudy@lawfirm.com</p>
+                                        <a href="jobinfo.html" class="has-text-primary is-size-7"> <u>Details</u></a>
+                                        <br><span class="tag is-rounded is-danger has-text-white mt-2">Approval Required</span>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+
+                        <!-- fourth row -->
+                        <div class="columns features">
+                            <div class="column">
+                                <article class="card is-shady">
+                                    <figure class="card-image" style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: contain;">
+                                        <div class="columns">
+                                            <div class="column" style="margin-right: 50%;"></div>
+                                            <div class="column mr-3 mt-3">
+                                                <a class="button is-primary" id="btn-sign-up">
+                                                    <strong class="is-size-7">Accept</strong>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </figure>
+                                    <div class="card-content pt-0 px-3">
+                                        <div class="mb-2">
+                                            <span class="tag is-rounded mt-2">Legal</span>
+                                            <span class="tag is-rounded mt-2">8:53</span>
+                                            <span class="tag is-rounded mt-2">$1.50/min</span>
+                                        </div>
+                                        <p>Court Hearing</p>
+                                        <p class="is-size-7">judgejudy@lawfirm.com</p>
+                                        <a href="jobinfo.html" class="has-text-primary is-size-7"> <u>Details</u></a>
+                                        <br><span class="tag is-rounded is-white has-text-white mt-2">Approval Required</span>
+                                    </div>
+                                    
+                                </article>
+                            </div>
+                            <div class="column">
+                                <article class="card is-shady">
+                                    <figure class="card-image" style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: contain;">
+                                        <div class="columns">
+                                            <div class="column" style="margin-right: 50%;"></div>
+                                            <div class="column mr-3 mt-3">
+                                                <a class="button is-primary" id="btn-sign-up">
+                                                    <strong class="is-size-7">Request</strong>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </figure>
+                                    <div class="card-content pt-0 px-3">
+                                        <div class="mb-2">
+                                            <span class="tag is-rounded mt-2">Legal</span>
+                                            <span class="tag is-rounded mt-2">8:53</span>
+                                            <span class="tag is-rounded mt-2">$1.50/min</span>
+                                        </div>
+                                        <p>Court Hearing</p>
+                                        <p class="is-size-7">judgejudy@lawfirm.com</p>
+                                        <a href="jobinfo.html" class="has-text-primary is-size-7"> <u>Details</u></a>
+                                        <br><span class="tag is-rounded is-danger has-text-white mt-2">Approval Required</span>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </section>
+                </div>
             </div>
         </div>
     </section>
