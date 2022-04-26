@@ -1,5 +1,6 @@
 //Declaring ALL of our elements
 //Navbar
+let logo = document.querySelector("#logo");
 let linkwork = document.querySelector("#link-work");
 let linkaboutus = document.querySelector("#link-abous-us");
 let useremail = document.querySelector("#user_email");

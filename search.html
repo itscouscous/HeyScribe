@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,13 +19,13 @@
 </head>
 
 <body>
-
+    <!-- HEADER -->
     <div class="navbar p-1">
         <!-- NAVBAR BRAND -->
         <div class="navbar-brand">
 
             <!-- LOGO -->
-            <a class="navbar-item mr-4">
+            <a class="navbar-item mr-4" id="logo" href="general_home.html">
                 <i class="fas fa-scroll has-text-primary is-size-5"></i>
                 <h1 class="ml-2 is-size-4 has-text-black has-text-weight-bold">HeyScribe</h1>
             </a>
@@ -56,7 +57,7 @@
                         <strong>Log In</strong>
                     </a>
                     <!-- SIGN UP -->
-                    <a class="button is-primary signedout" id="btn-sign-up">
+                    <a class="button is-primary signedout" id="btn-sign-up" href="signup.html">
                         <strong>Sign Up</strong>
                     </a>
                 </div>
@@ -137,37 +138,37 @@
                         <!-- RATES $$$ -->
                         <label class="label mt-5">Rates</label>
                         <label class="checkbox">
-                        <input type="checkbox" name="filter" value="Halal" class="test_allergies"
-                            onclick="load_data_conditions('restaurants','best', '==', 'Halal')">
-                        Under $1 per min
+                            <input type="checkbox" name="filter" value="Halal" class="test_allergies"
+                                onclick="load_data_conditions('restaurants','best', '==', 'Halal')">
+                            Under $1 per min
                         </label>
                         <label class="checkbox">
-                        <input type="checkbox" name="filter" value="Kosher" class="test_allergies"
-                            onclick="load_data_conditions('restaurants','best', '==', 'Kosher')">
-                        $1 - $2 per min
+                            <input type="checkbox" name="filter" value="Kosher" class="test_allergies"
+                                onclick="load_data_conditions('restaurants','best', '==', 'Kosher')">
+                            $1 - $2 per min
                         </label>
                         <label class="checkbox">
-                        <input type="checkbox" name="filter" value="Vegan" class="test_allergies"
-                            onclick="load_data_conditions('restaurants','best', '==', 'Vegan')">
-                        $2 - $3 per min
+                            <input type="checkbox" name="filter" value="Vegan" class="test_allergies"
+                                onclick="load_data_conditions('restaurants','best', '==', 'Vegan')">
+                            $2 - $3 per min
                         </label>
                         <label class="checkbox">
-                        <input type="checkbox" name="filter" value="Vegetarian" class="test_allergies"
-                            onclick="load_data_conditions('restaurants','best', '==', 'Vegetarian')">
-                        Over $3 per min
+                            <input type="checkbox" name="filter" value="Vegetarian" class="test_allergies"
+                                onclick="load_data_conditions('restaurants','best', '==', 'Vegetarian')">
+                            Over $3 per min
                         </label>
 
                         <!-- APPROVAL -->
                         <label class="label mt-5">Approval Required</label>
                         <label class="radio">
-                        <input type="radio" name="filter" value="Wheelchair" class="test_allergies"
-                            onclick="load_data_conditions('restaurants','best', '==', 'Wheelchair')">
-                        Yes
+                            <input type="radio" name="filter" value="Wheelchair" class="test_allergies"
+                                onclick="load_data_conditions('restaurants','best', '==', 'Wheelchair')">
+                            Yes
                         </label>
                         <label class="radio">
-                        <input type="radio" name="filter" value="Service Animal" class="test_allergies"
-                            onclick="load_data_conditions('restaurants','best', '==', 'Service Animal')">
-                        No
+                            <input type="radio" name="filter" value="Service Animal" class="test_allergies"
+                                onclick="load_data_conditions('restaurants','best', '==', 'Service Animal')">
+                            No
                         </label>
                     </div>
                     <!-- SUBMIT & RESET -->
@@ -175,7 +176,7 @@
                         <button class="button is-black has-text-weight-bold mt-4" id="search_button">Search</button>
                         <button class="button mt-4 ml-2" id="reset_button">Reset</button>
                     </div>
-                <!-- <a class="button is-block is-primary is-fullwidth is-rounded mt-6" href="#">Submit</a> -->
+                    <!-- <a class="button is-block is-primary is-fullwidth is-rounded mt-6" href="#">Submit</a> -->
                 </form>
             </div>
 
@@ -192,12 +193,13 @@
                     <!-- SAMPLE CARD -->
                     <!-- PICTURES, TITLE, *****(5), KNOWN FOR, ADDRESS, CLOSING TIME, REVIEWS -->
                     <section class="container">
-                        
+
                         <!-- first row -->
                         <div class="columns features">
                             <div class="column">
                                 <article class="card is-shady">
-                                    <figure class="card-image" style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: contain;">
+                                    <figure class="card-image"
+                                        style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: contain;">
                                         <div class="columns">
                                             <div class="column" style="margin-right: 50%;"></div>
                                             <div class="column mr-3 mt-3">
@@ -216,14 +218,16 @@
                                         <p>Court Hearing</p>
                                         <p class="is-size-7">judgejudy@lawfirm.com</p>
                                         <a href="jobinfo.html" class="has-text-primary is-size-7"> <u>Details</u></a>
-                                        <br><span class="tag is-rounded is-white has-text-white mt-2">Approval Required</span>
+                                        <br><span class="tag is-rounded is-white has-text-white mt-2">Approval
+                                            Required</span>
                                     </div>
-                                    
+
                                 </article>
                             </div>
                             <div class="column">
                                 <article class="card is-shady">
-                                    <figure class="card-image" style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: contain;">
+                                    <figure class="card-image"
+                                        style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: contain;">
                                         <div class="columns">
                                             <div class="column" style="margin-right: 50%;"></div>
                                             <div class="column mr-3 mt-3">
@@ -242,17 +246,19 @@
                                         <p>Court Hearing</p>
                                         <p class="is-size-7">judgejudy@lawfirm.com</p>
                                         <a href="jobinfo.html" class="has-text-primary is-size-7"> <u>Details</u></a>
-                                        <br><span class="tag is-rounded is-danger has-text-white mt-2">Approval Required</span>
+                                        <br><span class="tag is-rounded is-danger has-text-white mt-2">Approval
+                                            Required</span>
                                     </div>
                                 </article>
                             </div>
                         </div>
-                        
+
                         <!-- Second row -->
                         <div class="columns features">
                             <div class="column">
                                 <article class="card is-shady">
-                                    <figure class="card-image" style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: contain;">
+                                    <figure class="card-image"
+                                        style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: contain;">
                                         <div class="columns">
                                             <div class="column" style="margin-right: 50%;"></div>
                                             <div class="column mr-3 mt-3">
@@ -271,14 +277,16 @@
                                         <p>Court Hearing</p>
                                         <p class="is-size-7">judgejudy@lawfirm.com</p>
                                         <a href="jobinfo.html" class="has-text-primary is-size-7"> <u>Details</u></a>
-                                        <br><span class="tag is-rounded is-white has-text-white mt-2">Approval Required</span>
+                                        <br><span class="tag is-rounded is-white has-text-white mt-2">Approval
+                                            Required</span>
                                     </div>
-                                    
+
                                 </article>
                             </div>
                             <div class="column">
                                 <article class="card is-shady">
-                                    <figure class="card-image" style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: contain;">
+                                    <figure class="card-image"
+                                        style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: contain;">
                                         <div class="columns">
                                             <div class="column" style="margin-right: 50%;"></div>
                                             <div class="column mr-3 mt-3">
@@ -297,7 +305,8 @@
                                         <p>Court Hearing</p>
                                         <p class="is-size-7">judgejudy@lawfirm.com</p>
                                         <a href="jobinfo.html" class="has-text-primary is-size-7"> <u>Details</u></a>
-                                        <br><span class="tag is-rounded is-danger has-text-white mt-2">Approval Required</span>
+                                        <br><span class="tag is-rounded is-danger has-text-white mt-2">Approval
+                                            Required</span>
                                     </div>
                                 </article>
                             </div>
@@ -307,7 +316,8 @@
                         <div class="columns features">
                             <div class="column">
                                 <article class="card is-shady">
-                                    <figure class="card-image" style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: contain;">
+                                    <figure class="card-image"
+                                        style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: contain;">
                                         <div class="columns">
                                             <div class="column" style="margin-right: 50%;"></div>
                                             <div class="column mr-3 mt-3">
@@ -326,14 +336,16 @@
                                         <p>Court Hearing</p>
                                         <p class="is-size-7">judgejudy@lawfirm.com</p>
                                         <a href="jobinfo.html" class="has-text-primary is-size-7"> <u>Details</u></a>
-                                        <br><span class="tag is-rounded is-white has-text-white mt-2">Approval Required</span>
+                                        <br><span class="tag is-rounded is-white has-text-white mt-2">Approval
+                                            Required</span>
                                     </div>
-                                    
+
                                 </article>
                             </div>
                             <div class="column">
                                 <article class="card is-shady">
-                                    <figure class="card-image" style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: contain;">
+                                    <figure class="card-image"
+                                        style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: contain;">
                                         <div class="columns">
                                             <div class="column" style="margin-right: 50%;"></div>
                                             <div class="column mr-3 mt-3">
@@ -352,7 +364,8 @@
                                         <p>Court Hearing</p>
                                         <p class="is-size-7">judgejudy@lawfirm.com</p>
                                         <a href="jobinfo.html" class="has-text-primary is-size-7"> <u>Details</u></a>
-                                        <br><span class="tag is-rounded is-danger has-text-white mt-2">Approval Required</span>
+                                        <br><span class="tag is-rounded is-danger has-text-white mt-2">Approval
+                                            Required</span>
                                     </div>
                                 </article>
                             </div>
@@ -362,7 +375,8 @@
                         <div class="columns features">
                             <div class="column">
                                 <article class="card is-shady">
-                                    <figure class="card-image" style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: contain;">
+                                    <figure class="card-image"
+                                        style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: contain;">
                                         <div class="columns">
                                             <div class="column" style="margin-right: 50%;"></div>
                                             <div class="column mr-3 mt-3">
@@ -381,14 +395,16 @@
                                         <p>Court Hearing</p>
                                         <p class="is-size-7">judgejudy@lawfirm.com</p>
                                         <a href="jobinfo.html" class="has-text-primary is-size-7"> <u>Details</u></a>
-                                        <br><span class="tag is-rounded is-white has-text-white mt-2">Approval Required</span>
+                                        <br><span class="tag is-rounded is-white has-text-white mt-2">Approval
+                                            Required</span>
                                     </div>
-                                    
+
                                 </article>
                             </div>
                             <div class="column">
                                 <article class="card is-shady">
-                                    <figure class="card-image" style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: contain;">
+                                    <figure class="card-image"
+                                        style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: contain;">
                                         <div class="columns">
                                             <div class="column" style="margin-right: 50%;"></div>
                                             <div class="column mr-3 mt-3">
@@ -407,7 +423,8 @@
                                         <p>Court Hearing</p>
                                         <p class="is-size-7">judgejudy@lawfirm.com</p>
                                         <a href="jobinfo.html" class="has-text-primary is-size-7"> <u>Details</u></a>
-                                        <br><span class="tag is-rounded is-danger has-text-white mt-2">Approval Required</span>
+                                        <br><span class="tag is-rounded is-danger has-text-white mt-2">Approval
+                                            Required</span>
                                     </div>
                                 </article>
                             </div>
