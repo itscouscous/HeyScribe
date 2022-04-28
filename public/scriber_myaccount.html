@@ -16,74 +16,6 @@
     <link rel="stylesheet" href="style.css">
 
     <title>My Account</title>
-    <style>
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 8;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgb(0, 0, 0);
-            background-color: rgba(0, 0, 0, 0.4);
-        }
-
-        .modal-content {
-            margin: 50px auto;
-            width: 50%;
-        }
-
-        h2,
-        p {
-            margin: 0 0 20px;
-            font-weight: 400;
-            color: #999;
-        }
-
-        h4 {
-            font-weight: 600;
-            font-size: 30px;
-        }
-
-        h5 {
-            font-weight: 400;
-            font-size: 20px;
-        }
-
-        h6 {
-            font-size: 12px;
-        }
-
-
-        span {
-            color: #666;
-            display: block;
-            padding: 0 0 5px;
-        }
-
-        form {
-            padding: 25px;
-            margin: 25px;
-            background: rgb(255, 255, 255);
-        }
-
-
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    </style>
 </head>
 
 <body>
@@ -93,7 +25,7 @@
         <div class="navbar-brand">
 
             <!-- LOGO -->
-            <a class="navbar-item mr-4" id="logo" href="general_home.html">
+            <a class="navbar-item mr-4" id="logo" href="index.html">
                 <i class="fas fa-scroll has-text-primary is-size-5"></i>
                 <h1 class="ml-2 is-size-4 has-text-black has-text-weight-bold">HeyScribe</h1>
             </a>
@@ -133,7 +65,6 @@
         </div>
     </div>
 
-
     <section class="container" style="margin: 5% 20%;">
         <!-- WELCOME BACK -->
         <div class="field is-grouped mb-0">
@@ -141,74 +72,12 @@
 
             <div style="margin-left: auto; height: 0px;"></div>
 
-            <button class="button is-black" data-modal="modalOne">
+            <button class="button is-black">
                 <span class="icon is-small">
                     <i class="fas fa-plus"></i>
                 </span>
                 <span>List a Job</span>
             </button>
-            <div id="modalOne" class="modal">
-                <div class="modal-content">
-                    <div class="job-form">
-                        <a class="close">&times;</a>
-                        <form action="/">
-                            <h4>List a job</h4><br>
-                            <div>
-                                <!-- job title -->
-                                <label for="job_title">
-                                    <h5>Job Title</h5>
-                                </label>
-                                <textarea name="job_title" id="job_title" cols="1" rows="1"></textarea><br>
-
-                                <!-- job descrption  -->
-                                <label for="job_descrp">
-                                    <h5>Job Description</h5>
-                                </label>
-                                <textarea name="job_descrp" id="job_descrp" cols="30" rows="10"></textarea>
-                                <!-- <input type="text" id="job_descrp" name="job_descrp"><br><br> -->
-                                <!-- job category -->
-                                <label for="job_cat">
-                                    <h5>Job Category</h5>
-                                </label>
-                                <input type="radio" id="Legal" name="job_cat" value="Legal">
-                                <label for="Legal">Legal</label><br>
-                                <input type="radio" id="Entertainment" name="job_cat" value="Entertainment">
-                                <label for="Entertainment">Entertainment</label><br>
-                                <input type="radio" id="Education" name="job_cat" value="Education">
-                                <label for="Education">Education</label><br>
-                                <input type="radio" id="Medical" name="job_cat" value="Medical">
-                                <label for="Medical">Medical</label><br><br>
-                                <!-- Transcriptionist Criteria -->
-                                <label for="criteria">
-                                    <h5>Transcriptionist Criteria</h5>
-                                </label>
-                                <textarea name="criteria" id="criteria" cols="30" rows="5"></textarea>
-                                <br>
-                                <!-- pay -->
-                                <label for="payrate">
-                                    <h5>Pay Rate</h5>
-                                </label>
-                                <input type="number" min="0.01" step="0.01" max="10000" value="000.00"
-                                    name="payrate"><br><br>
-
-                                <!-- deadline -->
-                                <label for="deadline">
-                                    <h5>Deadline</h5>
-                                </label>
-                                <input type="date" id="deadline" name="deadline"><br>
-                                <!-- upload file  -->
-                                <br><label for="Script">
-                                    <h5>Upload Script</h5>
-                                </label>
-                                <h6>Acceptable formats: .doc, .docx, .pdf</h6>
-                                <input type="file" id="docpicker" accept=".doc,.docx,.pdf"><br><br>
-                            </div>
-
-                            <button type="submit" href="/">Submit</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <!-- ACTIVE LISTINGS -->
@@ -217,7 +86,7 @@
             <div class="level">
                 <div class="level-left">
                     <div class="level-item">
-                        <p>Active Listings</p>
+                        <p>Waiting for Approval</p>
                     </div>
                 </div>
 
@@ -265,7 +134,6 @@
                             <span class="tag is-rounded">$2.50/min</span>
                         </div>
                         <p>Physician's Notes</p>
-                        <span class="tag is-rounded has-background-danger has-text-white">3 Scriber Requests</span>
                     </article>
                 </div>
                 <div class="column is-3">
@@ -474,6 +342,10 @@
 
     </section>
 
+
+
+
+
     <!-- FOOTER -->
     <footer class="footer has-background-black is-active">
         <div class="content has-text-centered has-text-white">
@@ -487,19 +359,48 @@
         </div>
     </footer>
     <script>
-        let modalBtns = [...document.querySelectorAll(".button")];
-        modalBtns.forEach(function (btn) {
-            btn.onclick = function () {
-                let modal = btn.getAttribute("data-modal");
-                document.getElementById(modal).style.display = "block";
-            };
-        });
-        let closeBtns = [...document.querySelectorAll(".close")];
-        closeBtns.forEach(function (btn) {
-            btn.onclick = function () {
-                let modal = btn.closest(".modal");
-                modal.style.display = "none";
-            };
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "firebase/app";
+        import { getAnalytics } from "firebase/analytics";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+        apiKey: "AIzaSyCoV4axvVrwaS_P3HaowWcSvrz2npk8uRE",
+        authDomain: "heyscribegroup2.firebaseapp.com",
+        projectId: "heyscribegroup2",
+        storageBucket: "heyscribegroup2.appspot.com",
+        messagingSenderId: "129010265541",
+        appId: "1:129010265541:web:5837cc73a9dbfdfb0a6fac",
+        measurementId: "G-ZHVCF5Q6QY"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        // define authentication variable
+        let auth = firebase.auth();
+        let db = firebase.firestore();
+
+        //define storage variable
+        let ref = firebase.storage().ref();
+    </script>
+    <script>
+        // Hamburger Menu
+        document.addEventListener('DOMContentLoaded', () => {
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+            if ($navbarBurgers.length > 0) {
+                $navbarBurgers.forEach(el => {
+                    el.addEventListener('click', () => {
+                        const target = el.dataset.target;
+                        const $target = document.getElementById(target);
+                        el.classList.toggle('is-active');
+                        $target.classList.toggle('is-active');
+                    });
+                });
+            }
         });
     </script>
 </body>
