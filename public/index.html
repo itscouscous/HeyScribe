@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Bulma Template from https://bulmatemplates.github.io/bulma-templates/-->
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -325,74 +323,75 @@
         <div style="margin: 10% 17%;">
             <!-- LEFT COLUMN -->
             <div class="has-text-centered p-6">
-                    <h1 class="title is-2 has-text-weight-bold">All your transcription needs in one place.
-                    </h1>
-                    <h2 class="subtitle has-text-primary is-4">Get connected.</h2>
-                    <p><b>HeyScribe</b> is an online marketplace for freelance transcription services.</p>
+                <h1 class="title is-2 has-text-weight-bold">All your transcription needs in one place.
+                </h1>
+                <h2 class="subtitle has-text-primary is-4">Get connected.</h2>
+                <p><b>HeyScribe</b> is an online marketplace for freelance transcription services.</p>
             </div>
 
-                <!-- error msg -->
-                <div class="error has-text-danger is-italic"></div>
-                <div class="error2 has-text-danger is-italic"></div>
+            <!-- error msg -->
+            <div class="error has-text-danger is-italic"></div>
+            <div class="error2 has-text-danger is-italic"></div>
 
-                <!-- sign up form -->
-                <form id="signup_form">
+            <!-- sign up form -->
+            <form id="signup_form">
 
-                    <!-- Email -->
-                    <div class="field">
-                        <label class="label">Email</label>
-                        <div class="control">
-                            <input class="input is-rounded" type="email" id="email" placeholder="Email">
+                <!-- Email -->
+                <div class="field">
+                    <label class="label">Email</label>
+                    <div class="control">
+                        <input class="input is-rounded" type="email" id="email" placeholder="Email">
+                    </div>
+                </div>
+
+                <!-- Password -->
+                <div class="field">
+                    <label class="label">Password</label>
+                    <div class="control">
+                        <input class="input is-rounded" type="password" id="password" placeholder="Password">
+                    </div>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="field">
+                    <label class="label">Confirm Password</label>
+                    <div class="control">
+                        <input class="input is-rounded" type="password" id="confirmpassword"
+                            placeholder="Confirm Password">
+                    </div>
+                </div>
+
+                <!--Account Type-->
+                <div class="control column right p-6">
+                    <label class="radio fa-border p-3 mb-3"
+                        style="border-radius: 15px; border: 2px solid #f0f0f0; text-align: right;">
+                        <input type="radio" name="answer">
+                        <div class="m-6 has-text-centered" style="width: 200px;">
+                            <i class="fas fa-solid fa-business-time is-size-1 has-text-primary"></i>
+                            <br><br>
+                            I'm a client, hiring for a project
                         </div>
-                    </div>
+                    </label>
 
-                    <!-- Password -->
-                    <div class="field">
-                        <label class="label">Password</label>
-                        <div class="control">
-                            <input class="input is-rounded" type="password" id="password" placeholder="Password">
+                    <label class="radio fa-border p-3"
+                        style="border-radius: 15px; border: 2px solid #f0f0f0; text-align: right;">
+                        <input type="radio" name="answer">
+                        <div class="m-6 has-text-centered" style="width: 200px;">
+                            <i class="fas fa-user-tie is-size-1 has-text-primary"></i>
+                            <br><br>
+                            I'm a transcriber, looking for work
                         </div>
-                    </div>
+                    </label>
+                </div>
 
-                    <!-- Confirm Password -->
-                    <div class="field">
-                        <label class="label">Confirm Password</label>
-                        <div class="control">
-                            <input class="input is-rounded" type="password" id="confirmpassword" placeholder="Confirm Password">
-                        </div>
-                    </div>
-
-                    <!--Account Type-->
-                    <div class="control column right p-6">
-                        <label class="radio fa-border p-3 mb-3"
-                            style="border-radius: 15px; border: 2px solid #f0f0f0; text-align: right;">
-                            <input type="radio" name="answer">
-                            <div class="m-6 has-text-centered" style="width: 200px;">
-                                <i class="fas fa-solid fa-business-time is-size-1 has-text-primary"></i>
-                                <br><br>
-                                I'm a client, hiring for a project
-                            </div>
-                        </label>
-        
-                        <label class="radio fa-border p-3"
-                            style="border-radius: 15px; border: 2px solid #f0f0f0; text-align: right;">
-                            <input type="radio" name="answer">
-                            <div class="m-6 has-text-centered" style="width: 200px;">
-                                <i class="fas fa-user-tie is-size-1 has-text-primary"></i>
-                                <br><br>
-                                I'm a transcriber, looking for work
-                            </div>
-                        </label>
-                    </div>
-
-                    <!--Submit/Login Alternative-->
-                    <input type="submit" class="button is-block is-primary is-fullwidth is-rounded mt-3" value="Submit"
-                        id="btn-sign-up-submit">
-                    <br>
-                    <a id="link-log-in"><small><em>Already have an account? Log in.</em></small></a>
-                </form>
-            </div>
-            <!-- RIGHT COLUMN -->
+                <!--Submit/Login Alternative-->
+                <input type="submit" class="button is-block is-primary is-fullwidth is-rounded mt-3" value="Submit"
+                    id="btn-sign-up-submit">
+                <br>
+                <a id="link-log-in"><small><em>Already have an account? Log in.</em></small></a>
+            </form>
+        </div>
+        <!-- RIGHT COLUMN -->
         </div>
     </section>
 
@@ -1557,64 +1556,65 @@
 
 </body>
 
-    <!--Configuring Firebase Hosting-->
-        <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+<!--Configuring Firebase Hosting-->
+<!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
 
-        <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-        <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
 
-        <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-        <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-analytics.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-storage.js"></script>
+<!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-storage.js"></script>
 
-        <!-- Add Firebase products that you want to use -->
-        <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-auth.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
 
 
 
-        <script>
-            // TODO
-            // Copy **only** your firebaseConfig from Google Firebae and add it below
+<script>
+    // TODO
+    // Copy **only** your firebaseConfig from Google Firebae and add it below
 
-            const firebaseConfig = {
-            apiKey: "AIzaSyCoV4axvVrwaS_P3HaowWcSvrz2npk8uRE",
-            authDomain: "heyscribegroup2.firebaseapp.com",
-            projectId: "heyscribegroup2",
-            storageBucket: "heyscribegroup2.appspot.com",
-            messagingSenderId: "129010265541",
-            appId: "1:129010265541:web:5837cc73a9dbfdfb0a6fac",
-            measurementId: "G-ZHVCF5Q6QY"
-            };
+    const firebaseConfig = {
+        apiKey: "AIzaSyCoV4axvVrwaS_P3HaowWcSvrz2npk8uRE",
+        authDomain: "heyscribegroup2.firebaseapp.com",
+        projectId: "heyscribegroup2",
+        storageBucket: "heyscribegroup2.appspot.com",
+        messagingSenderId: "129010265541",
+        appId: "1:129010265541:web:5837cc73a9dbfdfb0a6fac",
+        measurementId: "G-ZHVCF5Q6QY"
+    };
 
-            // Initialize Firebase
-            firebase.initializeApp(firebaseConfig);
-            // define authentication variable
-            let auth = firebase.auth();
-            let db = firebase.firestore();
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    // define authentication variable
+    let auth = firebase.auth();
+    let db = firebase.firestore();
 
-            //define storage variable
-            let ref = firebase.storage().ref();
-        </script>
+    //define storage variable
+    let ref = firebase.storage().ref();
+</script>
 
-    <!--Adaptive Design Hamburger Type Beat-->
-    <script>
-        // Hamburger Menu
-        document.addEventListener('DOMContentLoaded', () => {
-            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-            if ($navbarBurgers.length > 0) {
-                $navbarBurgers.forEach(el => {
-                    el.addEventListener('click', () => {
-                        const target = el.dataset.target;
-                        const $target = document.getElementById(target);
-                        el.classList.toggle('is-active');
-                        $target.classList.toggle('is-active');
-                    });
+<!--Adaptive Design Hamburger Type Beat-->
+<script>
+    // Hamburger Menu
+    document.addEventListener('DOMContentLoaded', () => {
+        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+        if ($navbarBurgers.length > 0) {
+            $navbarBurgers.forEach(el => {
+                el.addEventListener('click', () => {
+                    const target = el.dataset.target;
+                    const $target = document.getElementById(target);
+                    el.classList.toggle('is-active');
+                    $target.classList.toggle('is-active');
                 });
-            }
-        });
-    </script>
+            });
+        }
+    });
+</script>
 
-    <!--Declaring app.js-->
-    <script src="app.js"></script>
+<!--Declaring app.js-->
+<script src="app.js"></script>
+
 </html>
