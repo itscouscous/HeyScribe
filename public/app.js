@@ -20,8 +20,10 @@
     //Signup
     let email = document.querySelector("#email");
     let password = document.querySelector("#password");
+    let confirmpassword = document.querySelector("#confirmpassword");
     let btnsignupsubmit = document.querySelector("#btn-sign-up-submit");
     let linkogin = document.querySelector("#link-log-in");
+    let signupform = document.querySelector("#signup_form");
     //About Us probably needs elements for the Contact Us form still
     //Account Type
     let accounttypeform = document.querySelector("#accounttype_form");
@@ -63,11 +65,44 @@
     //Click "About Us"
     navigate(linkaboutus, aboutus)
 
-    //Click "Log In" We still need login page
-    //navigate(btnlogin, mainpage)
+    //Click "Log In" 
+        // ---> We still need login page
+    //navigate(btnlogin, login)
 
     //Click "Sign Up"
     navigate(btnsignup, signup)
 
+//Signup Functionality
+    signupform.addEventListener('submit', (e) => {
+    //prevent auto refresh on the page
+    e.preventDefault();
+  
+    // grab email and password
+    const email = document.querySelector('#email').value;
+    const password = document.querySelector('#password').value;
+    const confirmpassword = document.querySelector("#confirmpassword").value
+  
+    if(password == confirmpassword) {
+    auth.createUserWithEmailAndPassword(email, password).then(credentials => {
+      console.log(`UID: ${credentials.user.uid} Email: ${credentials.user.email} has signed up`);
+      signup.classList.add("is-hidden");
+      mainpage.classList.remove('is-hidden');
+  
+      // reset the form
+      signup_form.reset();
+    }).catch(err => {
+  
+      // display error message on modal
+  
+      const error = document.querySelector('.error');
+      error.innerHTML = `<p>${err.message}</p>`;
+    })}
+  
+    else{const error2 = document.querySelector('.error2');
+      error2.innerHTML = `<p>Please retry password confirmation.</p>`;
+  
+    }
+  
+  })
 
         

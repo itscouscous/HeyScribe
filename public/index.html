@@ -322,30 +322,70 @@
 
     <!--Signup Page-->
     <section class="container is-hidden" id="sign-up">
-        <div class="columns" style="margin: 10% 17%;">
+        <div style="margin: 10% 17%;">
             <!-- LEFT COLUMN -->
-            <div class="column left has-text-centered p-6">
-                <h1 class="subtitle is-4 mb-5">Sign Up for HeyScribe</h1>
-                <hr class="solid">
+            <div class="has-text-centered p-6">
+                    <h1 class="title is-2 has-text-weight-bold">All your transcription needs in one place.
+                    </h1>
+                    <h2 class="subtitle has-text-primary is-4">Get connected.</h2>
+                    <p><b>HeyScribe</b> is an online marketplace for freelance transcription services.</p>
+            </div>
 
                 <!-- error msg -->
                 <div class="error has-text-danger is-italic"></div>
+                <div class="error2 has-text-danger is-italic"></div>
+
                 <!-- sign up form -->
                 <form id="signup_form">
 
+                    <!-- Email -->
                     <div class="field">
+                        <label class="label">Email</label>
                         <div class="control">
-                            <input class="input is-rounded" id="email" type="email" placeholder="Email">
+                            <input class="input is-rounded" type="email" id="email" placeholder="Email">
                         </div>
                     </div>
 
+                    <!-- Password -->
                     <div class="field">
+                        <label class="label">Password</label>
                         <div class="control">
-                            <input class="input is-rounded" id="password" type="password" placeholder="Password">
+                            <input class="input is-rounded" type="password" id="password" placeholder="Password">
                         </div>
                     </div>
 
-                    <!-- <a class="button is-block is-primary is-fullwidth is-rounded" id="btn-sign-up-submit">Submit</a> -->
+                    <!-- Confirm Password -->
+                    <div class="field">
+                        <label class="label">Confirm Password</label>
+                        <div class="control">
+                            <input class="input is-rounded" type="password" id="confirmpassword" placeholder="Confirm Password">
+                        </div>
+                    </div>
+
+                    <!--Account Type-->
+                    <div class="control column right p-6">
+                        <label class="radio fa-border p-3 mb-3"
+                            style="border-radius: 15px; border: 2px solid #f0f0f0; text-align: right;">
+                            <input type="radio" name="answer">
+                            <div class="m-6 has-text-centered" style="width: 200px;">
+                                <i class="fas fa-solid fa-business-time is-size-1 has-text-primary"></i>
+                                <br><br>
+                                I'm a client, hiring for a project
+                            </div>
+                        </label>
+        
+                        <label class="radio fa-border p-3"
+                            style="border-radius: 15px; border: 2px solid #f0f0f0; text-align: right;">
+                            <input type="radio" name="answer">
+                            <div class="m-6 has-text-centered" style="width: 200px;">
+                                <i class="fas fa-user-tie is-size-1 has-text-primary"></i>
+                                <br><br>
+                                I'm a transcriber, looking for work
+                            </div>
+                        </label>
+                    </div>
+
+                    <!--Submit/Login Alternative-->
                     <input type="submit" class="button is-block is-primary is-fullwidth is-rounded mt-3" value="Submit"
                         id="btn-sign-up-submit">
                     <br>
@@ -353,12 +393,6 @@
                 </form>
             </div>
             <!-- RIGHT COLUMN -->
-            <div class="column right p-6">
-                <h1 class="title is-2 has-text-weight-bold">All your transcription needs in one place.
-                </h1>
-                <h2 class="subtitle has-text-primary is-4">Get connected.</h2>
-                <p><b>HeyScribe</b> is an online marketplace for freelance transcription services.</p>
-            </div>
         </div>
     </section>
 
