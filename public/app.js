@@ -17,6 +17,7 @@ let btnsignup = document.querySelector("#btn-sign-up");
 let searchbar = document.querySelector("#search_bar"); //Search page will need more elements, still has some restaurant template IDs
 let searchbutton = document.querySelector("#search_button");
 let filterform = document.querySelector("#filter_form");
+let letsgo = document.querySelector("#lets-go");
 //Signup
 let email = document.querySelector("#email");
 let password = document.querySelector("#password");
@@ -57,6 +58,9 @@ function navigate(button, destination) {
 
 //Click Logo
 navigate(logo, mainpage)
+
+//Click "Let's Go"
+navigate(letsgo, searchpage)
 
 //Click "Find Work"
 navigate(linkwork, searchpage)
