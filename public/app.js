@@ -6,6 +6,7 @@ let aboutus = document.querySelector("#about-us");
 let myaccountclient = document.querySelector("#client-my-account");
 let myaccountscribe = document.querySelector("#scribe-my-account");
 let searchpage = document.querySelector("#discover");
+let login = document.querySelector("#loginFc");
 //Navbar
 let logo = document.querySelector("#logo");
 let linkwork = document.querySelector("#link-work");
@@ -70,7 +71,7 @@ navigate(linkaboutus, aboutus)
 
 //Click "Log In" 
 // ---> We still need login page
-//navigate(btnlogin, login)
+navigate(btnlogin, login)
 
 //Click "Sign Up"
 navigate(btnsignup, signup)
