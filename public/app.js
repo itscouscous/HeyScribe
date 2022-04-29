@@ -95,32 +95,27 @@ navigate(linksignup, signup)
 signupform.addEventListener('submit', (e) => {
     //prevent auto refresh on the page
     e.preventDefault();
-
     // grab email and password
     const email = document.querySelector('#email').value;
     const password = document.querySelector('#password').value;
     const confirmpassword = document.querySelector("#confirmpassword").value
-
     if (password == confirmpassword) {
         auth.createUserWithEmailAndPassword(email, password).then(credentials => {
+            //todo: create record in "users" collection for user data **IMPORTANT**
+            //(uid, usertype)
             signup.classList.add("is-hidden");
             mainpage.classList.remove('is-hidden');
-
             // reset the form
-            login_form.reset();
+            signup_form.reset();
         }).catch(err => {
-
             // display error message on modal
-
             const error = document.querySelector('.error');
             error.innerHTML = `<p>${err.message}</p>`;
         })
     } else {
         const error2 = document.querySelector('.error2');
         error2.innerHTML = `<p>Please retry password confirmation.</p>`;
-
     }
-
 })
 
 // Auth state change functionality
@@ -130,9 +125,9 @@ signupform.addEventListener('submit', (e) => {
 //    - different homepage?
 auth.onAuthStateChanged((user) => {
     if (user) { //if signed in
-        //alert(`you are logged in as ${user.email}`)
+
     } else { //if signed out
-        //alert('you are logged out')
+
     }
 })
 
@@ -160,8 +155,8 @@ loginform.addEventListener('submit', (e) => {
     const logpass = document.querySelector('#log_password').value;
 
     auth.signInWithEmailAndPassword(logemail, logpass).then(credentials => {
+        //close login modal
         close_modal("login-modal")
-        alert(`you are logged in as ${credentials.user.email}`)
 
         // reset the form
         signup_form.reset();
