@@ -66,6 +66,44 @@
         </div>
     </div>
 
+
+    <!-- Login Modal -->
+    <div class="modal" id="login-modal">
+        <div class="modal-background" id="login-modalbg"></div>
+        <div class="modal-content p-6 has-background-white">
+            <h1 class="is-size-3 title">Log In</h1>
+            <!-- error msg -->
+            <div class="error has-text-danger is-italic mb-2" id="login_error"></div>
+            <!-- Login form -->
+            <form id="login_form">
+
+                <!-- Email -->
+                <div class="field">
+                    <label class="label">Email</label>
+                    <div class="control">
+                        <input class="input is-rounded" type="email" id="log_email" placeholder="Email">
+                    </div>
+                </div>
+                <!-- MEOW BOOKMARK -->
+                <!-- Password -->
+                <div class="field">
+                    <label class="label">Password</label>
+                    <div class="control">
+                        <input class="input is-rounded" type="password" id="log_password" placeholder="Password">
+                    </div>
+                </div>
+
+
+                <!--Submit/Login Alternative-->
+                <input type="submit" class="button is-block is-primary is-fullwidth is-rounded mt-3" value="Log In"
+                    id="log_submitbtn">
+                <br>
+                <a id="link-sign-up"><small><em>Don't have an account yet? Sign up.</em></small></a>
+            </form>
+        </div>
+    </div>
+
+
     <!--Main Page-->
     <section id="main-page">
         <section class="columns mt-6" style="margin: 0% 15% 0 15%">
@@ -316,11 +354,6 @@
                 </div>
             </section>
         </div>
-    </section>
-
-    <!-- Login Page -->
-    <section class="container is-hidden" id="login">
-        placeholder
     </section>
 
 
