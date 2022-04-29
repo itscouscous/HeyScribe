@@ -59,10 +59,6 @@ all_pages = [mainpage, signup, aboutus, myaccountclient, myaccountscribe, search
 
 function navigate(button, destination) {
     button.addEventListener('click', () => {
-        if (destination = signup) {
-            //close login modal if open
-            close_modal("login-modal")
-        }
         all_pages.forEach(i => {
             if (i.classList.contains("is-hidden")) {
                 return
