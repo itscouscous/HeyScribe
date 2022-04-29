@@ -42,7 +42,8 @@ let docpicker = document.querySelector("#docpicker");
 
 //Navigation Events
 //Function for navigating pages
-all_pages = [mainpage, signup, login, aboutus, myaccountclient, myaccountscribe, searchpage]
+//---> login isn't listed here yet bc i tried adding it and it broke the whole site??
+all_pages = [mainpage, signup, aboutus, myaccountclient, myaccountscribe, searchpage]
 
 function navigate(button, destination) {
     button.addEventListener('click', () => {
@@ -109,4 +110,13 @@ signupform.addEventListener('submit', (e) => {
 
 })
 
+// Auth state change functionality
 // todo: site visually changes when login state changes
+auth.onAuthStateChanged((user) => {
+    //if user is not null (user is signed in, there is a user)
+    if (user) {
+        alert('you are logged in')
+    } else {
+        alert('you are logged out')
+    }
+})
