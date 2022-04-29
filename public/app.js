@@ -27,6 +27,9 @@ let confirmpassword = document.querySelector("#confirmpassword");
 let btnsignupsubmit = document.querySelector("#btn-sign-up-submit");
 let linkogin = document.querySelector("#link-log-in");
 let signupform = document.querySelector("#signup_form");
+let clientbtn = document.querySelector("#clientbtn");
+let scribebtn = document.querySelector("#scribebtn");
+
 //login
 let loginmodal = document.querySelector("#login-modal")
 let loginmodalbg = document.querySelector("#login-modalbg")
@@ -101,8 +104,24 @@ signupform.addEventListener('submit', (e) => {
     const confirmpassword = document.querySelector("#confirmpassword").value
     if (password == confirmpassword) {
         auth.createUserWithEmailAndPassword(email, password).then(credentials => {
-            //todo: create record in "users" collection for user data **IMPORTANT**
-            //(uid, usertype)
+            //create user data doc in "users" collection
+            var user = credentials.user;
+            //grab setting values
+            let usertype = ""
+            if (clientbtn.checked) { //client
+                usertype = "client"
+            } else { //scribe
+                usertype = "scribe"
+            }
+            //create new users document with same id as user
+            db.collection("users").doc(credentials.user.uid).set({
+                usertype: usertype
+            }).catch(err => {
+
+                alert(err.message)
+            })
+
+            //reset the page
             signup.classList.add("is-hidden");
             mainpage.classList.remove('is-hidden');
             // reset the form
