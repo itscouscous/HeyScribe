@@ -42,7 +42,7 @@ let docpicker = document.querySelector("#docpicker");
 
 //Navigation Events
 //Function for navigating pages
-all_pages = [mainpage, signup, aboutus, myaccountclient, myaccountscribe, searchpage]
+all_pages = [mainpage, signup, login, aboutus, myaccountclient, myaccountscribe, searchpage]
 
 function navigate(button, destination) {
     button.addEventListener('click', () => {
