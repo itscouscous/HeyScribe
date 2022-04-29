@@ -112,10 +112,13 @@ signupform.addEventListener('submit', (e) => {
 
 // Auth state change functionality
 // todo: site visually changes when login state changes
+//    - replace login/signup buttons with profile/logout
+//    - show either find work or post a job depending on user type
+//    - different homepage?
 auth.onAuthStateChanged((user) => {
     //if user is not null (user is signed in, there is a user)
     if (user) {
-        alert('you are logged in')
+        alert(`you are logged in as ${user.email}`)
     } else {
         alert('you are logged out')
     }
