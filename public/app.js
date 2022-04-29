@@ -108,3 +108,5 @@ signupform.addEventListener('submit', (e) => {
     }
 
 })
+
+// todo: site visually changes when login state changes
