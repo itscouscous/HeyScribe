@@ -23,6 +23,7 @@ let letsgo = document.querySelector("#lets-go");
 //Signup
 let email = document.querySelector("#email");
 let password = document.querySelector("#password");
+let displayname = document.querySelector("#displayname");
 let confirmpassword = document.querySelector("#confirmpassword");
 let btnsignupsubmit = document.querySelector("#btn-sign-up-submit");
 let linkogin = document.querySelector("#link-log-in");
@@ -82,10 +83,6 @@ navigate(linkwork, searchpage)
 //Click "About Us"
 navigate(linkaboutus, aboutus)
 
-//Click "Log In" 
-// ---> We still need login page
-//navigate(btnlogin, login)
-
 //Click "Sign Up"
 navigate(btnsignup, signup)
 navigate(linksignup, signup)
@@ -111,7 +108,8 @@ signupform.addEventListener('submit', (e) => {
             }
             //create new users document with same id as user
             db.collection("users").doc(credentials.user.uid).set({
-                usertype: usertype
+                usertype: usertype,
+                username: displayname.value
             }).catch(err => {
 
                 alert(err.message)
