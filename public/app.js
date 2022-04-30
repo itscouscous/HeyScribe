@@ -57,9 +57,10 @@ let deadline = document.querySelector("#deadline");
 let docpicker = document.querySelector("#docpicker");
 let cprofilename = document.querySelector("#cprofilename")
 let sprofilename = document.querySelector("#sprofilename")
+
 //My Account (Scribe)
 
-//todo: profile page for other users? or modify myaccount to show other users' info
+//todo: profile page for other users or modify myaccount to show other users' info
 
 //Navigation Events
 //Function for navigating pages
@@ -94,8 +95,6 @@ navigate(linkaboutus, aboutus)
 navigate(btnsignup, signup)
 navigate(linksignup, signup)
 
-//Click Username
-navigate(useremail, myaccount)
 
 //Signup Functionality
 signupform.addEventListener('submit', (e) => {
@@ -197,7 +196,7 @@ btnlogin.addEventListener('click', () => {
 });
 
 loginmodalbg.addEventListener('click', () => {
-    loginmodal.classList.remove('is-active');
+    close_modal("login-modal")
 });
 
 //Login Functionality
