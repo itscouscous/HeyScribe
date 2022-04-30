@@ -1,10 +1,14 @@
 //Declaring ALL of our elements
+//Signedin/out exclusive
+let signedin = document.querySelectorAll(".signedin")
+let signedout = document.querySelectorAll(".signedout")
 //Page Declarations
 let mainpage = document.querySelector("#main-page"); //this is our "home page"
 let signup = document.querySelector("#sign-up");
 let aboutus = document.querySelector("#about-us");
 let myaccountclient = document.querySelector("#client-my-account");
 let myaccountscribe = document.querySelector("#scribe-my-account");
+let myaccount = document.querySelector("#my-account");
 let searchpage = document.querySelector("#discover");
 let login = document.querySelector("#loginFc");
 //Navbar
@@ -13,6 +17,7 @@ let linkwork = document.querySelector("#link-work");
 let linkaboutus = document.querySelector("#link-about-us");
 let useremail = document.querySelector("#user_email");
 let btnlogin = document.querySelector("#btn-log-in");
+let btnlogout = document.querySelector("#btnlogout");
 let btnsignup = document.querySelector("#btn-sign-up");
 let linksignup = document.querySelector("#link-sign-up");
 //Search Page
@@ -30,7 +35,6 @@ let linkogin = document.querySelector("#link-log-in");
 let signupform = document.querySelector("#signup_form");
 let clientbtn = document.querySelector("#clientbtn");
 let scribebtn = document.querySelector("#scribebtn");
-
 //login
 let loginmodal = document.querySelector("#login-modal")
 let loginmodalbg = document.querySelector("#login-modalbg")
@@ -51,11 +55,14 @@ let medical = document.querySelector("#medical");
 let criteria = document.querySelector("#criteria");
 let deadline = document.querySelector("#deadline");
 let docpicker = document.querySelector("#docpicker");
+let cprofilename = document.querySelector("#cprofilename")
+let sprofilename = document.querySelector("#sprofilename")
 //My Account (Scribe)
+
+//todo: profile page for other users? or modify myaccount to show other users' info
 
 //Navigation Events
 //Function for navigating pages
-//---> login isn't listed here yet bc i tried adding it and it broke the whole site??
 all_pages = [mainpage, signup, aboutus, myaccountclient, myaccountscribe, searchpage]
 
 function navigate(button, destination) {
@@ -86,6 +93,9 @@ navigate(linkaboutus, aboutus)
 //Click "Sign Up"
 navigate(btnsignup, signup)
 navigate(linksignup, signup)
+
+//Click Username
+navigate(useremail, myaccount)
 
 //Signup Functionality
 signupform.addEventListener('submit', (e) => {
@@ -132,15 +142,47 @@ signupform.addEventListener('submit', (e) => {
 })
 
 // Auth state change functionality
-// todo: site visually changes when login state changes
-//    - replace login/signup buttons with profile/logout
-//    - show either find work or post a job depending on user type
-//    - different homepage?
 auth.onAuthStateChanged((user) => {
     if (user) { //if signed in
+        //hide signedout content
+        signedout.forEach(i => {
+            if (i.classList.contains("is-hidden")) {
+                return
+            } else {
+                i.classList.add('is-hidden');
+            }
+        });
+        signedin.forEach(e => {
+            if (e.classList.contains('is-hidden')) {
+                e.classList.remove('is-hidden')
+            }
+        })
+        //make profile button link to correct account page
+        db.collection('users').doc(auth.currentUser.uid).get().then(result => {
+            let pftype = `myaccount${result.data().usertype}`
+            useremail.classList += ` ${pftype}`
+            if (pftype == 'myaccountscribe') {
+                navigate(useremail, myaccountscribe)
+            } else {
+                navigate(useremail, myaccountclient)
+            }
+        })
+        //show current user's username in places where it should be
+        db.collection('users').doc(auth.currentUser.uid).get().then(result => {
+            useremail.innerHTML = `${result.data().username}`
+            cprofilename.innerHTML = `${result.data().username}`
+            sprofilename.innerHTML = `${result.data().username}`
+        })
 
     } else { //if signed out
-
+        //hide signedin content
+        signedin.forEach(i => {
+            if (i.classList.contains("is-hidden")) {
+                return
+            } else {
+                i.classList.add('is-hidden');
+            }
+        });
     }
 })
 
@@ -178,4 +220,14 @@ loginform.addEventListener('submit', (e) => {
         login_error.innerHTML = `<p>${err.message}</p>`;
     })
 
+})
+
+//Log Out Button
+btnlogout.addEventListener('click', (e) => {
+    auth.signOut()
+    signedout.forEach(e => {
+        if (e.classList.contains('is-hidden')) {
+            e.classList.remove('is-hidden')
+        }
+    })
 })

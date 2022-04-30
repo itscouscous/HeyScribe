@@ -49,10 +49,15 @@
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
-                    <div class="navbar-item signedin">
-                        <a id="user_email" class="has-text-black mr-2"></a>
+                    <!-- LOG OUT -->
+                    <div class="button is-light signedin">
+                        <a id="btnlogout" class="has-text-black has-text-centered">Log Out</a>
                     </div>
-
+                    <!-- USER PROFILE -->
+                    <div class="button is-primary signedin">
+                        <a id="user_email" class="has-text-black has-text-centered"></a>
+                    </div>
+                    <!-- MEOW BOOKMARK -->
                     <!-- LOG IN -->
                     <a class="button is-light signedout" id="btn-log-in">
                         <strong>Log In</strong>
@@ -111,7 +116,8 @@
             <!-- HEADER -->
             <header class="modal-card-head has-background-black" id="modal_title">
                 <p class="modal-card-title has-text-white">My Dissertation</p>
-                <button class="delete" id="btn-restaurant-x" aria-label="close" onclick="modal_job_info.classList.remove('is-active')"></button>
+                <button class="delete" id="btn-restaurant-x" aria-label="close"
+                    onclick="modal_job_info.classList.remove('is-active')"></button>
             </header>
             <!-- CONTENT -->
             <section class="modal-card-body py-3 px-5">
@@ -647,11 +653,14 @@
         </section>
     </section>
 
+
+
     <!--My Account (Client)-->
     <section class="container is-hidden" style="margin: 5% 20%;" id="client-my-account">
         <!-- WELCOME BACK -->
         <div class="field is-grouped mb-0">
-            <div class="subtitle mb-0">Welcome back, <b>Samer!</b></div>
+            <!-- todo: customize name -->
+            <div class="subtitle mb-0">Welcome back, <span id="cprofilename">Samer</span>!</div>
 
             <div style="margin-left: auto; height: 0px;"></div>
 
@@ -991,7 +1000,7 @@
     <section class="container is-hidden" style="margin: 5% 20%;" id="scribe-my-account">
         <!-- WELCOME BACK -->
         <div class="field is-grouped mb-0">
-            <div class="subtitle mb-0">Welcome back, <b>Samer!</b></div>
+            <div class="subtitle mb-0">Welcome back, <span id="sprofilename">Samer</span>!</div>
 
             <div style="margin-left: auto; height: 0px;"></div>
 
@@ -1262,6 +1271,7 @@
             </div>
         </section>
     </section>
+
 
     <!--Search Page-->
     <section class="container is-hidden" id="discover">
