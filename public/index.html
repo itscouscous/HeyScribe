@@ -104,6 +104,49 @@
         </div>
     </div>
 
+    <!-- MODAL (*TO DO: create query selectors)-->
+    <div class="modal is-active is-hidden" id="modal-job-info">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <!-- HEADER -->
+            <header class="modal-card-head has-background-black" id="modal_title">
+                <p class="modal-card-title has-text-white">My Dissertation</p>
+                <button class="delete" id="btn-restaurant-x" aria-label="close" onclick="modal_job_info.classList.remove('is-active')"></button>
+            </header>
+            <!-- CONTENT -->
+            <section class="modal-card-body py-3 px-5">
+                <article class="media">
+                    <!-- pic -->
+                    <div class="media-left">
+                        <figure class="image">
+                            <img src="https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png" alt="Image">
+                        </figure>
+                    </div>
+                    <!-- description -->
+                    <div class="media-content">
+                        <div class="content">
+                            <p>
+                                <strong>Samer</strong> <small>samer@wisc.edu</small> <br> <small>4/28/22</small>
+                                <br>
+                                <small>This is my Description. Lorem ipsum dolor sit down everyone.</small>
+                            </p>
+                            <div class="mb-2">
+                                <span class="tag is-rounded mt-2">Legal</span>
+                                <span class="tag is-rounded mt-2">8:53</span>
+                                <span class="tag is-rounded mt-2">$1.50/min</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <footer class="modal-card-foot">
+                <a class="button is-primary" id="btn-sign-up">
+                    <strong class="is-size-7">Accept/Request</strong>
+                </a>
+            </footer>
+        </div>
+    </div>
+
 
     <!--Main Page-->
     <section id="main-page">
@@ -1376,7 +1419,6 @@
                                         <br><span class="tag is-rounded is-white has-text-white mt-2">Approval
                                             Required</span>
                                     </div>
-
                                 </article>
                             </div>
                             <div class="column">
