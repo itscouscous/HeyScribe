@@ -109,7 +109,7 @@
         </div>
     </div>
 
-    <!-- MODAL (*TO DO: create query selectors)-->
+    <!-- JOB INFO (*TO DO: create query selectors)-->
     <div class="modal is-active is-hidden" id="modal-job-info">
         <div class="modal-background"></div>
         <div class="modal-card">
@@ -153,6 +153,60 @@
         </div>
     </div>
 
+    <!-- SCRIBE INFO (for when they accept/request a job from u)(*TO DO: create query selectors)-->
+    <div class="modal is-active" id="modal-job-info">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <!-- HEADER -->
+            <header class="modal-card-head has-background-black" id="modal_title">
+                <p class="modal-card-title has-text-white">Scribe Info</p>
+                <button class="delete" id="btn-restaurant-x" aria-label="close" onclick="modal_job_info.classList.remove('is-active')"></button>
+            </header>
+            <!-- CONTENT -->
+            <section class="modal-card-body py-3 px-5">
+                <article class="media">
+                    <!-- description -->
+                    <div class="media-content">
+                        <div class="content">
+                            <p>
+                                <strong>John Cena</strong> <small>bingqilin@gmail.com</small>
+                                <br>
+                                <small>I've been a scribe since the dark ages.</small><br><br>
+                                <strong>Ratings</strong>
+                                <small>Average: 3.5</small>
+                            </p>
+                            <!-- RATINGS -->
+                            <div id="ratings">
+                                <!-- sample rating -->
+                                <div class="box">
+                                    <small> <b>Gandalf</b> 4/28/22</small>
+                                    <i class="fa-solid fa-star has-text-warning"></i>
+                                    <i class="fa-solid fa-star has-text-warning"></i>
+                                    <i class="fa-solid fa-star has-text-warning"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <!-- sample rating -->
+                                <div class="box">
+                                    <small> <b>Elmo</b> 4/28/22</small>
+                                    <i class="fa-solid fa-star has-text-warning"></i>
+                                    <i class="fa-solid fa-star has-text-warning"></i>
+                                    <i class="fa-solid fa-star has-text-warning"></i>
+                                    <i class="fa-solid fa-star has-text-warning"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <footer class="modal-card-foot">
+                <a class="button is-primary" id="btn-sign-up">
+                    <strong class="is-size-7">Accept/Request</strong>
+                </a>
+            </footer>
+        </div>
+    </div>
 
     <!--Main Page-->
     <section id="main-page">
