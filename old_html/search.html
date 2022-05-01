@@ -66,7 +66,8 @@
     </div>
 
     <!-- SEARCH JOBS PAGE -->
-    <section class="container" id="discover">
+    <!--Search Page-->
+    <section class="container is-hidden" id="discover">
         <div class="columns my-4 is-centered">
 
             <!-- FILTER COLUMN -->
@@ -189,252 +190,156 @@
                 <h2 class="subtitle is-6 mb-0"> <b>2,721</b> Results</h2>
                 <hr class="mt-2 mb-2">
                 <!-- CARDS -->
-                <div class="column" id="restaurant_data">
-                    <!-- SAMPLE CARD -->
-                    <!-- PICTURES, TITLE, *****(5), KNOWN FOR, ADDRESS, CLOSING TIME, REVIEWS -->
-                    <section class="container">
-
-                        <!-- first row -->
-                        <div class="columns features">
-                            <div class="column">
-                                <article class="card is-shady">
-                                    <figure class="card-image"
-                                        style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: contain;">
-                                        <div class="columns">
-                                            <div class="column" style="margin-right: 50%;"></div>
-                                            <div class="column mr-3 mt-3">
-                                                <a class="button is-primary" id="btn-sign-up">
-                                                    <strong class="is-size-7">Accept</strong>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </figure>
-                                    <div class="card-content pt-0 px-3">
-                                        <div class="mb-2">
-                                            <span class="tag is-rounded mt-2">Legal</span>
-                                            <span class="tag is-rounded mt-2">8:53</span>
-                                            <span class="tag is-rounded mt-2">$1.50/min</span>
-                                        </div>
-                                        <p>Court Hearing</p>
-                                        <p class="is-size-7">judgejudy@lawfirm.com</p>
-                                        <a href="jobinfo.html" class="has-text-primary is-size-7"> <u>Details</u></a>
-                                        <br><span class="tag is-rounded is-white has-text-white mt-2">Approval
-                                            Required</span>
-                                    </div>
-
-                                </article>
+                <div class="columns is-multiline">
+                    <!-- CARD SAMPLE -->
+                    <div class="column is-half">
+                        <article class="card is-shady">
+                            <figure class="card-image"
+                                style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: 80%;">
+                            </figure>
+                            <div class="card-content pt-0 px-3">
+                                <div class="mb-2">
+                                    <span class="tag is-rounded mt-2">Legal</span>
+                                    <span class="tag is-rounded mt-2">8:53</span>
+                                    <span class="tag is-rounded mt-2">$1.50/min</span>
+                                </div>
+                                <p>Court Hearing</p>
+                                <p class="is-size-7">judgejudy@lawfirm.com</p>
+                                <a href="jobinfo.html" class="has-text-primary is-size-7"> <u>Details</u></a>
+                                <!-- APPROVAL REQUIRED *IF REQUIRED, DELETE IS-HIDDEN -->
+                                <br><span class="tag is-rounded is-danger mt-2 is-hidden">Approval
+                                    Required</span><br>
+                                <a class="button is-primary mt-2" id="btn-sign-up">
+                                    <strong class="is-size-7">Accept/Request</strong>
+                                </a>
                             </div>
-                            <div class="column">
-                                <article class="card is-shady">
-                                    <figure class="card-image"
-                                        style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: contain;">
-                                        <div class="columns">
-                                            <div class="column" style="margin-right: 50%;"></div>
-                                            <div class="column mr-3 mt-3">
-                                                <a class="button is-primary" id="btn-sign-up">
-                                                    <strong class="is-size-7">Request</strong>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </figure>
-                                    <div class="card-content pt-0 px-3">
-                                        <div class="mb-2">
-                                            <span class="tag is-rounded mt-2">Legal</span>
-                                            <span class="tag is-rounded mt-2">8:53</span>
-                                            <span class="tag is-rounded mt-2">$1.50/min</span>
-                                        </div>
-                                        <p>Court Hearing</p>
-                                        <p class="is-size-7">judgejudy@lawfirm.com</p>
-                                        <a href="jobinfo.html" class="has-text-primary is-size-7"> <u>Details</u></a>
-                                        <br><span class="tag is-rounded is-danger has-text-white mt-2">Approval
-                                            Required</span>
-                                    </div>
-                                </article>
+                        </article>
+                    </div>
+                    <!-- CARD SAMPLE -->
+                    <div class="column is-half">
+                        <article class="card is-shady">
+                            <figure class="card-image"
+                                style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: 80%;">
+                            </figure>
+                            <div class="card-content pt-0 px-3">
+                                <div class="mb-2">
+                                    <span class="tag is-rounded mt-2">Legal</span>
+                                    <span class="tag is-rounded mt-2">8:53</span>
+                                    <span class="tag is-rounded mt-2">$1.50/min</span>
+                                </div>
+                                <p>Court Hearing</p>
+                                <p class="is-size-7">judgejudy@lawfirm.com</p>
+                                <a href="jobinfo.html" class="has-text-primary is-size-7"> <u>Details</u></a>
+                                <!-- APPROVAL REQUIRED *IF REQUIRED, DELETE IS-HIDDEN -->
+                                <br><span class="tag is-rounded is-danger mt-2">Approval
+                                    Required</span><br>
+                                <a class="button is-primary mt-2" id="btn-sign-up">
+                                    <strong class="is-size-7">Accept/Request</strong>
+                                </a>
                             </div>
-                        </div>
+                        </article>
+                    </div>
+                    <!-- CARD SAMPLE -->
+                    <div class="column is-half">
+                        <article class="card is-shady">
+                            <figure class="card-image"
+                                style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: 80%;">
+                            </figure>
+                            <div class="card-content pt-0 px-3">
+                                <div class="mb-2">
+                                    <span class="tag is-rounded mt-2">Legal</span>
+                                    <span class="tag is-rounded mt-2">8:53</span>
+                                    <span class="tag is-rounded mt-2">$1.50/min</span>
+                                </div>
+                                <p>Court Hearing</p>
+                                <p class="is-size-7">judgejudy@lawfirm.com</p>
+                                <a href="jobinfo.html" class="has-text-primary is-size-7"> <u>Details</u></a>
+                                <!-- APPROVAL REQUIRED *IF REQUIRED, DELETE IS-HIDDEN -->
+                                <br><span class="tag is-rounded is-danger mt-2">Approval
+                                    Required</span><br>
+                                <a class="button is-primary mt-2" id="btn-sign-up">
+                                    <strong class="is-size-7">Accept/Request</strong>
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- CARD SAMPLE -->
+                    <div class="column is-half">
+                        <article class="card is-shady">
+                            <figure class="card-image"
+                                style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: 80%;">
+                            </figure>
+                            <div class="card-content pt-0 px-3">
+                                <div class="mb-2">
+                                    <span class="tag is-rounded mt-2">Legal</span>
+                                    <span class="tag is-rounded mt-2">8:53</span>
+                                    <span class="tag is-rounded mt-2">$1.50/min</span>
+                                </div>
+                                <p>Court Hearing</p>
+                                <p class="is-size-7">judgejudy@lawfirm.com</p>
+                                <a href="jobinfo.html" class="has-text-primary is-size-7"> <u>Details</u></a>
+                                <!-- APPROVAL REQUIRED *IF REQUIRED, DELETE IS-HIDDEN -->
+                                <br><span class="tag is-rounded is-danger mt-2">Approval
+                                    Required</span><br>
+                                <a class="button is-primary mt-2" id="btn-sign-up">
+                                    <strong class="is-size-7">Accept/Request</strong>
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- CARD SAMPLE -->
+                    <div class="column is-half">
+                        <article class="card is-shady">
+                            <figure class="card-image"
+                                style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: 80%;">
+                            </figure>
+                            <div class="card-content pt-0 px-3">
+                                <div class="mb-2">
+                                    <span class="tag is-rounded mt-2">Legal</span>
+                                    <span class="tag is-rounded mt-2">8:53</span>
+                                    <span class="tag is-rounded mt-2">$1.50/min</span>
+                                </div>
+                                <p>Court Hearing</p>
+                                <p class="is-size-7">judgejudy@lawfirm.com</p>
+                                <a href="jobinfo.html" class="has-text-primary is-size-7"> <u>Details</u></a>
+                                <!-- APPROVAL REQUIRED *IF REQUIRED, DELETE IS-HIDDEN -->
+                                <br><span class="tag is-rounded is-danger mt-2">Approval
+                                    Required</span><br>
+                                <a class="button is-primary mt-2" id="btn-sign-up">
+                                    <strong class="is-size-7">Accept/Request</strong>
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- CARD SAMPLE -->
+                    <div class="column is-half">
+                        <article class="card is-shady">
+                            <figure class="card-image"
+                                style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: 80%;">
+                            </figure>
+                            <div class="card-content pt-0 px-3">
+                                <div class="mb-2">
+                                    <span class="tag is-rounded mt-2">Legal</span>
+                                    <span class="tag is-rounded mt-2">8:53</span>
+                                    <span class="tag is-rounded mt-2">$1.50/min</span>
+                                </div>
+                                <p>Court Hearing</p>
+                                <p class="is-size-7">judgejudy@lawfirm.com</p>
+                                <a href="jobinfo.html" class="has-text-primary is-size-7"> <u>Details</u></a>
+                                <!-- APPROVAL REQUIRED *IF REQUIRED, DELETE IS-HIDDEN -->
+                                <br><span class="tag is-rounded is-danger mt-2">Approval
+                                    Required</span><br>
+                                <a class="button is-primary mt-2" id="btn-sign-up">
+                                    <strong class="is-size-7">Accept/Request</strong>
+                                </a>
+                            </div>
+                        </article>
+                    </div>
 
-                        <!-- Second row -->
-                        <div class="columns features">
-                            <div class="column">
-                                <article class="card is-shady">
-                                    <figure class="card-image"
-                                        style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: contain;">
-                                        <div class="columns">
-                                            <div class="column" style="margin-right: 50%;"></div>
-                                            <div class="column mr-3 mt-3">
-                                                <a class="button is-primary" id="btn-sign-up">
-                                                    <strong class="is-size-7">Accept</strong>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </figure>
-                                    <div class="card-content pt-0 px-3">
-                                        <div class="mb-2">
-                                            <span class="tag is-rounded mt-2">Legal</span>
-                                            <span class="tag is-rounded mt-2">8:53</span>
-                                            <span class="tag is-rounded mt-2">$1.50/min</span>
-                                        </div>
-                                        <p>Court Hearing</p>
-                                        <p class="is-size-7">judgejudy@lawfirm.com</p>
-                                        <a href="jobinfo.html" class="has-text-primary is-size-7"> <u>Details</u></a>
-                                        <br><span class="tag is-rounded is-white has-text-white mt-2">Approval
-                                            Required</span>
-                                    </div>
-
-                                </article>
-                            </div>
-                            <div class="column">
-                                <article class="card is-shady">
-                                    <figure class="card-image"
-                                        style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: contain;">
-                                        <div class="columns">
-                                            <div class="column" style="margin-right: 50%;"></div>
-                                            <div class="column mr-3 mt-3">
-                                                <a class="button is-primary" id="btn-sign-up">
-                                                    <strong class="is-size-7">Request</strong>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </figure>
-                                    <div class="card-content pt-0 px-3">
-                                        <div class="mb-2">
-                                            <span class="tag is-rounded mt-2">Legal</span>
-                                            <span class="tag is-rounded mt-2">8:53</span>
-                                            <span class="tag is-rounded mt-2">$1.50/min</span>
-                                        </div>
-                                        <p>Court Hearing</p>
-                                        <p class="is-size-7">judgejudy@lawfirm.com</p>
-                                        <a href="jobinfo.html" class="has-text-primary is-size-7"> <u>Details</u></a>
-                                        <br><span class="tag is-rounded is-danger has-text-white mt-2">Approval
-                                            Required</span>
-                                    </div>
-                                </article>
-                            </div>
-                        </div>
-
-                        <!-- third row -->
-                        <div class="columns features">
-                            <div class="column">
-                                <article class="card is-shady">
-                                    <figure class="card-image"
-                                        style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: contain;">
-                                        <div class="columns">
-                                            <div class="column" style="margin-right: 50%;"></div>
-                                            <div class="column mr-3 mt-3">
-                                                <a class="button is-primary" id="btn-sign-up">
-                                                    <strong class="is-size-7">Accept</strong>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </figure>
-                                    <div class="card-content pt-0 px-3">
-                                        <div class="mb-2">
-                                            <span class="tag is-rounded mt-2">Legal</span>
-                                            <span class="tag is-rounded mt-2">8:53</span>
-                                            <span class="tag is-rounded mt-2">$1.50/min</span>
-                                        </div>
-                                        <p>Court Hearing</p>
-                                        <p class="is-size-7">judgejudy@lawfirm.com</p>
-                                        <a href="jobinfo.html" class="has-text-primary is-size-7"> <u>Details</u></a>
-                                        <br><span class="tag is-rounded is-white has-text-white mt-2">Approval
-                                            Required</span>
-                                    </div>
-
-                                </article>
-                            </div>
-                            <div class="column">
-                                <article class="card is-shady">
-                                    <figure class="card-image"
-                                        style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: contain;">
-                                        <div class="columns">
-                                            <div class="column" style="margin-right: 50%;"></div>
-                                            <div class="column mr-3 mt-3">
-                                                <a class="button is-primary" id="btn-sign-up">
-                                                    <strong class="is-size-7">Request</strong>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </figure>
-                                    <div class="card-content pt-0 px-3">
-                                        <div class="mb-2">
-                                            <span class="tag is-rounded mt-2">Legal</span>
-                                            <span class="tag is-rounded mt-2">8:53</span>
-                                            <span class="tag is-rounded mt-2">$1.50/min</span>
-                                        </div>
-                                        <p>Court Hearing</p>
-                                        <p class="is-size-7">judgejudy@lawfirm.com</p>
-                                        <a href="jobinfo.html" class="has-text-primary is-size-7"> <u>Details</u></a>
-                                        <br><span class="tag is-rounded is-danger has-text-white mt-2">Approval
-                                            Required</span>
-                                    </div>
-                                </article>
-                            </div>
-                        </div>
-
-                        <!-- fourth row -->
-                        <div class="columns features">
-                            <div class="column">
-                                <article class="card is-shady">
-                                    <figure class="card-image"
-                                        style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: contain;">
-                                        <div class="columns">
-                                            <div class="column" style="margin-right: 50%;"></div>
-                                            <div class="column mr-3 mt-3">
-                                                <a class="button is-primary" id="btn-sign-up">
-                                                    <strong class="is-size-7">Accept</strong>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </figure>
-                                    <div class="card-content pt-0 px-3">
-                                        <div class="mb-2">
-                                            <span class="tag is-rounded mt-2">Legal</span>
-                                            <span class="tag is-rounded mt-2">8:53</span>
-                                            <span class="tag is-rounded mt-2">$1.50/min</span>
-                                        </div>
-                                        <p>Court Hearing</p>
-                                        <p class="is-size-7">judgejudy@lawfirm.com</p>
-                                        <a href="jobinfo.html" class="has-text-primary is-size-7"> <u>Details</u></a>
-                                        <br><span class="tag is-rounded is-white has-text-white mt-2">Approval
-                                            Required</span>
-                                    </div>
-
-                                </article>
-                            </div>
-                            <div class="column">
-                                <article class="card is-shady">
-                                    <figure class="card-image"
-                                        style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: contain;">
-                                        <div class="columns">
-                                            <div class="column" style="margin-right: 50%;"></div>
-                                            <div class="column mr-3 mt-3">
-                                                <a class="button is-primary" id="btn-sign-up">
-                                                    <strong class="is-size-7">Request</strong>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </figure>
-                                    <div class="card-content pt-0 px-3">
-                                        <div class="mb-2">
-                                            <span class="tag is-rounded mt-2">Legal</span>
-                                            <span class="tag is-rounded mt-2">8:53</span>
-                                            <span class="tag is-rounded mt-2">$1.50/min</span>
-                                        </div>
-                                        <p>Court Hearing</p>
-                                        <p class="is-size-7">judgejudy@lawfirm.com</p>
-                                        <a href="jobinfo.html" class="has-text-primary is-size-7"> <u>Details</u></a>
-                                        <br><span class="tag is-rounded is-danger has-text-white mt-2">Approval
-                                            Required</span>
-                                    </div>
-                                </article>
-                            </div>
-                        </div>
-                    </section>
                 </div>
             </div>
         </div>
     </section>
-
 
     <!-- FOOTER -->
     <footer class="footer has-background-black is-active">
