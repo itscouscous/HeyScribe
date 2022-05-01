@@ -2,6 +2,8 @@
 //Signedin/out exclusive
 let signedin = document.querySelectorAll(".signedin")
 let signedout = document.querySelectorAll(".signedout")
+//clients/scribes exclusive
+let scribesonly = document.querySelectorAll(".scribesonly")
 //Page Declarations
 let mainpage = document.querySelector("#main-page"); //this is our "home page"
 let signup = document.querySelector("#sign-up");
@@ -157,13 +159,24 @@ auth.onAuthStateChanged((user) => {
             }
         })
         //make profile button link to correct account page
+        //show scribe/client exclusives to the correct people
         db.collection('users').doc(auth.currentUser.uid).get().then(result => {
             let pftype = `myaccount${result.data().usertype}`
             useremail.classList += ` ${pftype}`
             if (pftype == 'myaccountscribe') {
                 navigate(useremail, myaccountscribe)
+                scribesonly.forEach(e => {
+                    if (e.classList.contains('is-hidden')) {
+                        e.classList.remove('is-hidden')
+                    }
+                })
             } else {
                 navigate(useremail, myaccountclient)
+                scribesonly.forEach(e => {
+                    if (!e.classList.contains('is-hidden')) {
+                        e.classList.add('is-hidden')
+                    }
+                })
             }
         })
         //show current user's username in places where it should be
@@ -172,6 +185,7 @@ auth.onAuthStateChanged((user) => {
             cprofilename.innerHTML = `${result.data().username}`
             sprofilename.innerHTML = `${result.data().username}`
         })
+
 
     } else { //if signed out
         //hide signedin content
