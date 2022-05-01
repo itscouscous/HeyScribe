@@ -110,7 +110,7 @@
     </div>
 
     <!-- JOB INFO (*TO DO: create query selectors)-->
-    <div class="modal is-active is-hidden" id="modal-job-info">
+    <div class="modal" id="modal-job-info">
         <div class="modal-background"></div>
         <div class="modal-card">
             <!-- HEADER -->
@@ -154,13 +154,14 @@
     </div>
 
     <!-- SCRIBE INFO (for when they accept/request a job from u)(*TO DO: create query selectors)-->
-    <div class="modal is-active" id="modal-job-info">
+    <div class="modal" id="modal-job-info">
         <div class="modal-background"></div>
         <div class="modal-card">
             <!-- HEADER -->
             <header class="modal-card-head has-background-black" id="modal_title">
                 <p class="modal-card-title has-text-white">Scribe Info</p>
-                <button class="delete" id="btn-restaurant-x" aria-label="close" onclick="modal_job_info.classList.remove('is-active')"></button>
+                <button class="delete" id="btn-restaurant-x" aria-label="close"
+                    onclick="modal_job_info.classList.remove('is-active')"></button>
             </header>
             <!-- CONTENT -->
             <section class="modal-card-body py-3 px-5">
@@ -205,6 +206,72 @@
                     <strong class="is-size-7">Accept/Request</strong>
                 </a>
             </footer>
+        </div>
+    </div>
+
+    <!-- List a job modal -->
+    <!-- todo: make this modal work -->
+    <div id="modalOne" class="modal is-active">
+        <div class="modal-content">
+            <div class="job-form">
+                <a class="close">&times;</a>
+                <form action="/">
+                    <h4>List a job</h4><br>
+                    <div>
+                        <!-- job title -->
+                        <label for="job_title">
+                            <h5>Job Title</h5>
+                        </label>
+                        <textarea name="job_title" id="job_title" cols="1" rows="1"></textarea><br>
+
+                        <!-- job descrption  -->
+                        <label for="job_descrp">
+                            <h5>Job Description</h5>
+                        </label>
+                        <textarea name="job_descrp" id="job_descrp" cols="30" rows="10"></textarea>
+                        <!-- <input type="text" id="job_descrp" name="job_descrp"><br><br> -->
+                        <!-- job category -->
+                        <label for="job_cat">
+                            <h5>Job Category</h5>
+                        </label>
+                        <input type="radio" id="Legal" name="job_cat" value="Legal">
+                        <label for="Legal">Legal</label><br>
+                        <input type="radio" id="Entertainment" name="job_cat" value="Entertainment">
+                        <label for="Entertainment">Entertainment</label><br>
+                        <input type="radio" id="Education" name="job_cat" value="Education">
+                        <label for="Education">Education</label><br>
+                        <input type="radio" id="Medical" name="job_cat" value="Medical">
+                        <label for="Medical">Medical</label><br>
+                        <input type="radio" id="Other" name="job_cat" value="Other">
+                        <label for="Other">Other</label><br><br>
+                        <!-- Transcriptionist Criteria -->
+                        <label for="criteria">
+                            <h5>Transcriptionist Criteria</h5>
+                        </label>
+                        <textarea name="criteria" id="criteria" cols="30" rows="5"></textarea>
+                        <br>
+                        <!-- pay -->
+                        <label for="payrate">
+                            <h5>Pay Rate</h5>
+                        </label>
+                        <input type="number" min="0.01" step="0.01" max="10000" value="000.00" name="payrate"><br><br>
+
+                        <!-- deadline -->
+                        <label for="deadline">
+                            <h5>Deadline</h5>
+                        </label>
+                        <input type="date" id="deadline" name="deadline"><br>
+                        <!-- upload file  -->
+                        <br><label for="Script">
+                            <h5>Upload Audio</h5>
+                        </label>
+                        <h6>Acceptable formats: .mp3, .wav</h6>
+                        <input type="file" id="docpicker" accept=".mp3, .wav"><br><br>
+                    </div>
+
+                    <button type="submit" href="/">Submit</button>
+                </form>
+            </div>
         </div>
     </div>
 
@@ -723,69 +790,7 @@
                 </span>
                 <span>List a Job</span>
             </button>
-            <!-- todo: make this modal work -->
-            <div id="modalOne" class="modal">
-                <div class="modal-content">
-                    <div class="job-form">
-                        <a class="close">&times;</a>
-                        <form action="/">
-                            <h4>List a job</h4><br>
-                            <div>
-                                <!-- job title -->
-                                <label for="job_title">
-                                    <h5>Job Title</h5>
-                                </label>
-                                <textarea name="job_title" id="job_title" cols="1" rows="1"></textarea><br>
 
-                                <!-- job descrption  -->
-                                <label for="job_descrp">
-                                    <h5>Job Description</h5>
-                                </label>
-                                <textarea name="job_descrp" id="job_descrp" cols="30" rows="10"></textarea>
-                                <!-- <input type="text" id="job_descrp" name="job_descrp"><br><br> -->
-                                <!-- job category -->
-                                <label for="job_cat">
-                                    <h5>Job Category</h5>
-                                </label>
-                                <input type="radio" id="Legal" name="job_cat" value="Legal">
-                                <label for="Legal">Legal</label><br>
-                                <input type="radio" id="Entertainment" name="job_cat" value="Entertainment">
-                                <label for="Entertainment">Entertainment</label><br>
-                                <input type="radio" id="Education" name="job_cat" value="Education">
-                                <label for="Education">Education</label><br>
-                                <input type="radio" id="Medical" name="job_cat" value="Medical">
-                                <label for="Medical">Medical</label><br><br>
-                                <!-- Transcriptionist Criteria -->
-                                <label for="criteria">
-                                    <h5>Transcriptionist Criteria</h5>
-                                </label>
-                                <textarea name="criteria" id="criteria" cols="30" rows="5"></textarea>
-                                <br>
-                                <!-- pay -->
-                                <label for="payrate">
-                                    <h5>Pay Rate</h5>
-                                </label>
-                                <input type="number" min="0.01" step="0.01" max="10000" value="000.00"
-                                    name="payrate"><br><br>
-
-                                <!-- deadline -->
-                                <label for="deadline">
-                                    <h5>Deadline</h5>
-                                </label>
-                                <input type="date" id="deadline" name="deadline"><br>
-                                <!-- upload file  -->
-                                <br><label for="Script">
-                                    <h5>Upload Script</h5>
-                                </label>
-                                <h6>Acceptable formats: .doc, .docx, .pdf</h6>
-                                <input type="file" id="docpicker" accept=".doc,.docx,.pdf"><br><br>
-                            </div>
-
-                            <button type="submit" href="/">Submit</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <!-- ACTIVE LISTINGS -->
