@@ -22,6 +22,7 @@ let btnlogin = document.querySelector("#btn-log-in");
 let btnlogout = document.querySelector("#btnlogout");
 let btnsignup = document.querySelector("#btn-sign-up");
 let linksignup = document.querySelector("#link-sign-up");
+let linkupdateprofile = document.querySelector("#link-update-profile")
 //Search Page
 let searchbar = document.querySelector("#search_bar"); //Search page will need more elements, still has some restaurant template IDs
 let searchbutton = document.querySelector("#search_button");
@@ -45,6 +46,13 @@ let log_email = document.querySelector("#log_email")
 let log_password = document.querySelector("#log_password")
 let log_submitbtn = document.querySelector("#log_submitbtn")
 let login_error = document.querySelector("#login_error")
+//update profile
+let updatemodal = document.querySelector("#update-modal")
+let updatemodalbg = document.querySelector("#update-modalbg")
+let updateform = document.querySelector("#update_form")
+let updatedisp = document.querySelector("#update_disp")
+let updatebio = document.querySelector("#update_bio")
+let update_submitbtn = document.querySelector("#update_submitbtn")
 //About Us probably needs elements for the Contact Us form still
 //Account Type
 let accounttypeform = document.querySelector("#accounttype_form");
@@ -120,7 +128,8 @@ signupform.addEventListener('submit', (e) => {
             //create new users document with same id as user
             db.collection("users").doc(credentials.user.uid).set({
                 usertype: usertype,
-                username: displayname.value
+                username: displayname.value,
+                bio: ""
             }).catch(err => {
 
                 alert(err.message)
@@ -142,51 +151,55 @@ signupform.addEventListener('submit', (e) => {
     }
 })
 
+//things to do if the user is signed in
+function isSignedIn() {
+    //hide signedout content
+    signedout.forEach(i => {
+        if (i.classList.contains("is-hidden")) {
+            return
+        } else {
+            i.classList.add('is-hidden');
+        }
+    });
+    signedin.forEach(e => {
+        if (e.classList.contains('is-hidden')) {
+            e.classList.remove('is-hidden')
+        }
+    })
+    //make profile button link to correct account page
+    //show scribe/client exclusives to the correct people
+    db.collection('users').doc(auth.currentUser.uid).get().then(result => {
+        let pftype = `myaccount${result.data().usertype}`
+        useremail.classList += ` ${pftype}`
+        if (pftype == 'myaccountscribe') {
+            navigate(useremail, myaccountscribe)
+            scribesonly.forEach(e => {
+                if (e.classList.contains('is-hidden')) {
+                    e.classList.remove('is-hidden')
+                }
+            })
+        } else {
+            navigate(useremail, myaccountclient)
+            scribesonly.forEach(e => {
+                if (!e.classList.contains('is-hidden')) {
+                    e.classList.add('is-hidden')
+                }
+            })
+        }
+    })
+    //show current user's username in places where it should be
+    db.collection('users').doc(auth.currentUser.uid).get().then(result => {
+        useremail.innerHTML = `${result.data().username}`
+        cprofilename.innerHTML = `${result.data().username}`
+        sprofilename.innerHTML = `${result.data().username}`
+    })
+
+}
+
 // Auth state change functionality
 auth.onAuthStateChanged((user) => {
     if (user) { //if signed in
-        //hide signedout content
-        signedout.forEach(i => {
-            if (i.classList.contains("is-hidden")) {
-                return
-            } else {
-                i.classList.add('is-hidden');
-            }
-        });
-        signedin.forEach(e => {
-            if (e.classList.contains('is-hidden')) {
-                e.classList.remove('is-hidden')
-            }
-        })
-        //make profile button link to correct account page
-        //show scribe/client exclusives to the correct people
-        db.collection('users').doc(auth.currentUser.uid).get().then(result => {
-            let pftype = `myaccount${result.data().usertype}`
-            useremail.classList += ` ${pftype}`
-            if (pftype == 'myaccountscribe') {
-                navigate(useremail, myaccountscribe)
-                scribesonly.forEach(e => {
-                    if (e.classList.contains('is-hidden')) {
-                        e.classList.remove('is-hidden')
-                    }
-                })
-            } else {
-                navigate(useremail, myaccountclient)
-                scribesonly.forEach(e => {
-                    if (!e.classList.contains('is-hidden')) {
-                        e.classList.add('is-hidden')
-                    }
-                })
-            }
-        })
-        //show current user's username in places where it should be
-        db.collection('users').doc(auth.currentUser.uid).get().then(result => {
-            useremail.innerHTML = `${result.data().username}`
-            cprofilename.innerHTML = `${result.data().username}`
-            sprofilename.innerHTML = `${result.data().username}`
-        })
-
-
+        isSignedIn()
     } else { //if signed out
         //hide signedin content
         signedin.forEach(i => {
@@ -242,5 +255,30 @@ btnlogout.addEventListener('click', (e) => {
         if (e.classList.contains('is-hidden')) {
             e.classList.remove('is-hidden')
         }
+    })
+})
+
+//update profile info
+//TODO: this doesn't work
+linkupdateprofile.addEventListener('click', () => {
+    updatemodal.classList.add('is-active');
+});
+
+updatemodalbg.addEventListener('click', () => {
+    close_modal("update-modal")
+});
+
+update_submitbtn.addEventListener('click', () => {
+    let dis = updatedisp.value
+    let bioo = updatebio.value
+    db.collection('users').doc(auth.currentUser.uid).get().then((result) => {
+        //update values of user's settings doc
+        db.collection('users').doc(auth.currentUser.uid).update({
+            username: dis,
+            bio: bioo
+        }).then(() => {
+            //close modal
+            close_modal('update-modal')
+        })
     })
 })

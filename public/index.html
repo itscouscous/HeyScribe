@@ -36,6 +36,7 @@
             <!-- NAVBAR MENU -->
             <a class="navbar-item scribesonly" id="link-work">Find Work</a>
             <a class="navbar-item" id="link-about-us">About Us</a>
+            <a class="navbar-item" id="link-update-profile">Update My Profile</a>
 
             <!-- BURGER -->
             <a class="navbar-burger burger" data-target="navbarMenu">
@@ -71,6 +72,39 @@
         </div>
     </div>
 
+
+    <!-- Update Profile Modal -->
+    <div class="modal" id="update-modal">
+        <div class="modal-background" id="update-modalbg"></div>
+        <div class="modal-content p-6 has-background-white">
+            <h1 class="is-size-3 title">Update Profile Information</h1>
+            <!-- Login form -->
+            <form id="update_form">
+
+                <!-- Name -->
+                <div class="field">
+                    <label class="label">Display Name</label>
+                    <div class="control">
+                        <input class="input is-rounded" type="text" id="update_disp" placeholder="Display Name">
+                    </div>
+                </div>
+
+                <!-- Bio -->
+                <div class="field">
+                    <label class="label">Bio</label>
+                    <div class="control">
+                        <input class="input is-rounded" type="text" id="update_bio" placeholder="Bio">
+                    </div>
+                </div>
+
+
+                <!--Submit-->
+                <input type="submit" class="button is-block is-primary is-fullwidth is-rounded mt-3" value="Update"
+                    id="update_submitbtn">
+
+            </form>
+        </div>
+    </div>
 
     <!-- Login Modal -->
     <div class="modal" id="login-modal">
