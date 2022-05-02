@@ -67,6 +67,8 @@ let deadline = document.querySelector("#deadline");
 let docpicker = document.querySelector("#docpicker");
 let cprofilename = document.querySelector("#cprofilename")
 let sprofilename = document.querySelector("#sprofilename")
+//Job Listing Page
+let joblistingsubmitbtn = document.querySelector("#joblistsubmitbtn");
 
 //My Account (Scribe)
 
@@ -293,31 +295,44 @@ update_submitbtn.addEventListener('click', () => {
     }
 
     // Submit job form to firebase
-    submitshoebtn.addEventListener('click', (e) => {
-    e.preventDefault();
-  
-    // shoe content
-    let shoe_title = document.querySelector('#shoe-title').value;
-    let shoe_brand = document.querySelector("#shoe-brand").value;
-    let shoe_description = document.querySelector('#shoe-description').value;
-    let file = document.querySelector('#shoe-image').files[0];
-  
-    let image = new Date() + "_" + file.name;
-  
-    const task = ref.child(image).put(file);
-  
-    task
-      .then(snapshot => snapshot.ref.getDownloadURL())
-      .then(url => {
-  
-        let shoe = {
-          title: shoe_title,
-          brand: shoe_brand,
-          description: shoe_description,
-          user_email: auth.currentUser.email,
-          post_time : + new Date(),
-          url: url
-        };
-  
-        save_data('shoes', shoe);
+    joblistingsubmitbtn.addEventListener('click', (e) => {
+        e.preventDefault();
+    
+        //Job content
+        let job_title = document.querySelector('#jobtitle').value;
+        let job_description = document.querySelector("#jobdescription").value;
+        let job_category = document.querySelector('#categoryselect').value;
+        //let job_criteria = document.querySelector('#jobcriteria').value; What is this for?
+        let job_payrate_number = document.querySelector('#payrate').value;
+        let job_payrate_increment = document.querySelector('#payrateselect').value;
+        let job_deadline = document.querySelector('#deadline').value;
+        let file = document.querySelector('#audioupload').files[0];
+
+        let audio = new Date() + "_" + file.name;
+
+        const task = ref.child(audio).put(file);
+
+        task
+            .then(snapshot => snapshot.ref.getDownloadURL())
+            .then(url => {
+                let job = {
+                    title: job_title,
+                    description: job_description,
+                    category: job_category,
+                    //criteria: job_criteria,
+                    payrate: "$" + job_payrate_number + " " + job_payrate_increment,
+                    deadline: job_deadline,
+                    client_email: auth.currentUser.email,
+                    post_time : + new Date(),
+                    audio: url
+                };
+
+            console.log(job);
+    
+            save_data('jobs', job);
+        }) 
+    })
+
+
+
 

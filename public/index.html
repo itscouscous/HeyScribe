@@ -278,13 +278,13 @@
             <div class="field">
                 <label class="label">Category</label>
                 <div class="control">
-                    <div class="select" id="categoryselect">
-                        <select>
-                            <option>Education</option>
-                            <option>Entertainment</option>
-                            <option>Legal</option>
-                            <option>Medical</option>
-                            <option>Other</option>
+                    <div class="select">
+                        <select id="categoryselect">
+                            <option value="Education">Education</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="Legal">Legal</option>
+                            <option value="Medical">Medical</option>
+                            <option value="Other">Other</option>
                         </select>
                     </div>
                 </div>
@@ -296,15 +296,15 @@
             <div class="field">
                 <label class="label">Pay Rate</label>
                 <div class="control has-icons-left">
-                    <input class="input is-rounded" type="number" id="payrate" min=".001" max="10000">
+                    <input class="input is-rounded" type="number" id="payrate" min="0.01" step="0.01" max="10000" placeholder="Dollars">
                     <span class="icon is-small is-left">
                         <i class="fas fa-dollar-sign"></i>
                     </span>
-                    <div class="select" id="payrateselect">
-                        <select>
-                            <option>Per Minute</option>
-                            <option>Per Hour</option>
-                            <option>Per Word</option>
+                    <div class="select">
+                        <select id="payrateselect">
+                            <option value="Per Minute">Per Minute</option>
+                            <option value="Per Hour">Per Hour</option>
+                            <option value="Per Word">Per Word</option>
                         </select>
                     </div>
                 </div>
@@ -317,9 +317,9 @@
             </div>
             
             <!--Upload Audio-->
-            <div id="audioupload" class="file has-name">
+            <div id="uploadform" class="file has-name">
                 <label class="file-label">
-                  <input class="file-input" type="file">
+                  <input class="file-input" type="file" accept=".mp3, .wav" id="audioupload">
                   <span class="file-cta">
                     <span class="file-icon">
                       <i class="fas fa-upload"></i>
@@ -335,10 +335,10 @@
             </div>
                 <!--Script for showing file name-->
                 <script>
-                    const fileInput = document.querySelector('#audioupload input[type=file]');
+                    const fileInput = document.querySelector('#uploadform input[type=file]');
                     fileInput.onchange = () => {
                     if (fileInput.files.length > 0) {
-                        const fileName = document.querySelector('#audioupload .file-name');
+                        const fileName = document.querySelector('#uploadform .file-name');
                         fileName.textContent = fileInput.files[0].name;
                     }
                     }
@@ -346,7 +346,7 @@
 
             <!--Submit-->
             <input type="submit" class="button is-block is-primary is-fullwidth is-rounded mt-3" id="joblistsubmitbtn">
-            
+
         </form>
     </div>
 
@@ -401,7 +401,7 @@
                         <label for="deadline">
                             <h5>Deadline</h5>
                         </label>
-                        <input type="date" id="deadline" name="deadline"><br>
+                        <input type="date" id="dedline" name="deadline"><br>
                         <!-- upload file  -->
                         <br><label for="Script">
                             <h5>Upload Audio</h5>
@@ -426,7 +426,7 @@
                 <!--Main Search Bar-->
                 <h1 class="title is-2">Connect with a transcriber!</h1>
                 <!-- SIGN UP -->
-                <a class="button is-primary signedout" id="lets-go">
+                <a class="button is-primary signedin" id="lets-go">
                     <strong>Let's go!</strong>
                 </a>
             </div>
