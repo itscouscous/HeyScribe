@@ -248,7 +248,6 @@
         Title
         Description
         Category
-        Criteria
         Payrate
         Deadline
         Upload File
@@ -290,7 +289,7 @@
                 </div>
             </div>
 
-            <!--Criteria-->
+            <!--Criteria (May add later, skipping for now)-->
 
             <!--Pay Rate-->
             <div class="field">
@@ -350,72 +349,6 @@
         </form>
     </div>
 
-    <!-- List a job modal -->
-    <!-- todo: make this modal work -->
-    <div id="modalOne" class="modal">
-        <div class="modal-content">
-            <div class="job-form">
-                <a class="close">&times;</a>
-                <form action="/">
-                    <h4>List a job</h4><br>
-                    <div>
-                        <!-- job title -->
-                        <label for="job_title">
-                            <h5>Job Title</h5>
-                        </label>
-                        <textarea name="job_title" id="job_title" cols="1" rows="1"></textarea><br>
-
-                        <!-- job description  -->
-                        <label for="job_descrp">
-                            <h5>Job Description</h5>
-                        </label>
-                        <textarea name="job_descrp" id="job_descrp" cols="30" rows="10"></textarea>
-                        <!-- <input type="text" id="job_descrp" name="job_descrp"><br><br> -->
-                        <!-- job category -->
-                        <label for="job_cat">
-                            <h5>Job Category</h5>
-                        </label>
-                        <input type="radio" id="Legal" name="job_cat" value="Legal">
-                        <label for="Legal">Legal</label><br>
-                        <input type="radio" id="Entertainment" name="job_cat" value="Entertainment">
-                        <label for="Entertainment">Entertainment</label><br>
-                        <input type="radio" id="Education" name="job_cat" value="Education">
-                        <label for="Education">Education</label><br>
-                        <input type="radio" id="Medical" name="job_cat" value="Medical">
-                        <label for="Medical">Medical</label><br>
-                        <input type="radio" id="Other" name="job_cat" value="Other">
-                        <label for="Other">Other</label><br><br>
-                        <!-- Transcriptionist Criteria -->
-                        <label for="criteria">
-                            <h5>Transcriptionist Criteria</h5>
-                        </label>
-                        <textarea name="criteria" id="criteria" cols="30" rows="5"></textarea>
-                        <br>
-                        <!-- pay -->
-                        <label for="payrate">
-                            <h5>Pay Rate</h5>
-                        </label>
-                        <input type="number" min="0.01" step="0.01" max="10000" value="000.00" name="payrate"><br><br>
-
-                        <!-- deadline -->
-                        <label for="deadline">
-                            <h5>Deadline</h5>
-                        </label>
-                        <input type="date" id="dedline" name="deadline"><br>
-                        <!-- upload file  -->
-                        <br><label for="Script">
-                            <h5>Upload Audio</h5>
-                        </label>
-                        <h6>Acceptable formats: .mp3, .wav</h6>
-                        <input type="file" id="docpicker" accept=".mp3, .wav"><br><br>
-                    </div>
-
-                    <button type="submit" href="/">Submit</button>
-                </form>
-            </div>
-        </div>
-    </div>
-
     <!--Main Page-->
     <section id="main-page">
         <section class="columns mt-6" style="margin: 0% 15% 0 15%">
@@ -466,12 +399,14 @@
                             <figure class="image is-5by3">
                                 <img src="https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png" />
                             </figure>
-                            <div class="my-2">
-                                <span class="tag is-rounded">Legal</span>
-                                <span class="tag is-rounded">8:53</span>
-                                <span class="tag is-rounded">$1.50/min</span>
+                            <div id="stalecontent1">
+                                <div class="my-2">
+                                    <span class="tag is-rounded">Legal</span>
+                                    <span class="tag is-rounded">8:53</span>
+                                    <span class="tag is-rounded">$1.50/min</span>
+                                </div>
+                                <p>Court Hearing</p>
                             </div>
-                            <p>Court Hearing</p>
                         </article>
                     </div>
                     <div class="column is-3">

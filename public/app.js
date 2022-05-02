@@ -308,6 +308,7 @@ update_submitbtn.addEventListener('click', () => {
         let job_deadline = document.querySelector('#deadline').value;
         let file = document.querySelector('#audioupload').files[0];
 
+        //let audio_duration = document.getElementById("#audioupload").duration;
         let audio = new Date() + "_" + file.name;
 
         const task = ref.child(audio).put(file);
@@ -324,6 +325,7 @@ update_submitbtn.addEventListener('click', () => {
                     deadline: job_deadline,
                     client_email: auth.currentUser.email,
                     post_time : + new Date(),
+                    //duration: audio_duration,
                     audio: url
                 };
 
@@ -337,5 +339,40 @@ update_submitbtn.addEventListener('click', () => {
         mainpage.classList.remove("is-hidden");
     })
 
+//Loading Data
+    //Load Data function
+        function load_data(collection_name, contentid) {
+            db.collection(`${collection_name}`).orderBy("post_time", "desc").limit(100).get().then((response) => {
+            let docs = response.docs;
+            let html = '';
+        
+            if (docs.length == 0) {
+                contentid.innerHTML = "No data available";
+                return;
+            }
+        
+            docs.forEach(
+                doc => {
+        
+                html += `
+                <div class="my-2">
+                    <span class="tag is-rounded">${doc.data().category}</span>
+                    <span class="tag is-rounded">Duration</span>
+                    <span class="tag is-rounded">${doc.data().payrate}</span>
+                </div>
+                <p>${doc.data().title}</p> 
+                <audio controls>
+                <source src="${doc.data().audio}" type="audio/mpeg">
+                <source src="${doc.data().audio}" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>    
+                `;
+                console.log(doc.data().audio)
+            })
+            //append content to the content variable
+            contentid.innerHTML = html;
+            })
+        }
 
-
+    //Load data into urgent requests element (1)
+        load_data("jobs", stalecontent1)
