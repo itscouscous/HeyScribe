@@ -93,7 +93,8 @@ function navigate(button, destination) {
 navigate(logo, mainpage)
 
 //Click "Let's Go"
-navigate(letsgo, searchpage)
+let shaydetest = document.querySelector("#shaydetest")
+navigate(letsgo, shaydetest)
 
 //Click "Find Work"
 navigate(linkwork, searchpage)
@@ -282,3 +283,12 @@ update_submitbtn.addEventListener('click', () => {
         })
     })
 })
+
+//Saving Data
+//save data
+function save_data(collection_name, obj) {
+    db.collection(`${collection_name}`).add(obj).then(() => {
+      //submitShoeForm.reset();
+      console.log("job created");
+    })
+  }

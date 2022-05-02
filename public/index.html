@@ -243,6 +243,109 @@
         </div>
     </div>
 
+    <!--Create a job-->
+    <!--
+        Title
+        Description
+        Category
+        Criteria
+        Payrate
+        Deadline
+        Upload File
+    -->
+    <div id="shaydetest" class="is-hidden">
+        <!-- Job Submission Form -->
+        <form id="jobsubmissionform">
+
+            <!-- Job Title -->
+            <div class="field">
+                <label class="label">Job Title</label>
+                <div class="control">
+                    <input class="input is-rounded" type="text" id="jobtitle" placeholder="Job Title">
+                </div>
+            </div>
+
+            <!-- Job Description -->
+            <div class="field">
+                <label class="label">Description</label>
+                <div class="control">
+                    <textarea class="textarea is-rounded" id="jobdescription" rows="5" placeholder="Description">
+                    </textarea>
+                </div>
+            </div>
+
+            <!--Category Selection-->
+            <div class="field">
+                <label class="label">Category</label>
+                <div class="control">
+                    <div class="select" id="categoryselect">
+                        <select>
+                            <option>Education</option>
+                            <option>Entertainment</option>
+                            <option>Legal</option>
+                            <option>Medical</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!--Criteria-->
+
+            <!--Pay Rate-->
+            <div class="field">
+                <label class="label">Pay Rate</label>
+                <div class="control has-icons-left">
+                    <input class="input is-rounded" type="number" id="payrate" min=".001" max="10000">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-dollar-sign"></i>
+                    </span>
+                    <div class="select" id="payrateselect">
+                        <select>
+                            <option>Per Minute</option>
+                            <option>Per Hour</option>
+                            <option>Per Word</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!--Deadline-->
+            <div class="field">
+                <label class="label">Deadline</label>
+                <input class="is-rounded" type="date" id="deadline">
+            </div>
+            
+            <!--Upload Audio-->
+            <div id="audioupload" class="file has-name">
+                <label class="file-label">
+                  <input class="file-input" type="file">
+                  <span class="file-cta">
+                    <span class="file-icon">
+                      <i class="fas fa-upload"></i>
+                    </span>
+                    <span class="file-label">
+                      Choose a file…
+                    </span>
+                  </span>
+                  <span class="file-name">
+                   No file uploaded
+                  </span>
+                </label>
+              </div>
+              <!--Script for showing file name-->
+                <script>
+                    const fileInput = document.querySelector('#audioupload input[type=file]');
+                    fileInput.onchange = () => {
+                    if (fileInput.files.length > 0) {
+                        const fileName = document.querySelector('#audioupload .file-name');
+                        fileName.textContent = fileInput.files[0].name;
+                    }
+                    }
+                </script>
+        </form>
+    </div>
+
     <!-- List a job modal -->
     <!-- todo: make this modal work -->
     <div id="modalOne" class="modal">
@@ -258,7 +361,7 @@
                         </label>
                         <textarea name="job_title" id="job_title" cols="1" rows="1"></textarea><br>
 
-                        <!-- job descrption  -->
+                        <!-- job description  -->
                         <label for="job_descrp">
                             <h5>Job Description</h5>
                         </label>
