@@ -360,12 +360,13 @@ update_submitbtn.addEventListener('click', () => {
                     <span class="tag is-rounded">Duration</span>
                     <span class="tag is-rounded">${doc.data().payrate}</span>
                 </div>
-                <p>${doc.data().title}</p> 
                 <audio controls>
                 <source src="${doc.data().audio}" type="audio/mpeg">
                 <source src="${doc.data().audio}" type="audio/wav">
                 Your browser does not support the audio element.
-                </audio>    
+                </audio> 
+                <p>${doc.data().title}</p> 
+                   
                 `;
                 console.log(doc.data().audio)
             })
