@@ -69,6 +69,7 @@ let cprofilename = document.querySelector("#cprofilename")
 let sprofilename = document.querySelector("#sprofilename")
 //Job Listing Page
 let joblistingsubmitbtn = document.querySelector("#joblistsubmitbtn");
+let shaydetest = document.querySelector("#shaydetest")
 
 //My Account (Scribe)
 
@@ -76,7 +77,7 @@ let joblistingsubmitbtn = document.querySelector("#joblistsubmitbtn");
 
 //Navigation Events
 //Function for navigating pages
-all_pages = [mainpage, signup, aboutus, myaccountclient, myaccountscribe, searchpage]
+all_pages = [mainpage, signup, aboutus, myaccountclient, myaccountscribe, searchpage, shaydetest]
 
 function navigate(button, destination) {
     button.addEventListener('click', () => {
@@ -95,7 +96,6 @@ function navigate(button, destination) {
 navigate(logo, mainpage)
 
 //Click "Let's Go"
-let shaydetest = document.querySelector("#shaydetest")
 navigate(letsgo, shaydetest)
 
 //Click "Find Work"
@@ -330,9 +330,12 @@ update_submitbtn.addEventListener('click', () => {
             console.log(job);
     
             save_data('jobs', job);
-        }) 
-    })
 
+
+        }) 
+        shaydetest.classList.add("is-hidden");
+        mainpage.classList.remove("is-hidden");
+    })
 
 
 
