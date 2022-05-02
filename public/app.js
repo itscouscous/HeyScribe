@@ -285,10 +285,39 @@ update_submitbtn.addEventListener('click', () => {
 })
 
 //Saving Data
-//save data
-function save_data(collection_name, obj) {
-    db.collection(`${collection_name}`).add(obj).then(() => {
-      //submitShoeForm.reset();
-      console.log("job created");
-    })
-  }
+    //Save data
+    function save_data(collection_name, obj) {
+        db.collection(`${collection_name}`).add(obj).then(() => {
+            console.log("job created");
+        })
+    }
+
+    // Submit job form to firebase
+    submitshoebtn.addEventListener('click', (e) => {
+    e.preventDefault();
+  
+    // shoe content
+    let shoe_title = document.querySelector('#shoe-title').value;
+    let shoe_brand = document.querySelector("#shoe-brand").value;
+    let shoe_description = document.querySelector('#shoe-description').value;
+    let file = document.querySelector('#shoe-image').files[0];
+  
+    let image = new Date() + "_" + file.name;
+  
+    const task = ref.child(image).put(file);
+  
+    task
+      .then(snapshot => snapshot.ref.getDownloadURL())
+      .then(url => {
+  
+        let shoe = {
+          title: shoe_title,
+          brand: shoe_brand,
+          description: shoe_description,
+          user_email: auth.currentUser.email,
+          post_time : + new Date(),
+          url: url
+        };
+  
+        save_data('shoes', shoe);
+
