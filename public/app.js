@@ -409,3 +409,158 @@ function successSub() {
         load_data("jobs", stalecontent2, 1)
         load_data("jobs", stalecontent3, 2)
         load_data("jobs", stalecontent4, 3)
+
+
+let jobslength = document.querySelector('#jobslength');
+let jobs_data = document.querySelector('#jobs_data');
+// LOAD JOBS 
+function load_jobs() {
+    console.log("loading jobs 0")
+    db.collection("jobs").get().then((response) => {
+        let docs = response.docs;
+        let html = '';
+        
+        // console.log("loading jobs");
+        if (docs.length == 0) {
+            jobs_data.innerHTML = "Search yielded no results";
+            jobslength.innerHTML = 'No results';
+        }
+
+        if (docs.length > 1) {
+            jobslength.innerHTML = `${docs.length}`;
+
+        }
+
+        docs.forEach(doc => {
+            if (docs.length != 0) {
+
+                // restaurantslength.innerHTML = `${load_data_conditions('restaurants', 'name', '==', 'Mediterranean Cafe').length}` + "Results";
+                // *TODO: If requires approval, remove is-hidden for approval tag
+                html +=
+                `
+                <div class="column is-half" id="${doc.id}" onclick="load_modal('${doc.id}')">
+                    <article class="card is-shady">
+                        <figure class="card-image"
+                            style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: 80%;">
+                        </figure>
+                        <div class="card-content pt-0 px-3">
+                            <div class="mb-2">
+                                <span class="tag is-rounded mt-2">${doc.data().category}</span>
+                                <span class="tag is-rounded mt-2">Due: ${doc.data().deadline}</span>
+                                <span class="tag is-rounded mt-2">${doc.data().payrate}</span>
+                            </div>
+                            <p>${doc.data().title}</p>
+                            <p class="is-size-7">${doc.data().client_email}</p>
+                            <a href="" class="has-text-primary is-size-7"> <u>Details</u></a>
+                            <!-- APPROVAL REQUIRED *IF REQUIRED, DELETE IS-HIDDEN -->
+                            <br><span class="tag is-rounded is-danger mt-2 is-hidden">Approval
+                                Required</span><br>
+                            <a class="button is-primary mt-2" id="btn-sign-up">
+                                <strong class="is-size-7">Accept/Request</strong>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+                `
+            } else {
+                html =
+                    `<div class="has-text-centered has-text-weight-bold has-text-grey-light my-6 signedincontent">
+                <i class="fas fa-seedling is-size-4 mr-2"></i>
+                <p>No jobs currently available!</p>
+                </div>`;
+
+            }
+        })
+
+
+        // append content to the content variable
+        jobs_data.innerHTML = html;
+    })
+}
+load_jobs();
+
+
+
+// // FILTER
+
+// function load_data_conditions(collection_name, field, operator, val) {
+
+//     let query = db.collection(`${collection_name}`).where(field, operator, val);
+
+//     let test_allergies = document.querySelectorAll('.test_allergies');
+
+//     var val2;
+
+//     test_allergies.forEach(rad => {
+//         if (rad.checked == true) {
+//             // query = db.collection("restaurants").where("best", "==", rad.value).get().then(response => {
+//             val2 = rad.value;
+//             // })
+//         }
+//     })
+
+//     query = db.collection("restaurants").where("best", "==", val);
+
+//     query.get().then((response) => {
+//         let docs = response.docs;
+//         let html = '';
+
+//         if (docs.length == 0) {
+//             restaurant_data.innerHTML = "Search yielded no results";
+//             restaurantslength.innerHTML = 'No results';
+//         }
+
+//         if (docs.length == 1) {
+//             restaurantslength.innerHTML = `${docs.length}` + ' result';
+
+//         }
+
+//         if (docs.length > 1) {
+//             restaurantslength.innerHTML = `${docs.length}` + ' results';
+
+//         }
+
+//         docs.forEach(doc => {
+//             // console.log(doc.data().title, "=>", doc.data().description);
+//             let rating = '';
+//             for (let i = 0; i < doc.data().best_rating; i++) {
+//                 if(doc.data().best_rating-i < 1){
+//                     if(doc.data().best_rating-i >= 0.5){
+//                         rating += `<i class="fas fa-star-half has-text-warning"></i>`;
+//                     }
+//                 }else{
+//                     rating += `<i class="fas fa-star has-text-warning"></i>`;
+//                 }
+//             }
+
+//             html +=
+//                 `<div class="card large mb-4" id="${doc.id}" onclick="load_modal('${doc.id}')">
+//                 <!-- IMAGE -->
+//                 <div class="card-image">
+//                     <figure class="image is-16by9">
+//                     <img src="images/restaurant2.jpeg" alt="Restaurant" style="object-fit: cover;">
+//                     </figure>
+//                 </div>
+//                 <!-- CONTENT -->
+//                 <div class="card-content">
+//                     <div class="media">
+//                         <div class="content">
+//                             <h1 class="title has-text-weight-bold has-text-primary is-4 mb-1"
+//                             style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">${doc.data().name}</h1>
+//                             ${rating}
+//                             <p class="subtitle is-6 mt-1"><b>${doc.data().best}</b></p>
+//                             <p class="subtitle is-6 mb-0"><b>Address: </b>${doc.data().address}, Madison, WI 53703</p>
+//                             <p class="subtitle is-6 mb-0"><b>Hours: </b>8AM – 10PM</p>
+//                             <p class="subtitle is-6"><b>Phone: </b>${doc.data().phone}</p>
+//                         </div>
+//                     </div>
+//                 </div>
+//             </div>   
+//             `;
+//         })
+//         // append content to the content variable
+//         restaurant_data.innerHTML = html;
+//     })
+// }
+
+
