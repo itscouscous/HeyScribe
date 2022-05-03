@@ -149,7 +149,8 @@
             <!-- HEADER -->
             <header class="modal-card-head has-background-black" id="modal_title">
                 <p class="modal-card-title has-text-white">Job Information</p>
-                <button class="delete" id="btn-restaurant-x" aria-label="close" onclick="modal_job_info.classList.remove('is-active')"></button>
+                <button class="delete" id="btn-restaurant-x" aria-label="close"
+                    onclick="modal_job_info.classList.remove('is-active')"></button>
             </header>
             <!-- CONTENT -->
             <section class="modal-card-body py-3 px-5">
@@ -158,7 +159,9 @@
                     <div class="media-content">
                         <div class="content">
                             <!-- image -->
-                            <div class="image is-16by9 mb-2" style="padding: 20%; margin: 0% 10% 0% 10%;background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center;"></div>
+                            <div class="image is-16by9 mb-2"
+                                style="padding: 20%; margin: 0% 10% 0% 10%;background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center;">
+                            </div>
                             <!-- title and description -->
                             <p class="mb-0">
                                 <strong>My Dissertation</strong> <small>samer@wisc.edu | 4/28/22</small>
@@ -219,17 +222,17 @@
                                     <div class="field">
                                         <label class="label">Approve a scribe</label>
                                         <div class="control">
-                                        <div class="select is-small">
-                                            <select id="scribe_list">
-                                                <!-- (when a scribe requests a job, their emails are pushed to that Job doc under Requests (array)) -->
-                                                <!-- *TODO: USE JS, PULL FROM FIREBASE -->
-                                            </select>
-                                        </div>
+                                            <div class="select is-small">
+                                                <select id="scribe_list">
+                                                    <!-- (when a scribe requests a job, their emails are pushed to that Job doc under Requests (array)) -->
+                                                    <!-- *TODO: USE JS, PULL FROM FIREBASE -->
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
                                     <!-- SUBMIT -->
                                     <input class="button is-small is-primary" type="submit" value="Submit"
-                                    id="btn-approve-scribe"></input>
+                                        id="btn-approve-scribe"></input>
                                 </form>
                                 <!-- PROFILES OF ALL THE SCRIBES WHO SENT A REQUEST -->
                                 <div class="mt-2" id="scribe_bio">
@@ -272,7 +275,7 @@
                                     </div>
                                     <!-- SUBMIT -->
                                     <input class="button is-small is-primary mt-2" type="submit" value="Submit"
-                                    id="btn-rate-submit"></input>
+                                        id="btn-rate-submit"></input>
                                 </div>
                             </div>
                         </div>
@@ -392,7 +395,8 @@
             <div class="field">
                 <label class="label">Pay Rate</label>
                 <div class="control has-icons-left">
-                    <input class="input is-rounded" type="number" id="payrate" min="0.01" step="0.01" max="10000" placeholder="Dollars">
+                    <input class="input is-rounded" type="number" id="payrate" min="0.01" step="0.01" max="10000"
+                        placeholder="Dollars">
                     <span class="icon is-small is-left">
                         <i class="fas fa-dollar-sign"></i>
                     </span>
@@ -411,34 +415,34 @@
                 <label class="label">Deadline</label>
                 <input class="is-rounded" type="date" id="deadline">
             </div>
-            
+
             <!--Upload Audio-->
             <div id="uploadform" class="file has-name">
                 <label class="file-label">
-                  <input class="file-input" type="file" accept=".mp3, .wav" id="audioupload">
-                  <span class="file-cta">
-                    <span class="file-icon">
-                      <i class="fas fa-upload"></i>
+                    <input class="file-input" type="file" accept=".mp3, .wav" id="audioupload">
+                    <span class="file-cta">
+                        <span class="file-icon">
+                            <i class="fas fa-upload"></i>
+                        </span>
+                        <span class="file-label">
+                            Choose a file…
+                        </span>
                     </span>
-                    <span class="file-label">
-                      Choose a file…
+                    <span class="file-name">
+                        No file uploaded
                     </span>
-                  </span>
-                  <span class="file-name">
-                   No file uploaded
-                  </span>
                 </label>
             </div>
-                <!--Script for showing file name-->
-                <script>
-                    const fileInput = document.querySelector('#uploadform input[type=file]');
-                    fileInput.onchange = () => {
+            <!--Script for showing file name-->
+            <script>
+                const fileInput = document.querySelector('#uploadform input[type=file]');
+                fileInput.onchange = () => {
                     if (fileInput.files.length > 0) {
                         const fileName = document.querySelector('#uploadform .file-name');
                         fileName.textContent = fileInput.files[0].name;
                     }
-                    }
-                </script>
+                }
+            </script>
 
             <!--Submit-->
             <input type="submit" class="button is-block is-primary is-fullwidth is-rounded mt-3" id="joblistsubmitbtn">
@@ -516,7 +520,6 @@
                             <div id="stalecontent1">
                                 <div class="my-2">
                                     <span class="tag is-rounded">Legal</span>
-                                    <span class="tag is-rounded">8:53</span>
                                     <span class="tag is-rounded">$1.50/min</span>
                                 </div>
                             </div>
@@ -530,7 +533,6 @@
                             <div id="stalecontent2">
                                 <div class="my-2">
                                     <span class="tag is-rounded">Legal</span>
-                                    <span class="tag is-rounded">8:53</span>
                                     <span class="tag is-rounded">$1.50/min</span>
                                 </div>
                                 <p>Court Hearing</p>
@@ -545,7 +547,6 @@
                             <div id="stalecontent3">
                                 <div class="my-2">
                                     <span class="tag is-rounded">Legal</span>
-                                    <span class="tag is-rounded">8:53</span>
                                     <span class="tag is-rounded">$1.50/min</span>
                                 </div>
                                 <p>Court Hearing</p>
@@ -560,7 +561,6 @@
                             <div id="stalecontent4">
                                 <div class="my-2">
                                     <span class="tag is-rounded">Legal</span>
-                                    <span class="tag is-rounded">8:53</span>
                                     <span class="tag is-rounded">$1.50/min</span>
                                 </div>
                                 <p>Court Hearing</p>
@@ -1533,7 +1533,8 @@
                 <h1 class="title is-4 has-text-weight-bold">Filter</h1>
                 <!-- SEARCH BAR-  -->
                 <div class="control has-icons-left">
-                    <input class="input is-rounded" type="text" placeholder="Search jobs" id="search_bar" onkeyup="search_job()" name="search">
+                    <input class="input is-rounded" type="text" placeholder="Search jobs" id="search_bar"
+                        onkeyup="search_job()" name="search">
                     <span class="icon is-medium is-left">
                         <i class="fa fa-search" aria-hidden="true"></i>
                     </span>
@@ -1633,12 +1634,12 @@
                         </label>
                     </div>
                 </form>
-                    <!-- SUBMIT & RESET -->
-                    <div class="field is-grouped">
-                        <button class="button is-black has-text-weight-bold mt-4" id="search_button">Search</button>
-                        <button class="button mt-4 ml-2" id="reset_button">Reset</button>
-                    </div>
-                    <!-- <a class="button is-block is-primary is-fullwidth is-rounded mt-6" href="#">Submit</a> -->
+                <!-- SUBMIT & RESET -->
+                <div class="field is-grouped">
+                    <button class="button is-black has-text-weight-bold mt-4" id="search_button">Search</button>
+                    <button class="button mt-4 ml-2" id="reset_button">Reset</button>
+                </div>
+                <!-- <a class="button is-block is-primary is-fullwidth is-rounded mt-6" href="#">Submit</a> -->
                 </form>
             </div>
 

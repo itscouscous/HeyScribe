@@ -292,50 +292,50 @@ update_submitbtn.addEventListener('click', () => {
 })
 
 //Saving Data
-    //Save data
-    function save_data(collection_name, obj) {
-        db.collection(`${collection_name}`).add(obj).then(() => {
-            console.log("job created");
-        })
-    }
+//Save data
+function save_data(collection_name, obj) {
+    db.collection(`${collection_name}`).add(obj).then(() => {
+        console.log("job created");
+    })
+}
 
-    // Submit job form to firebase
-    joblistingsubmitbtn.addEventListener('click', (e) => {
-        e.preventDefault();
-    
-        //Job content
-        let job_title = document.querySelector('#jobtitle').value;
-        let job_description = document.querySelector("#jobdescription").value;
-        let job_category = document.querySelector('#categoryselect').value;
-        //let job_criteria = document.querySelector('#jobcriteria').value; What is this for?
-        let job_payrate_number = document.querySelector('#payrate').value;
-        let job_payrate_increment = document.querySelector('#payrateselect').value;
-        let job_deadline = document.querySelector('#deadline').value;
-        let file = document.querySelector('#audioupload').files[0];
+// Submit job form to firebase
+joblistingsubmitbtn.addEventListener('click', (e) => {
+    e.preventDefault();
 
-        //let audio_duration = document.getElementById("#audioupload").duration;
-        let audio = new Date() + "_" + file.name;
+    //Job content
+    let job_title = document.querySelector('#jobtitle').value;
+    let job_description = document.querySelector("#jobdescription").value;
+    let job_category = document.querySelector('#categoryselect').value;
+    //let job_criteria = document.querySelector('#jobcriteria').value; What is this for?
+    let job_payrate_number = document.querySelector('#payrate').value;
+    let job_payrate_increment = document.querySelector('#payrateselect').value;
+    let job_deadline = document.querySelector('#deadline').value;
+    let file = document.querySelector('#audioupload').files[0];
 
-        const task = ref.child(audio).put(file);
+    //let audio_duration = document.getElementById("#audioupload").duration;
+    let audio = new Date() + "_" + file.name;
 
-        task
-            .then(snapshot => snapshot.ref.getDownloadURL())
-            .then(url => {
-                let job = {
-                    title: job_title,
-                    description: job_description,
-                    category: job_category,
-                    //criteria: job_criteria,
-                    payrate: "$" + job_payrate_number + " " + job_payrate_increment,
-                    deadline: job_deadline,
-                    client_email: auth.currentUser.email,
-                    post_time : + new Date(),
-                    //duration: audio_duration,
-                    audio: url
-                };
+    const task = ref.child(audio).put(file);
+
+    task
+        .then(snapshot => snapshot.ref.getDownloadURL())
+        .then(url => {
+            let job = {
+                title: job_title,
+                description: job_description,
+                category: job_category,
+                //criteria: job_criteria,
+                payrate: "$" + job_payrate_number + " " + job_payrate_increment,
+                deadline: job_deadline,
+                client_email: auth.currentUser.email,
+                post_time: +new Date(),
+                //duration: audio_duration,
+                audio: url
+            };
 
             console.log(job);
-    
+
             save_data('jobs', job);
 
 
@@ -370,24 +370,23 @@ function successSub() {
 
 
 //Loading Data
-    //Load Data function
-        function load_data(collection_name, contentid, i) {
-            db.collection(`${collection_name}`).orderBy("post_time", "asc").limit(100).get().then((response) => {
-            let docs = response.docs;
-            let snapshot = response.docs[i]
-            let data = snapshot.data();
-                
-            let html = '';
+//Load Data function
+function load_data(collection_name, contentid, i) {
+    db.collection(`${collection_name}`).orderBy("post_time", "asc").limit(100).get().then((response) => {
+        let docs = response.docs;
+        let snapshot = response.docs[i]
+        let data = snapshot.data();
 
-            if (docs.length == 0) {
-                contentid.innerHTML = "No data available";
-                return;
-            }
+        let html = '';
 
-                html += `
+        if (docs.length == 0) {
+            contentid.innerHTML = "No data available";
+            return;
+        }
+
+        html += `
                 <div class="my-2">
                     <span class="tag is-rounded">${data.category}</span>
-                    <span class="tag is-rounded">Duration</span>
                     <span class="tag is-rounded">${data.payrate}</span>
                 </div>
                 <audio controls>
@@ -398,18 +397,18 @@ function successSub() {
                 <p>${data.title}</p> 
                    
                 `;
-                console.log(data)
-            
-            //append content to the content variable
-            contentid.innerHTML = html;
-            })
-        }
+        console.log(data)
 
-    //Load data into urgent requests element (1)
-        load_data("jobs", stalecontent1, 0)
-        load_data("jobs", stalecontent2, 1)
-        load_data("jobs", stalecontent3, 2)
-        load_data("jobs", stalecontent4, 3)
+        //append content to the content variable
+        contentid.innerHTML = html;
+    })
+}
+
+//Load data into urgent requests element (1)
+load_data("jobs", stalecontent1, 0)
+load_data("jobs", stalecontent2, 1)
+load_data("jobs", stalecontent3, 2)
+load_data("jobs", stalecontent4, 3)
 
 
 let jobslength = document.querySelector('#jobslength');
@@ -420,7 +419,7 @@ function load_jobs() {
     db.collection("jobs").get().then((response) => {
         let docs = response.docs;
         let html = '';
-        
+
         // console.log("loading jobs");
         if (docs.length == 0) {
             jobs_data.innerHTML = "Search yielded no results";
@@ -438,7 +437,7 @@ function load_jobs() {
                 // restaurantslength.innerHTML = `${load_data_conditions('restaurants', 'name', '==', 'Mediterranean Cafe').length}` + "Results";
                 // *TODO: If requires approval, remove is-hidden for approval tag
                 html +=
-                `
+                    `
                 <div class="column is-half cards" id="${doc.id}" onclick="load_modal('${doc.id}')">
                     <article class="card is-shady">
                         <figure class="card-image"
@@ -487,13 +486,12 @@ function search_job() {
     input = input.toLowerCase();
     let x = document.getElementsByClassName('jobs');
     let y = document.getElementsByClassName('cards');
-      
-    for (i = 0; i < x.length; i++) { 
+
+    for (i = 0; i < x.length; i++) {
         if (!x[i].innerHTML.toLowerCase().includes(input)) {
-            y[i].style.display="none";
-        }
-        else {
-            y[i].style.display="list-item";                 
+            y[i].style.display = "none";
+        } else {
+            y[i].style.display = "list-item";
         }
     }
     //*TODO
@@ -518,7 +516,7 @@ function search_job() {
 // FILTER
 
 const ages = [32, 33, 16, 40];
-const result = ages.filter(fallsWithin(32,33));
+const result = ages.filter(fallsWithin(32, 33));
 
 function fallsWithin(age, min, max) {
     return age >= min && age <= max;
@@ -552,11 +550,11 @@ function load_data_conditions(field, operator, val) {
             // console.log(doc.data().title, "=>", doc.data().description);
             let rating = '';
             for (let i = 0; i < doc.data().best_rating; i++) {
-                if(doc.data().best_rating-i < 1){
-                    if(doc.data().best_rating-i >= 0.5){
+                if (doc.data().best_rating - i < 1) {
+                    if (doc.data().best_rating - i >= 0.5) {
                         rating += `<i class="fas fa-star-half has-text-warning"></i>`;
                     }
-                }else{
+                } else {
                     rating += `<i class="fas fa-star has-text-warning"></i>`;
                 }
             }
@@ -590,5 +588,3 @@ function load_data_conditions(field, operator, val) {
         restaurant_data.innerHTML = html;
     })
 }
-
-
