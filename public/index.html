@@ -143,82 +143,49 @@
         </div>
     </div>
 
-    <!-- MODAL (*TO DO: create query selectors)-->
-    <!-- <div class="modal is-active" id="modal-job-info">
+    <!-- JOB INFO (*TO DO: create query selectors)-->
+    <div class="modal" id="modal-job-info">
         <div class="modal-background"></div>
         <div class="modal-card">
-            <-- HEADER -->
-    <!-- <header class="modal-card-head has-background-black" id="modal_title">
+            <!-- HEADER -->
+            <header class="modal-card-head has-background-black" id="modal_title">
                 <p class="modal-card-title has-text-white">My Dissertation</p>
                 <button class="delete" id="btn-restaurant-x" aria-label="close"
                     onclick="modal_job_info.classList.remove('is-active')"></button>
-            </header> -->
-    <!-- CONTENT -->
-    <!-- <section class="modal-card-body py-3 px-5">
-                <article class="media"> -->
-    <!-- pic -->
-    <!-- <div class="media-left">
+            </header>
+            <!-- CONTENT -->
+            <section class="modal-card-body py-3 px-5">
+                <article class="media">
+                    <!-- pic -->
+                    <div class="media-left">
                         <figure class="image">
                             <img src="https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png" alt="Image">
                         </figure>
-                    </div> -->
-    <!-- description -->
-    <!-- <div class="media-content">
-                        <div class="content"> -->
-    <!-- image -->
-    <!-- <div class="image is-16by9 mb-2"
-                                style="padding: 20%; margin: 0% 10% 0% 10%;background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center;">
-                            </div> -->
-    <!-- title and description -->
-    <!-- <p class="mb-0">
+                    </div>
+                    <!-- description -->
+                    <div class="media-content">
+                        <div class="content">
+                            <p>
                                 <strong>Samer</strong> <small>samer@wisc.edu</small> <br> <small>4/28/22</small>
                                 <br>
-                                <small>This is my Description.</small>
+                                <small>This is my Description. Lorem ipsum dolor sit down everyone.</small>
                             </p>
                             <div class="mb-2">
                                 <span class="tag is-rounded mt-2">Legal</span>
                                 <span class="tag is-rounded mt-2">8:53</span>
                                 <span class="tag is-rounded mt-2">$1.50/min</span>
-                                <span class="tag is-rounded mt-2 is-danger">Approval Required</span>
                             </div>
-                        </div> -->
-    <!-- TRANSCRIPT DOWNLOAD *TODO: CHANGE HREF TO PULL FROM FIREBASE DB-->
-    <!-- <a href="/images/myw3schoolsimage.jpg" download>Download Audio</a>
-                        <br>
-                        <br> -->
-    <!-- TRANSCRIPT SUBMISSION, *TODO: REMOVE IS-HIDDEN IF SCRIBE HAS ACCEPTED THE JOB -->
-    <!-- <div class="file has-name">
-                            <label class="file-label">
-                                <input class="file-input" type="file" name="resume">
-                                <span class="file-cta">
-                                    <span class="file-icon">
-                                        <i class="fas fa-upload"></i>
-                                    </span>
-                                    <span class="file-label">
-                                        Choose a file…
-                                    </span>
-                                </span>
-                                <span class="file-name">
-                                    Screen Shot 2017-07-29 at 15.54.25.png
-                                </span>
-                            </label>
                         </div>
                     </div>
                 </article>
             </section>
-            <footer class="modal-card-foot"> -->
-    <!-- ACCEPT/REQUEST BUTTON -->
-    <!-- <a class="button is-primary" id="btn-sign-up">
+            <footer class="modal-card-foot">
+                <a class="button is-primary" id="btn-sign-up">
                     <strong class="is-size-7">Accept/Request</strong>
-                </a> -->
-    <!-- IF USER HAS ACCEPTED JOB, REMOVE IS-HIDDEN TO "SUBMIT TRANSCRIPT" AND ADD IS-HIDDEN TO "ACCEPT/REQUEST"-->
-    <!-- SUBMIT TRANSCRIPT -->
-    <!-- <a class="button is-primary" id="btn-sign-up">
-                    <strong class="is-size-7">Submit Transcript</strong>
                 </a>
             </footer>
         </div>
-    </div> -->
+    </div>
 
     <!-- SCRIBE INFO (for when they accept/request a job from u)(*TO DO: create query selectors)-->
     <div class="modal" id="modal-job-info">
@@ -293,7 +260,7 @@
             <div class="field">
                 <label class="label">Job Title</label>
                 <div class="control">
-                    <input class="input is-rounded" type="text" required id="jobtitle" placeholder="Job Title">
+                    <input class="input is-rounded" type="text" id="jobtitle" placeholder="Job Title">
                 </div>
             </div>
 
@@ -301,8 +268,7 @@
             <div class="field">
                 <label class="label">Description</label>
                 <div class="control">
-                    <textarea class="textarea is-rounded" required id="jobdescription" rows="5"
-                        placeholder="Description">
+                    <textarea class="textarea is-rounded" id="jobdescription" rows="5" placeholder="Description">
                     </textarea>
                 </div>
             </div>
@@ -329,8 +295,7 @@
             <div class="field">
                 <label class="label">Pay Rate</label>
                 <div class="control has-icons-left">
-                    <input class="input is-rounded" type="number" required id="payrate" min="0.01" step="0.01"
-                        max="10000" placeholder="Dollars">
+                    <input class="input is-rounded" type="number" id="payrate" min="0.01" step="0.01" max="10000" placeholder="Dollars">
                     <span class="icon is-small is-left">
                         <i class="fas fa-dollar-sign"></i>
                     </span>
@@ -347,39 +312,36 @@
             <!--Deadline-->
             <div class="field">
                 <label class="label">Deadline</label>
-                <input class="is-rounded" type="date" required id="deadline">
+                <input class="is-rounded" type="date" id="deadline">
             </div>
-
+            
             <!--Upload Audio-->
             <div id="uploadform" class="file has-name">
                 <label class="file-label">
-                    <input class="file-input" type="file" required accept=".mp3, .wav" id="audioupload">
-                    <span class="file-cta">
-                        <span class="file-icon">
-                            <i class="fas fa-upload"></i>
-                        </span>
-                        <span class="file-label">
-                            Choose a file…
-                        </span>
+                  <input class="file-input" type="file" accept=".mp3, .wav" id="audioupload">
+                  <span class="file-cta">
+                    <span class="file-icon">
+                      <i class="fas fa-upload"></i>
                     </span>
-                    <span class="file-name">
-                        No file uploaded
+                    <span class="file-label">
+                      Choose a file…
                     </span>
+                  </span>
+                  <span class="file-name">
+                   No file uploaded
+                  </span>
                 </label>
-
             </div>
-            <!--Script for showing file name-->
-            <script>
-                const fileInput = document.querySelector('#uploadform input[type=file]');
-                fileInput.onchange = () => {
+                <!--Script for showing file name-->
+                <script>
+                    const fileInput = document.querySelector('#uploadform input[type=file]');
+                    fileInput.onchange = () => {
                     if (fileInput.files.length > 0) {
                         const fileName = document.querySelector('#uploadform .file-name');
                         fileName.textContent = fileInput.files[0].name;
-                        // var aud = document.getElementById("audioupload");
-                        // alert(aud.duration);
                     }
-                }
-            </script>
+                    }
+                </script>
 
             <!--Submit-->
             <input type="submit" class="button is-block is-primary is-fullwidth is-rounded mt-3" id="joblistsubmitbtn">
@@ -415,7 +377,7 @@
                 <h1 class="title is-2">Connect with a transcriber!</h1>
                 <!-- SIGN UP -->
                 <a class="button is-primary signedin" id="lets-go">
-                    <strong>Post a new job!</strong>
+                    <strong>Let's go!</strong>
                 </a>
             </div>
         </section>
@@ -460,6 +422,20 @@
                                     <span class="tag is-rounded">8:53</span>
                                     <span class="tag is-rounded">$1.50/min</span>
                                 </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="column is-3">
+                        <article>
+                            <figure class="image is-5by3">
+                                <img src="https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png" />
+                            </figure>
+                            <div id="stalecontent2">
+                                <div class="my-2">
+                                    <span class="tag is-rounded">Legal</span>
+                                    <span class="tag is-rounded">8:53</span>
+                                    <span class="tag is-rounded">$1.50/min</span>
+                                </div>
                                 <p>Court Hearing</p>
                             </div>
                         </article>
@@ -469,12 +445,14 @@
                             <figure class="image is-5by3">
                                 <img src="https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png" />
                             </figure>
-                            <div class="my-2">
-                                <span class="tag is-rounded">Medical</span>
-                                <span class="tag is-rounded">38:55</span>
-                                <span class="tag is-rounded">$2.50/min</span>
+                            <div id="stalecontent3">
+                                <div class="my-2">
+                                    <span class="tag is-rounded">Legal</span>
+                                    <span class="tag is-rounded">8:53</span>
+                                    <span class="tag is-rounded">$1.50/min</span>
+                                </div>
+                                <p>Court Hearing</p>
                             </div>
-                            <p>Physician's Notes</p>
                         </article>
                     </div>
                     <div class="column is-3">
@@ -482,25 +460,14 @@
                             <figure class="image is-5by3">
                                 <img src="https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png" />
                             </figure>
-                            <div class="my-2">
-                                <span class="tag is-rounded">Entertainment</span>
-                                <span class="tag is-rounded">50:55</span>
-                                <span class="tag is-rounded">$1.50/min</span>
+                            <div id="stalecontent4">
+                                <div class="my-2">
+                                    <span class="tag is-rounded">Legal</span>
+                                    <span class="tag is-rounded">8:53</span>
+                                    <span class="tag is-rounded">$1.50/min</span>
+                                </div>
+                                <p>Court Hearing</p>
                             </div>
-                            <p>Riverdale S3 E1 Captions</p>
-                        </article>
-                    </div>
-                    <div class="column is-3">
-                        <article>
-                            <figure class="image is-5by3">
-                                <img src="https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png" />
-                            </figure>
-                            <div class="my-2">
-                                <span class="tag is-rounded">Education</span>
-                                <span class="tag is-rounded">7:44:23</span>
-                                <span class="tag is-rounded">$2.25/min</span>
-                            </div>
-                            <p>My dissertation</p>
                         </article>
                     </div>
                 </div>

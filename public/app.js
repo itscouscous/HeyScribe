@@ -291,50 +291,50 @@ update_submitbtn.addEventListener('click', () => {
 })
 
 //Saving Data
-//Save data
-function save_data(collection_name, obj) {
-    db.collection(`${collection_name}`).add(obj).then(() => {
-        console.log("job created");
-    })
-}
+    //Save data
+    function save_data(collection_name, obj) {
+        db.collection(`${collection_name}`).add(obj).then(() => {
+            console.log("job created");
+        })
+    }
 
-// Submit job form to firebase
-joblistingsubmitbtn.addEventListener('click', (e) => {
-    e.preventDefault();
+    // Submit job form to firebase
+    joblistingsubmitbtn.addEventListener('click', (e) => {
+        e.preventDefault();
+    
+        //Job content
+        let job_title = document.querySelector('#jobtitle').value;
+        let job_description = document.querySelector("#jobdescription").value;
+        let job_category = document.querySelector('#categoryselect').value;
+        //let job_criteria = document.querySelector('#jobcriteria').value; What is this for?
+        let job_payrate_number = document.querySelector('#payrate').value;
+        let job_payrate_increment = document.querySelector('#payrateselect').value;
+        let job_deadline = document.querySelector('#deadline').value;
+        let file = document.querySelector('#audioupload').files[0];
 
-    //Job content
-    let job_title = document.querySelector('#jobtitle').value;
-    let job_description = document.querySelector("#jobdescription").value;
-    let job_category = document.querySelector('#categoryselect').value;
-    //let job_criteria = document.querySelector('#jobcriteria').value; What is this for?
-    let job_payrate_number = document.querySelector('#payrate').value;
-    let job_payrate_increment = document.querySelector('#payrateselect').value;
-    let job_deadline = document.querySelector('#deadline').value;
-    let file = document.querySelector('#audioupload').files[0];
+        //let audio_duration = document.getElementById("#audioupload").duration;
+        let audio = new Date() + "_" + file.name;
 
-    //let audio_duration = document.getElementById("#audioupload").duration;
-    let audio = new Date() + "_" + file.name;
+        const task = ref.child(audio).put(file);
 
-    const task = ref.child(audio).put(file);
-
-    task
-        .then(snapshot => snapshot.ref.getDownloadURL())
-        .then(url => {
-            let job = {
-                title: job_title,
-                description: job_description,
-                category: job_category,
-                //criteria: job_criteria,
-                payrate: "$" + job_payrate_number + " " + job_payrate_increment,
-                deadline: job_deadline,
-                client_email: auth.currentUser.email,
-                post_time: +new Date(),
-                //duration: audio_duration,
-                audio: url
-            };
+        task
+            .then(snapshot => snapshot.ref.getDownloadURL())
+            .then(url => {
+                let job = {
+                    title: job_title,
+                    description: job_description,
+                    category: job_category,
+                    //criteria: job_criteria,
+                    payrate: "$" + job_payrate_number + " " + job_payrate_increment,
+                    deadline: job_deadline,
+                    client_email: auth.currentUser.email,
+                    post_time : + new Date(),
+                    //duration: audio_duration,
+                    audio: url
+                };
 
             console.log(job);
-
+    
             save_data('jobs', job);
 
 
@@ -369,40 +369,43 @@ function successSub() {
 
 
 //Loading Data
-//Load Data function
-function load_data(collection_name, contentid) {
-    db.collection(`${collection_name}`).orderBy("post_time", "desc").limit(100).get().then((response) => {
-        let docs = response.docs;
-        let html = '';
+    //Load Data function
+        function load_data(collection_name, contentid, i) {
+            db.collection(`${collection_name}`).orderBy("post_time", "asc").limit(100).get().then((response) => {
+            let docs = response.docs;
+            let snapshot = response.docs[i]
+            let data = snapshot.data();
+                
+            let html = '';
 
-        if (docs.length == 0) {
-            contentid.innerHTML = "No data available";
-            return;
-        }
-
-        docs.forEach(
-            doc => {
+            if (docs.length == 0) {
+                contentid.innerHTML = "No data available";
+                return;
+            }
 
                 html += `
                 <div class="my-2">
-                    <span class="tag is-rounded">${doc.data().category}</span>
+                    <span class="tag is-rounded">${data.category}</span>
                     <span class="tag is-rounded">Duration</span>
-                    <span class="tag is-rounded">${doc.data().payrate}</span>
+                    <span class="tag is-rounded">${data.payrate}</span>
                 </div>
                 <audio controls>
-                <source src="${doc.data().audio}" type="audio/mpeg">
-                <source src="${doc.data().audio}" type="audio/wav">
+                <source src="${data.audio}" type="audio/mpeg">
+                <source src="${data.audio}" type="audio/wav">
                 Your browser does not support the audio element.
                 </audio> 
-                <p>${doc.data().title}</p> 
+                <p>${data.title}</p> 
                    
                 `;
-                console.log(doc.data().audio)
+                console.log(data)
+            
+            //append content to the content variable
+            contentid.innerHTML = html;
             })
-        //append content to the content variable
-        contentid.innerHTML = html;
-    })
-}
+        }
 
-//Load data into urgent requests element (1)
-load_data("jobs", stalecontent1)
+    //Load data into urgent requests element (1)
+        load_data("jobs", stalecontent1, 0)
+        load_data("jobs", stalecontent2, 1)
+        load_data("jobs", stalecontent3, 2)
+        load_data("jobs", stalecontent4, 3)
