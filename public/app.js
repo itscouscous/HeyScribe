@@ -335,7 +335,8 @@ joblistingsubmitbtn.addEventListener('click', (e) => {
 
 
         })
-    // shaydetest.classList.add("is-hidden");
+    shaydetest.classList.add("is-hidden");
+    success.classList.remove("is-hidden");
     // mainpage.classList.remove("is-hidden");
     //reset form when finished -- doesn't work
     const form = document.getElementById('jobsubmissionform');
