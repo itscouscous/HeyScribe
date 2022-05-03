@@ -70,7 +70,7 @@ let sprofilename = document.querySelector("#sprofilename")
 //Job Listing Page
 let joblistingsubmitbtn = document.querySelector("#joblistsubmitbtn");
 let shaydetest = document.querySelector("#shaydetest")
-let closesubmission = document.querySelector('closesubmission');
+let closesubmission = document.querySelector('#closesubmission');
 
 
 //My Account (Scribe)
@@ -348,7 +348,8 @@ joblistingsubmitbtn.addEventListener('click', (e) => {
 //successful submission pop up close and return to home
 
 function successSub() {
-    mainpage.classList.add("show");
+    navigate(closesubmission, mainpage);
+    success.classList.add('is-hidden');
 
 }
 
