@@ -110,6 +110,8 @@ navigate(linkaboutus, aboutus)
 navigate(btnsignup, signup)
 navigate(linksignup, signup)
 
+navigate(closesubmission, mainpage)
+
 
 //Signup Functionality
 signupform.addEventListener('submit', (e) => {
@@ -348,7 +350,6 @@ joblistingsubmitbtn.addEventListener('click', (e) => {
 //successful submission pop up close and return to home
 
 function successSub() {
-    navigate(closesubmission, mainpage);
     success.classList.add('is-hidden');
 
 }
