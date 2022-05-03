@@ -1537,99 +1537,102 @@
                     <span class="icon is-medium is-left">
                         <i class="fa fa-search" aria-hidden="true"></i>
                     </span>
-                    <!-- SUBMIT & RESET -->
-                    <!-- <div class="field is-grouped">
-                        <button class="button is-black has-text-weight-bold mt-4" id="search_button">Search</button>
-                        <button class="button mt-4 ml-2" id="reset_button">Reset</button>
-                    </div> -->
                 </div>
-                <!-- SUBMIT -->
-
-
-                <form class="mb-0" id="filter_form">
+                <!-- RADIO -->
+                <form class="mb-0" id="filter_form_industry">
                     <div class="control">
                         <!-- INDUSTRY -->
-                        <label class="label mt-5">Industry</label>
+                        <label class="label mt-5">Category</label>
                         <label class="radio">
-                            <input type="radio" name="filter" value="Dairy" class="test_allergies"
-                                onclick="load_data_conditions('restaurants','best', '==', 'Dairy')">
+                            <input type="radio" name="filter" value="Legal" class="category"
+                                onclick="load_data_conditions('category', '==', 'Legal')">
                             Legal
                         </label> <br>
                         <label class="radio">
-                            <input type="radio" name="filter" value="Eggs" class="test_allergies"
-                                onclick="load_data_conditions('restaurants','best', '==', 'Eggs')">
+                            <input type="radio" name="filter" value="Medical" class="category"
+                                onclick="load_data_conditions('restaurants','category', '==', 'Medical')">
                             Medical
                         </label> <br>
                         <label class="radio">
-                            <input type="radio" name="filter" value="Nuts" class="test_allergies"
-                                onclick="load_data_conditions('restaurants','best', '==', 'Nuts')">
+                            <input type="radio" name="filter" value="Educational" class="category"
+                                onclick="load_data_conditions('restaurants','category', '==', 'Educational')">
                             Educational
                         </label> <br>
                         <label class="radio">
-                            <input type="radio" name="filter" value="Seafood" class="test_allergies"
-                                onclick="load_data_conditions('restaurants','best', '==', 'Seafood')">
+                            <input type="radio" name="filter" value="Entertainment" class="category"
+                                onclick="load_data_conditions('restaurants','category', '==', 'Entertainment')">
                             Entertainment
                         </label>
-
-                        <!-- DURATION -->
+                    </div>
+                </form>
+                <!-- <form class="mb-0" id="filter_form_duration">
+                    <div class="control">
+                        DURATION
                         <label class="label mt-5">Duration</label>
                         <label class="radio">
-                            <input type="radio" name="filter" value="Dairy" class="test_allergies"
-                                onclick="load_data_conditions('restaurants','best', '==', 'Dairy')">
+                            <input type="radio" name="filter" value="30" class="duration"
+                                onclick="load_data_conditions('restaurants','best', '==', '30')">
                             Under 30 min
                         </label> <br>
                         <label class="radio">
-                            <input type="radio" name="filter" value="Eggs" class="test_allergies"
-                                onclick="load_data_conditions('restaurants','best', '==', 'Eggs')">
+                            <input type="radio" name="filter" value="60" class="duration"
+                                onclick="load_data_conditions('restaurants','best', '==', '60')">
                             30 - 60 min
                         </label> <br>
                         <label class="radio">
-                            <input type="radio" name="filter" value="Nuts" class="test_allergies"
-                                onclick="load_data_conditions('restaurants','best', '==', 'Nuts')">
+                            <input type="radio" name="filter" value="120" class="duration"
+                                onclick="load_data_conditions('restaurants','best', '==', '120')">
                             60 - 120 min
                         </label> <br>
                         <label class="radio">
-                            <input type="radio" name="filter" value="Seafood" class="test_allergies"
-                                onclick="load_data_conditions('restaurants','best', '==', 'Seafood')">
+                            <input type="radio" name="filter" value="999" class="duration"
+                                onclick="load_data_conditions('restaurants','best', '==', '999')">
                             Over 120 min
                         </label>
-
+                    </div>
+                </form> -->
+                <form class="mb-0" id="filter_form_rates">
+                    <div class="control">
                         <!-- RATES $$$ -->
                         <label class="label mt-5">Rates</label>
                         <label class="radio">
-                            <input type="radio" name="filter" value="Halal" class="test_allergies"
-                                onclick="load_data_conditions('restaurants','best', '==', 'Halal')">
-                            Under $1 per min
+                            <input type="radio" name="filter" value="1" class="rates"
+                                onclick="load_data_conditions('restaurants','best', '==', '1')">
+                            Under $2 per min
                         </label>
                         <label class="radio">
-                            <input type="radio" name="filter" value="Kosher" class="test_allergies"
-                                onclick="load_data_conditions('restaurants','best', '==', 'Kosher')">
-                            $1 - $2 per min
+                            <input type="radio" name="filter" value="2" class="rates"
+                                onclick="load_data_conditions('restaurants','best', '==', '2')">
+                            $2 - $4 per min
                         </label>
                         <label class="radio">
-                            <input type="radio" name="filter" value="Vegan" class="test_allergies"
-                                onclick="load_data_conditions('restaurants','best', '==', 'Vegan')">
-                            $2 - $3 per min
+                            <input type="radio" name="filter" value="3" class="rates"
+                                onclick="load_data_conditions('restaurants','best', '==', '3')">
+                            $4 - $6 per min
                         </label>
                         <label class="radio">
-                            <input type="radio" name="filter" value="Vegetarian" class="test_allergies"
-                                onclick="load_data_conditions('restaurants','best', '==', 'Vegetarian')">
-                            Over $3 per min
+                            <input type="radio" name="filter" value="4" class="rates"
+                                onclick="load_data_conditions('restaurants','best', '==', '4')">
+                            Over $6 per min
                         </label>
-
+                    </div>
+                </form>
+                <form class="mb-0" id="filter_form_approval">
+                    <div class="control">
                         <!-- APPROVAL -->
                         <label class="label mt-5">Approval Required</label>
                         <label class="radio">
-                            <input type="radio" name="filter" value="Wheelchair" class="test_allergies"
-                                onclick="load_data_conditions('restaurants','best', '==', 'Wheelchair')">
+                            <input type="radio" name="filter" value="1" class="approval"
+                                onclick="load_data_conditions('restaurants','best', '==', '1')">
                             Yes
                         </label>
                         <label class="radio">
-                            <input type="radio" name="filter" value="Service Animal" class="test_allergies"
-                                onclick="load_data_conditions('restaurants','best', '==', 'Service Animal')">
+                            <input type="radio" name="filter" value="0" class="approval"
+                                onclick="load_data_conditions('restaurants','best', '==', '0')">
                             No
                         </label>
                     </div>
+                </form>
                     <!-- SUBMIT & RESET -->
                     <div class="field is-grouped">
                         <button class="button is-black has-text-weight-bold mt-4" id="search_button">Search</button>

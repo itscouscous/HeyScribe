@@ -26,6 +26,7 @@ let linkupdateprofile = document.querySelector("#link-update-profile")
 //Search Page
 let searchbar = document.querySelector("#search_bar"); //Search page will need more elements, still has some restaurant template IDs
 let searchbutton = document.querySelector("#search_button");
+let resetbutton = document.querySelector("#reset_button");
 let filterform = document.querySelector("#filter_form");
 let letsgo = document.querySelector("#lets-go");
 //Signup
@@ -483,7 +484,7 @@ load_jobs();
 // SEARCH
 function search_job() {
     let input = document.getElementById('search_bar').value
-    input=input.toLowerCase();
+    input = input.toLowerCase();
     let x = document.getElementsByClassName('jobs');
     let y = document.getElementsByClassName('cards');
       
@@ -495,30 +496,38 @@ function search_job() {
             y[i].style.display="list-item";                 
         }
     }
+    //*TODO
+
+    // if (docs.length == 0) {
+    //     restaurant_data.innerHTML = "Search yielded no results";
+    //     restaurantslength.innerHTML = 'No results';
+    // }
+
+    // if (docs.length == 1) {
+    //     restaurantslength.innerHTML = `${docs.length}` + ' result';
+
+    // }
+
+    // if (docs.length > 1) {
+    //     restaurantslength.innerHTML = `${docs.length}` + ' results';
+
+    // }
+
 }
 
 // FILTER
 
-const search_button = document.querySelector('#search_button');
-const reset_button = document.querySelector('#reset_button');
+const ages = [32, 33, 16, 40];
+const result = ages.filter(fallsWithin(32,33));
 
-function load_data_conditions(collection_name, field, operator, val) {
+function fallsWithin(age, min, max) {
+    return age >= min && age <= max;
+}
+console.log(result);
 
-    let query = db.collection(`${collection_name}`).where(field, operator, val);
+function load_data_conditions(field, operator, val) {
 
-    let test_allergies = document.querySelectorAll('.test_allergies');
-
-    var val2;
-
-    test_allergies.forEach(rad => {
-        if (rad.checked == true) {
-            // query = db.collection("restaurants").where("best", "==", rad.value).get().then(response => {
-            val2 = rad.value;
-            // })
-        }
-    })
-
-    query = db.collection("restaurants").where("best", "==", val);
+    let query = db.collection("jobs").where(field, operator, val);
 
     query.get().then((response) => {
         let docs = response.docs;
