@@ -2,7 +2,7 @@
 //Signedin/out exclusive
 let signedin = document.querySelectorAll(".signedin")
 let signedout = document.querySelectorAll(".signedout")
-//clients/scribes exclusive
+//clients/scribes exclusive (for links)
 let scribesonly = document.querySelectorAll(".scribesonly")
 //Page Declarations
 let mainpage = document.querySelector("#main-page"); //this is our "home page"

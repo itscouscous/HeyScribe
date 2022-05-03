@@ -36,7 +36,6 @@
             <!-- NAVBAR MENU -->
             <a class="navbar-item scribesonly" id="link-work">Find Work</a>
             <a class="navbar-item" id="link-about-us">About Us</a>
-            <a class="navbar-item signedin" id="link-update-profile">Update My Profile</a>
 
             <!-- BURGER -->
             <a class="navbar-burger burger" data-target="navbarMenu">
@@ -143,51 +142,149 @@
         </div>
     </div>
 
-    <!-- JOB INFO (*TO DO: create query selectors)-->
+    <!-- Job Info Modal (*TO DO: create query selectors)-->
     <div class="modal" id="modal-job-info">
         <div class="modal-background"></div>
         <div class="modal-card">
             <!-- HEADER -->
             <header class="modal-card-head has-background-black" id="modal_title">
-                <p class="modal-card-title has-text-white">My Dissertation</p>
-                <button class="delete" id="btn-restaurant-x" aria-label="close"
-                    onclick="modal_job_info.classList.remove('is-active')"></button>
+                <p class="modal-card-title has-text-white">Job Information</p>
+                <button class="delete" id="btn-restaurant-x" aria-label="close" onclick="modal_job_info.classList.remove('is-active')"></button>
             </header>
             <!-- CONTENT -->
             <section class="modal-card-body py-3 px-5">
                 <article class="media">
-                    <!-- pic -->
-                    <div class="media-left">
-                        <figure class="image">
-                            <img src="https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png" alt="Image">
-                        </figure>
-                    </div>
                     <!-- description -->
                     <div class="media-content">
                         <div class="content">
-                            <p>
-                                <strong>Samer</strong> <small>samer@wisc.edu</small> <br> <small>4/28/22</small>
+                            <!-- image -->
+                            <div class="image is-16by9 mb-2" style="padding: 20%; margin: 0% 10% 0% 10%;background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center;"></div>
+                            <!-- title and description -->
+                            <p class="mb-0">
+                                <strong>My Dissertation</strong> <small>samer@wisc.edu | 4/28/22</small>
                                 <br>
-                                <small>This is my Description. Lorem ipsum dolor sit down everyone.</small>
+                                <small>This is my Description.</small>
                             </p>
                             <div class="mb-2">
                                 <span class="tag is-rounded mt-2">Legal</span>
                                 <span class="tag is-rounded mt-2">8:53</span>
                                 <span class="tag is-rounded mt-2">$1.50/min</span>
+                                <span class="tag is-rounded mt-2 is-danger">Approval Required</span>
+                            </div>
+                        </div>
+                        <!-- IF USER = SCRIBE (REMOVE IS-HIDDEN) -->
+                        <div class="">
+
+                            <!-- ACCEPT/REQUEST BUTTON -->
+                            <a class="button is-primary" id="accept-or-request">
+                                <strong class="is-size-7">Accept/Request</strong>
+                            </a>
+
+                            <!-- TRANSCRIPT DOWNLOAD *TODO: ONLY IF JOB=ACCEPTEDBYUSER. CHANGE HREF TO PULL FROM FIREBASE DB-->
+                            <div class="box">
+                                <a href="/images/myw3schoolsimage.jpg" download>Download Audio</a>
+                            </div>
+                            <!-- TRANSCRIPT SUBMISSION FORM, *TODO: ONLY IF JOB=ACCEPTEDBYUSER. REMOVE IS-HIDDEN IF SCRIBE HAS ACCEPTED THE JOB -->
+                            <div class="box">
+                                <form action="">
+                                    <div class="file has-name is-small">
+                                        <label class="file-label">
+                                            <input class="file-input" type="file" name="resume">
+                                            <span class="file-cta">
+                                                <span class="file-icon">
+                                                    <i class="fas fa-upload"></i>
+                                                </span>
+                                                <span class="file-label">
+                                                    Attach completed transcript
+                                                </span>
+                                            </span>
+                                            <span class="file-name">
+                                                mydissertation_script.txt
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <!-- SUBMIT TRANSCRIPT -->
+                                    <a class="button is-primary mt-4" id="submit-transcript-btn">
+                                        <strong class="is-size-7">Submit Transcript</strong>
+                                    </a>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- IF USER = CLIENT (REMOVE IS-HIDDEN) -->
+                        <div class="">
+                            <!-- APPROVE REQUESTS *TODO: ONLY IF JOB=AVAILABLE & JOB.REQUESTS.LENGTH>0. CHANGE HREF TO SCRIBE INFO-->
+                            <div class="">
+                                <!-- form to approve scribe -->
+                                <form action="">
+                                    <div class="field">
+                                        <label class="label">Approve a scribe</label>
+                                        <div class="control">
+                                        <div class="select is-small">
+                                            <select id="scribe_list">
+                                                <!-- (when a scribe requests a job, their emails are pushed to that Job doc under Requests (array)) -->
+                                                <!-- *TODO: USE JS, PULL FROM FIREBASE -->
+                                            </select>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <!-- SUBMIT -->
+                                    <input class="button is-small is-primary" type="submit" value="Submit"
+                                    id="btn-approve-scribe"></input>
+                                </form>
+                                <!-- PROFILES OF ALL THE SCRIBES WHO SENT A REQUEST -->
+                                <div class="mt-2" id="scribe_bio">
+                                    <!-- *TODO: USE JS -->
+                                    <p>[Requests.length] Scribe Requests</p>
+                                    <div class="box mt-2">
+                                        <p class="mb-0">
+                                            <strong>Name</strong> <small>user@email.com</small><br>
+                                            <small>Average Rating: 4.20</small><br>
+                                            <small>This is my bio.</small>
+                                        </p>
+                                    </div>
+                                    <div class="box mt-2">
+                                        <p class="mb-0">
+                                            <strong>Name</strong> <small>user@email.com</small><br>
+                                            <small>Average Rating: 4.20</small><br>
+                                            <small>This is my bio.</small>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- IF JOB ACCEPTED/APPROVED, *TODO: ONLY IF JOB=INPROGRESS. REMOVE IS-HIDDEN IF SCRIBE HAS ACCEPTED THE JOB -->
+                            <div class="">
+                                <div class="box mt-2">
+                                    <a href="downloadlink">Download Completed Transcript</a>
+                                </div>
+                                <!-- Rating Form -->
+                                <div class="field">
+                                    <label class="label">How did they do?</label>
+                                    <div class="control">
+                                        <div class="select is-small">
+                                            <select id="rating">
+                                                <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
+                                                <option value="4">&#9733;&#9733;&#9733;&#9733;</option>
+                                                <option value="3">&#9733;&#9733;&#9733;</option>
+                                                <option value="2">&#9733;&#9733;</option>
+                                                <option value="1">&#9733;</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- SUBMIT -->
+                                    <input class="button is-small is-primary mt-2" type="submit" value="Submit"
+                                    id="btn-rate-submit"></input>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </article>
             </section>
             <footer class="modal-card-foot">
-                <a class="button is-primary" id="btn-sign-up">
-                    <strong class="is-size-7">Accept/Request</strong>
-                </a>
             </footer>
         </div>
     </div>
 
-    <!-- SCRIBE INFO (for when they accept/request a job from u)(*TO DO: create query selectors)-->
+    <!-- Scribe Info Modal (for when they accept/request a job from u)(*TO DO: create query selectors)-->
     <div class="modal" id="modal-job-info">
         <div class="modal-background"></div>
         <div class="modal-card">
@@ -1157,10 +1254,13 @@
     <section class="container is-hidden" style="margin: 5% 20%;" id="scribe-my-account">
         <!-- WELCOME BACK -->
         <div class="field is-grouped mb-0">
-            <div class="subtitle mb-0">Welcome back, <span id="sprofilename">Samer</span>!</div>
+            <div class="subtitle mb-0">Welcome back, <b><span id="sprofilename">Samer</span>!</b></div>
 
             <div style="margin-left: auto; height: 0px;"></div>
 
+            <button class="button is-black" id="link-update-profile">
+                <span>Update My Profile</span>
+            </button>
         </div>
 
         <!-- ACTIVE LISTINGS -->
