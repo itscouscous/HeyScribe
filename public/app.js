@@ -348,9 +348,8 @@ joblistingsubmitbtn.addEventListener('click', (e) => {
 //successful submission pop up close and return to home
 
 function successSub() {
-    success.reset;
-    success.classList.add('is-hidden');
-    shaydetest.classList.remove("is-hidden");
+    mainpage.classList.add("show");
+
 }
 
 
