@@ -70,6 +70,8 @@ let sprofilename = document.querySelector("#sprofilename")
 //Job Listing Page
 let joblistingsubmitbtn = document.querySelector("#joblistsubmitbtn");
 let shaydetest = document.querySelector("#shaydetest")
+let closesubmission = document.querySelector('closesubmission');
+
 
 //My Account (Scribe)
 
@@ -335,18 +337,35 @@ joblistingsubmitbtn.addEventListener('click', (e) => {
 
 
         })
+    //successful submission pop up
     shaydetest.classList.add("is-hidden");
-    success.classList.remove("is-hidden");
-    // mainpage.classList.remove("is-hidden");
-    //reset form when finished -- doesn't work
-    const form = document.getElementById('jobsubmissionform');
 
-    form.addEventListener('submit', function handleSubmit(event) {
-        event.preventDefault();
+    success.classList.remove('is-hidden');
 
-        form.reset();
-    });
-})
+
+});
+
+//successful submission pop up close and return to home
+
+function successSub() {
+    success.reset;
+    success.classList.add('is-hidden');
+    shaydetest.classList.remove("is-hidden");
+}
+
+
+// let closesubmission = document.querySelector('closesubmission');
+// closesubmission.addEventListener('click', (e) => {
+//             e.preventDefault();
+//             success.classList.add('is-hidden');
+//             shaydetest.classList.remove('is-hidden');
+//         },
+// success.classList.remove("is-hidden");
+// // mainpage.classList.remove("is-hidden");
+// //reset form when finished -- doesn't work
+// const form = document.getElementById('jobsubmissionform');
+
+
 
 //Loading Data
 //Load Data function
