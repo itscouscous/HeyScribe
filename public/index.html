@@ -1533,7 +1533,7 @@
                 <h1 class="title is-4 has-text-weight-bold">Filter</h1>
                 <!-- SEARCH BAR-  -->
                 <div class="control has-icons-left">
-                    <input class="input is-rounded" type="text" placeholder="Search jobs" id="search_bar">
+                    <input class="input is-rounded" type="text" placeholder="Search jobs" id="search_bar" onkeyup="search_job()" name="search">
                     <span class="icon is-medium is-left">
                         <i class="fa fa-search" aria-hidden="true"></i>
                     </span>
@@ -1550,69 +1550,69 @@
                     <div class="control">
                         <!-- INDUSTRY -->
                         <label class="label mt-5">Industry</label>
-                        <label class="checkbox">
-                            <input type="checkbox" name="filter" value="Dairy" class="test_allergies"
+                        <label class="radio">
+                            <input type="radio" name="filter" value="Dairy" class="test_allergies"
                                 onclick="load_data_conditions('restaurants','best', '==', 'Dairy')">
                             Legal
                         </label> <br>
-                        <label class="checkbox">
-                            <input type="checkbox" name="filter" value="Eggs" class="test_allergies"
+                        <label class="radio">
+                            <input type="radio" name="filter" value="Eggs" class="test_allergies"
                                 onclick="load_data_conditions('restaurants','best', '==', 'Eggs')">
                             Medical
                         </label> <br>
-                        <label class="checkbox">
-                            <input type="checkbox" name="filter" value="Nuts" class="test_allergies"
+                        <label class="radio">
+                            <input type="radio" name="filter" value="Nuts" class="test_allergies"
                                 onclick="load_data_conditions('restaurants','best', '==', 'Nuts')">
                             Educational
                         </label> <br>
-                        <label class="checkbox">
-                            <input type="checkbox" name="filter" value="Seafood" class="test_allergies"
+                        <label class="radio">
+                            <input type="radio" name="filter" value="Seafood" class="test_allergies"
                                 onclick="load_data_conditions('restaurants','best', '==', 'Seafood')">
                             Entertainment
                         </label>
 
                         <!-- DURATION -->
                         <label class="label mt-5">Duration</label>
-                        <label class="checkbox">
-                            <input type="checkbox" name="filter" value="Dairy" class="test_allergies"
+                        <label class="radio">
+                            <input type="radio" name="filter" value="Dairy" class="test_allergies"
                                 onclick="load_data_conditions('restaurants','best', '==', 'Dairy')">
                             Under 30 min
                         </label> <br>
-                        <label class="checkbox">
-                            <input type="checkbox" name="filter" value="Eggs" class="test_allergies"
+                        <label class="radio">
+                            <input type="radio" name="filter" value="Eggs" class="test_allergies"
                                 onclick="load_data_conditions('restaurants','best', '==', 'Eggs')">
                             30 - 60 min
                         </label> <br>
-                        <label class="checkbox">
-                            <input type="checkbox" name="filter" value="Nuts" class="test_allergies"
+                        <label class="radio">
+                            <input type="radio" name="filter" value="Nuts" class="test_allergies"
                                 onclick="load_data_conditions('restaurants','best', '==', 'Nuts')">
                             60 - 120 min
                         </label> <br>
-                        <label class="checkbox">
-                            <input type="checkbox" name="filter" value="Seafood" class="test_allergies"
+                        <label class="radio">
+                            <input type="radio" name="filter" value="Seafood" class="test_allergies"
                                 onclick="load_data_conditions('restaurants','best', '==', 'Seafood')">
                             Over 120 min
                         </label>
 
                         <!-- RATES $$$ -->
                         <label class="label mt-5">Rates</label>
-                        <label class="checkbox">
-                            <input type="checkbox" name="filter" value="Halal" class="test_allergies"
+                        <label class="radio">
+                            <input type="radio" name="filter" value="Halal" class="test_allergies"
                                 onclick="load_data_conditions('restaurants','best', '==', 'Halal')">
                             Under $1 per min
                         </label>
-                        <label class="checkbox">
-                            <input type="checkbox" name="filter" value="Kosher" class="test_allergies"
+                        <label class="radio">
+                            <input type="radio" name="filter" value="Kosher" class="test_allergies"
                                 onclick="load_data_conditions('restaurants','best', '==', 'Kosher')">
                             $1 - $2 per min
                         </label>
-                        <label class="checkbox">
-                            <input type="checkbox" name="filter" value="Vegan" class="test_allergies"
+                        <label class="radio">
+                            <input type="radio" name="filter" value="Vegan" class="test_allergies"
                                 onclick="load_data_conditions('restaurants','best', '==', 'Vegan')">
                             $2 - $3 per min
                         </label>
-                        <label class="checkbox">
-                            <input type="checkbox" name="filter" value="Vegetarian" class="test_allergies"
+                        <label class="radio">
+                            <input type="radio" name="filter" value="Vegetarian" class="test_allergies"
                                 onclick="load_data_conditions('restaurants','best', '==', 'Vegetarian')">
                             Over $3 per min
                         </label>
@@ -1650,7 +1650,7 @@
                 <!-- CARDS -->
                 <div class="columns is-multiline" id="jobs_data">
                     <!-- CARD SAMPLE -->
-                    <div class="column is-half">
+                    <div class="column is-half cards">
                         <article class="card is-shady">
                             <figure class="card-image"
                                 style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: 80%;">

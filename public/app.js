@@ -438,7 +438,7 @@ function load_jobs() {
                 // *TODO: If requires approval, remove is-hidden for approval tag
                 html +=
                 `
-                <div class="column is-half" id="${doc.id}" onclick="load_modal('${doc.id}')">
+                <div class="column is-half cards" id="${doc.id}" onclick="load_modal('${doc.id}')">
                     <article class="card is-shady">
                         <figure class="card-image"
                             style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: 80%;">
@@ -449,7 +449,7 @@ function load_jobs() {
                                 <span class="tag is-rounded mt-2">Due: ${doc.data().deadline}</span>
                                 <span class="tag is-rounded mt-2">${doc.data().payrate}</span>
                             </div>
-                            <p>${doc.data().title}</p>
+                            <p class="jobs">${doc.data().title}</p>
                             <p class="is-size-7">${doc.data().client_email}</p>
                             <a href="" class="has-text-primary is-size-7"> <u>Details</u></a>
                             <!-- APPROVAL REQUIRED *IF REQUIRED, DELETE IS-HIDDEN -->
@@ -480,87 +480,106 @@ function load_jobs() {
 load_jobs();
 
 
+// SEARCH
+function search_job() {
+    let input = document.getElementById('search_bar').value
+    input=input.toLowerCase();
+    let x = document.getElementsByClassName('jobs');
+    let y = document.getElementsByClassName('cards');
+      
+    for (i = 0; i < x.length; i++) { 
+        if (!x[i].innerHTML.toLowerCase().includes(input)) {
+            y[i].style.display="none";
+        }
+        else {
+            y[i].style.display="list-item";                 
+        }
+    }
+}
 
-// // FILTER
+// FILTER
 
-// function load_data_conditions(collection_name, field, operator, val) {
+const search_button = document.querySelector('#search_button');
+const reset_button = document.querySelector('#reset_button');
 
-//     let query = db.collection(`${collection_name}`).where(field, operator, val);
+function load_data_conditions(collection_name, field, operator, val) {
 
-//     let test_allergies = document.querySelectorAll('.test_allergies');
+    let query = db.collection(`${collection_name}`).where(field, operator, val);
 
-//     var val2;
+    let test_allergies = document.querySelectorAll('.test_allergies');
 
-//     test_allergies.forEach(rad => {
-//         if (rad.checked == true) {
-//             // query = db.collection("restaurants").where("best", "==", rad.value).get().then(response => {
-//             val2 = rad.value;
-//             // })
-//         }
-//     })
+    var val2;
 
-//     query = db.collection("restaurants").where("best", "==", val);
+    test_allergies.forEach(rad => {
+        if (rad.checked == true) {
+            // query = db.collection("restaurants").where("best", "==", rad.value).get().then(response => {
+            val2 = rad.value;
+            // })
+        }
+    })
 
-//     query.get().then((response) => {
-//         let docs = response.docs;
-//         let html = '';
+    query = db.collection("restaurants").where("best", "==", val);
 
-//         if (docs.length == 0) {
-//             restaurant_data.innerHTML = "Search yielded no results";
-//             restaurantslength.innerHTML = 'No results';
-//         }
+    query.get().then((response) => {
+        let docs = response.docs;
+        let html = '';
 
-//         if (docs.length == 1) {
-//             restaurantslength.innerHTML = `${docs.length}` + ' result';
+        if (docs.length == 0) {
+            restaurant_data.innerHTML = "Search yielded no results";
+            restaurantslength.innerHTML = 'No results';
+        }
 
-//         }
+        if (docs.length == 1) {
+            restaurantslength.innerHTML = `${docs.length}` + ' result';
 
-//         if (docs.length > 1) {
-//             restaurantslength.innerHTML = `${docs.length}` + ' results';
+        }
 
-//         }
+        if (docs.length > 1) {
+            restaurantslength.innerHTML = `${docs.length}` + ' results';
 
-//         docs.forEach(doc => {
-//             // console.log(doc.data().title, "=>", doc.data().description);
-//             let rating = '';
-//             for (let i = 0; i < doc.data().best_rating; i++) {
-//                 if(doc.data().best_rating-i < 1){
-//                     if(doc.data().best_rating-i >= 0.5){
-//                         rating += `<i class="fas fa-star-half has-text-warning"></i>`;
-//                     }
-//                 }else{
-//                     rating += `<i class="fas fa-star has-text-warning"></i>`;
-//                 }
-//             }
+        }
 
-//             html +=
-//                 `<div class="card large mb-4" id="${doc.id}" onclick="load_modal('${doc.id}')">
-//                 <!-- IMAGE -->
-//                 <div class="card-image">
-//                     <figure class="image is-16by9">
-//                     <img src="images/restaurant2.jpeg" alt="Restaurant" style="object-fit: cover;">
-//                     </figure>
-//                 </div>
-//                 <!-- CONTENT -->
-//                 <div class="card-content">
-//                     <div class="media">
-//                         <div class="content">
-//                             <h1 class="title has-text-weight-bold has-text-primary is-4 mb-1"
-//                             style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">${doc.data().name}</h1>
-//                             ${rating}
-//                             <p class="subtitle is-6 mt-1"><b>${doc.data().best}</b></p>
-//                             <p class="subtitle is-6 mb-0"><b>Address: </b>${doc.data().address}, Madison, WI 53703</p>
-//                             <p class="subtitle is-6 mb-0"><b>Hours: </b>8AM – 10PM</p>
-//                             <p class="subtitle is-6"><b>Phone: </b>${doc.data().phone}</p>
-//                         </div>
-//                     </div>
-//                 </div>
-//             </div>   
-//             `;
-//         })
-//         // append content to the content variable
-//         restaurant_data.innerHTML = html;
-//     })
-// }
+        docs.forEach(doc => {
+            // console.log(doc.data().title, "=>", doc.data().description);
+            let rating = '';
+            for (let i = 0; i < doc.data().best_rating; i++) {
+                if(doc.data().best_rating-i < 1){
+                    if(doc.data().best_rating-i >= 0.5){
+                        rating += `<i class="fas fa-star-half has-text-warning"></i>`;
+                    }
+                }else{
+                    rating += `<i class="fas fa-star has-text-warning"></i>`;
+                }
+            }
+
+            html +=
+                `<div class="card large mb-4" id="${doc.id}" onclick="load_modal('${doc.id}')">
+                <!-- IMAGE -->
+                <div class="card-image">
+                    <figure class="image is-16by9">
+                    <img src="images/restaurant2.jpeg" alt="Restaurant" style="object-fit: cover;">
+                    </figure>
+                </div>
+                <!-- CONTENT -->
+                <div class="card-content">
+                    <div class="media">
+                        <div class="content">
+                            <h1 class="title has-text-weight-bold has-text-primary is-4 mb-1"
+                            style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">${doc.data().name}</h1>
+                            ${rating}
+                            <p class="subtitle is-6 mt-1"><b>${doc.data().best}</b></p>
+                            <p class="subtitle is-6 mb-0"><b>Address: </b>${doc.data().address}, Madison, WI 53703</p>
+                            <p class="subtitle is-6 mb-0"><b>Hours: </b>8AM – 10PM</p>
+                            <p class="subtitle is-6"><b>Phone: </b>${doc.data().phone}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>   
+            `;
+        })
+        // append content to the content variable
+        restaurant_data.innerHTML = html;
+    })
+}
 
 
