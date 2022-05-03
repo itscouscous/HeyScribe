@@ -32,31 +32,62 @@
             <section class="modal-card-body py-3 px-5">
                 <article class="media">
                     <!-- pic -->
-                    <div class="media-left">
+                    <!-- <div class="media-left">
                         <figure class="image">
                             <img src="https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png" alt="Image">
                         </figure>
-                    </div>
+                    </div> -->
                     <!-- description -->
                     <div class="media-content">
                         <div class="content">
-                            <p>
+                            <!-- image -->
+                            <div class="image is-16by9 mb-2" style="padding: 20%; margin: 0% 10% 0% 10%;background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center;"></div>
+                            <!-- title and description -->
+                            <p class="mb-0">
                                 <strong>Samer</strong> <small>samer@wisc.edu</small> <br> <small>4/28/22</small>
                                 <br>
-                                <small>This is my Description. Lorem ipsum dolor sit down everyone.</small>
+                                <small>This is my Description.</small>
                             </p>
                             <div class="mb-2">
                                 <span class="tag is-rounded mt-2">Legal</span>
                                 <span class="tag is-rounded mt-2">8:53</span>
                                 <span class="tag is-rounded mt-2">$1.50/min</span>
+                                <span class="tag is-rounded mt-2 is-danger">Approval Required</span>
                             </div>
+                        </div>
+                        <!-- TRANSCRIPT DOWNLOAD *TODO: CHANGE HREF TO PULL FROM FIREBASE DB-->
+                        <a href="/images/myw3schoolsimage.jpg" download>Download Audio</a>
+                        <br>
+                        <br>
+                        <!-- TRANSCRIPT SUBMISSION, *TODO: REMOVE IS-HIDDEN IF SCRIBE HAS ACCEPTED THE JOB -->
+                        <div class="file has-name">
+                            <label class="file-label">
+                                <input class="file-input" type="file" name="resume">
+                                <span class="file-cta">
+                                    <span class="file-icon">
+                                        <i class="fas fa-upload"></i>
+                                    </span>
+                                    <span class="file-label">
+                                        Choose a file…
+                                    </span>
+                                </span>
+                                <span class="file-name">
+                                    Screen Shot 2017-07-29 at 15.54.25.png
+                                </span>
+                            </label>
                         </div>
                     </div>
                 </article>
             </section>
             <footer class="modal-card-foot">
+                <!-- ACCEPT/REQUEST BUTTON -->
                 <a class="button is-primary" id="btn-sign-up">
                     <strong class="is-size-7">Accept/Request</strong>
+                </a>
+                <!-- IF USER HAS ACCEPTED JOB, REMOVE IS-HIDDEN TO "SUBMIT TRANSCRIPT" AND ADD IS-HIDDEN TO "ACCEPT/REQUEST"-->
+                <!-- SUBMIT TRANSCRIPT -->
+                <a class="button is-primary" id="btn-sign-up">
+                    <strong class="is-size-7">Submit Transcript</strong>
                 </a>
             </footer>
         </div>
