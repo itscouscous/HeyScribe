@@ -293,7 +293,7 @@
             <div class="field">
                 <label class="label">Job Title</label>
                 <div class="control">
-                    <input class="input is-rounded" type="text" id="jobtitle" placeholder="Job Title">
+                    <input class="input is-rounded" type="text" required id="jobtitle" placeholder="Job Title">
                 </div>
             </div>
 
@@ -301,7 +301,8 @@
             <div class="field">
                 <label class="label">Description</label>
                 <div class="control">
-                    <textarea class="textarea is-rounded" id="jobdescription" rows="5" placeholder="Description">
+                    <textarea class="textarea is-rounded" required id="jobdescription" rows="5"
+                        placeholder="Description">
                     </textarea>
                 </div>
             </div>
@@ -328,8 +329,8 @@
             <div class="field">
                 <label class="label">Pay Rate</label>
                 <div class="control has-icons-left">
-                    <input class="input is-rounded" type="number" id="payrate" min="0.01" step="0.01" max="10000"
-                        placeholder="Dollars">
+                    <input class="input is-rounded" type="number" required id="payrate" min="0.01" step="0.01"
+                        max="10000" placeholder="Dollars">
                     <span class="icon is-small is-left">
                         <i class="fas fa-dollar-sign"></i>
                     </span>
@@ -346,7 +347,7 @@
             <!--Deadline-->
             <div class="field">
                 <label class="label">Deadline</label>
-                <input class="is-rounded" type="date" id="deadline">
+                <input class="is-rounded" type="date" required id="deadline">
             </div>
 
             <!--Upload Audio-->

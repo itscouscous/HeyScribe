@@ -287,73 +287,81 @@ update_submitbtn.addEventListener('click', () => {
 })
 
 //Saving Data
-    //Save data
-    function save_data(collection_name, obj) {
-        db.collection(`${collection_name}`).add(obj).then(() => {
-            console.log("job created");
-        })
-    }
+//Save data
+function save_data(collection_name, obj) {
+    db.collection(`${collection_name}`).add(obj).then(() => {
+        console.log("job created");
+    })
+}
 
-    // Submit job form to firebase
-    joblistingsubmitbtn.addEventListener('click', (e) => {
-        e.preventDefault();
-    
-        //Job content
-        let job_title = document.querySelector('#jobtitle').value;
-        let job_description = document.querySelector("#jobdescription").value;
-        let job_category = document.querySelector('#categoryselect').value;
-        //let job_criteria = document.querySelector('#jobcriteria').value; What is this for?
-        let job_payrate_number = document.querySelector('#payrate').value;
-        let job_payrate_increment = document.querySelector('#payrateselect').value;
-        let job_deadline = document.querySelector('#deadline').value;
-        let file = document.querySelector('#audioupload').files[0];
+// Submit job form to firebase
+joblistingsubmitbtn.addEventListener('click', (e) => {
+    e.preventDefault();
 
-        //let audio_duration = document.getElementById("#audioupload").duration;
-        let audio = new Date() + "_" + file.name;
+    //Job content
+    let job_title = document.querySelector('#jobtitle').value;
+    let job_description = document.querySelector("#jobdescription").value;
+    let job_category = document.querySelector('#categoryselect').value;
+    //let job_criteria = document.querySelector('#jobcriteria').value; What is this for?
+    let job_payrate_number = document.querySelector('#payrate').value;
+    let job_payrate_increment = document.querySelector('#payrateselect').value;
+    let job_deadline = document.querySelector('#deadline').value;
+    let file = document.querySelector('#audioupload').files[0];
 
-        const task = ref.child(audio).put(file);
+    //let audio_duration = document.getElementById("#audioupload").duration;
+    let audio = new Date() + "_" + file.name;
 
-        task
-            .then(snapshot => snapshot.ref.getDownloadURL())
-            .then(url => {
-                let job = {
-                    title: job_title,
-                    description: job_description,
-                    category: job_category,
-                    //criteria: job_criteria,
-                    payrate: "$" + job_payrate_number + " " + job_payrate_increment,
-                    deadline: job_deadline,
-                    client_email: auth.currentUser.email,
-                    post_time : + new Date(),
-                    //duration: audio_duration,
-                    audio: url
-                };
+    const task = ref.child(audio).put(file);
+
+    task
+        .then(snapshot => snapshot.ref.getDownloadURL())
+        .then(url => {
+            let job = {
+                title: job_title,
+                description: job_description,
+                category: job_category,
+                //criteria: job_criteria,
+                payrate: "$" + job_payrate_number + " " + job_payrate_increment,
+                deadline: job_deadline,
+                client_email: auth.currentUser.email,
+                post_time: +new Date(),
+                //duration: audio_duration,
+                audio: url
+            };
 
             console.log(job);
-    
+
             save_data('jobs', job);
 
 
-        }) 
-        shaydetest.classList.add("is-hidden");
-        mainpage.classList.remove("is-hidden");
-    })
+        })
+    shaydetest.classList.add("is-hidden");
+    mainpage.classList.remove("is-hidden");
+
+    const form = document.getElementById('jobsubmissionform');
+
+    form.addEventListener('submit', function handleSubmit(event) {
+        event.preventDefault();
+
+        form.reset();
+    });
+})
 
 //Loading Data
-    //Load Data function
-        function load_data(collection_name, contentid) {
-            db.collection(`${collection_name}`).orderBy("post_time", "desc").limit(100).get().then((response) => {
-            let docs = response.docs;
-            let html = '';
-        
-            if (docs.length == 0) {
-                contentid.innerHTML = "No data available";
-                return;
-            }
-        
-            docs.forEach(
-                doc => {
-        
+//Load Data function
+function load_data(collection_name, contentid) {
+    db.collection(`${collection_name}`).orderBy("post_time", "desc").limit(100).get().then((response) => {
+        let docs = response.docs;
+        let html = '';
+
+        if (docs.length == 0) {
+            contentid.innerHTML = "No data available";
+            return;
+        }
+
+        docs.forEach(
+            doc => {
+
                 html += `
                 <div class="my-2">
                     <span class="tag is-rounded">${doc.data().category}</span>
@@ -370,10 +378,10 @@ update_submitbtn.addEventListener('click', () => {
                 `;
                 console.log(doc.data().audio)
             })
-            //append content to the content variable
-            contentid.innerHTML = html;
-            })
-        }
+        //append content to the content variable
+        contentid.innerHTML = html;
+    })
+}
 
-    //Load data into urgent requests element (1)
-        load_data("jobs", stalecontent1)
+//Load data into urgent requests element (1)
+load_data("jobs", stalecontent1)
