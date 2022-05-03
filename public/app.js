@@ -70,11 +70,8 @@ let sprofilename = document.querySelector("#sprofilename")
 //Job Listing Page
 let joblistingsubmitbtn = document.querySelector("#joblistsubmitbtn");
 let shaydetest = document.querySelector("#shaydetest")
-<<<<<<< Updated upstream
 let closesubmission = document.querySelector('#closesubmission');
 
-=======
->>>>>>> Stashed changes
 
 //My Account (Scribe)
 
@@ -341,7 +338,6 @@ update_submitbtn.addEventListener('click', () => {
             save_data('jobs', job);
 
 
-<<<<<<< Updated upstream
         })
     //successful submission pop up
     shaydetest.classList.add("is-hidden");
@@ -371,12 +367,6 @@ function successSub() {
 // const form = document.getElementById('jobsubmissionform');
 
 
-=======
-        }) 
-        shaydetest.classList.add("is-hidden");
-        mainpage.classList.remove("is-hidden");
-    })
->>>>>>> Stashed changes
 
 //Loading Data
     //Load Data function
