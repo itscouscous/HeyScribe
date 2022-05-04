@@ -113,6 +113,9 @@ navigate(linksignup, signup)
 
 navigate(closesubmission, mainpage)
 
+// Click Sign Out brings you back to mainpage
+navigate(btnlogout, mainpage)
+
 
 //Signup Functionality
 signupform.addEventListener('submit', (e) => {
@@ -207,7 +210,7 @@ function isSignedIn() {
 // Auth state change functionality
 auth.onAuthStateChanged((user) => {
     if (user) { //if signed in
-        isSignedIn()
+        isSignedIn();
     } else { //if signed out
         //hide signedin content
         signedin.forEach(i => {
