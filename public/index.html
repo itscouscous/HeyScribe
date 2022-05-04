@@ -71,6 +71,9 @@
         </div>
     </div>
 
+    <!-- MESSAGE BAR -->
+    <h1 class="has-background-black has-text-white is-italic has-text-centered p-2 is-hidden" id="message_bar"></h1>
+
 
     <!-- Update Profile Modal -->
     <div class="modal" id="update-modal">
@@ -359,17 +362,10 @@
                 <label class="label">Pay Rate</label>
                 <div class="control has-icons-left">
                     <input class="input is-rounded" type="number" id="payrate" min="0.01" step="0.01" max="10000"
-                        placeholder="Dollars">
+                        placeholder="per minute">
                     <span class="icon is-small is-left">
                         <i class="fas fa-dollar-sign"></i>
                     </span>
-                    <div class="select">
-                        <select id="payrateselect">
-                            <option value="Per Minute">Per Minute</option>
-                            <option value="Per Hour">Per Hour</option>
-                            <option value="Per Word">Per Word</option>
-                        </select>
-                    </div>
                 </div>
             </div>
 
@@ -1511,7 +1507,7 @@
                 <!-- RADIO -->
                 <form class="mb-0" id="filter_form_industry">
                     <div class="control">
-                        <!-- INDUSTRY -->
+                        <!-- CATEGORY -->
                         <label class="label mt-5">Category</label>
                         <label class="radio">
                             <input type="radio" name="filter" value="Legal" class="category"
@@ -1532,6 +1528,11 @@
                             <input type="radio" name="filter" value="Entertainment" class="category"
                                 onclick="load_data_conditions('restaurants','category', '==', 'Entertainment')">
                             Entertainment
+                        </label> <br>
+                        <label class="radio">
+                            <input type="radio" name="filter" value="Other" class="category"
+                                onclick="load_data_conditions('restaurants','category', '==', 'Entertainment')">
+                            Other
                         </label>
                     </div>
                 </form>
@@ -1569,17 +1570,17 @@
                             <input type="radio" name="filter" value="1" class="rates"
                                 onclick="load_data_conditions('restaurants','best', '==', '1')">
                             Under $2 per min
-                        </label>
+                        </label> <br>
                         <label class="radio">
                             <input type="radio" name="filter" value="2" class="rates"
                                 onclick="load_data_conditions('restaurants','best', '==', '2')">
                             $2 - $4 per min
-                        </label>
+                        </label> <br>
                         <label class="radio">
                             <input type="radio" name="filter" value="3" class="rates"
                                 onclick="load_data_conditions('restaurants','best', '==', '3')">
                             $4 - $6 per min
-                        </label>
+                        </label> <br>
                         <label class="radio">
                             <input type="radio" name="filter" value="4" class="rates"
                                 onclick="load_data_conditions('restaurants','best', '==', '4')">

@@ -118,6 +118,26 @@ navigate(btnlogout, mainpage)
 
 navigate(listajob, shaydetest)
 
+navigate(joblistingsubmitbtn, myaccountclient);
+
+// CONFIGURE MSG BAR
+function configure_message_bar(msg) {
+    // make the message bar visible
+    document.querySelector('#message_bar').classList.remove('is-hidden');
+    // set the content of the message bar
+    document.querySelector('#message_bar').innerHTML = msg;
+
+    // hide the message bar after 2 seconds
+
+    setTimeout(() => {
+        document.querySelector('#message_bar').classList.add('is-hidden');
+        // clear the message bar
+        document.querySelector('#message_bar').innerHTML = "";
+
+    }, 2000)
+}
+
+
 //Signup Functionality
 signupform.addEventListener('submit', (e) => {
     //prevent auto refresh on the page
@@ -313,7 +333,6 @@ joblistingsubmitbtn.addEventListener('click', (e) => {
     let job_category = document.querySelector('#categoryselect').value;
     //let job_criteria = document.querySelector('#jobcriteria').value; What is this for?
     let job_payrate_number = document.querySelector('#payrate').value;
-    let job_payrate_increment = document.querySelector('#payrateselect').value;
     let job_deadline = document.querySelector('#deadline').value;
     let file = document.querySelector('#audioupload').files[0];
 
@@ -330,12 +349,13 @@ joblistingsubmitbtn.addEventListener('click', (e) => {
                 description: job_description,
                 category: job_category,
                 //criteria: job_criteria,
-                payrate: "$" + job_payrate_number + " " + job_payrate_increment,
+                payrate: job_payrate_number,
                 deadline: job_deadline,
                 client_email: auth.currentUser.email,
                 post_time: +new Date(),
                 //duration: audio_duration,
-                audio: url
+                audio: url,
+                status: 'available'
             };
 
             console.log(job);
@@ -344,20 +364,14 @@ joblistingsubmitbtn.addEventListener('click', (e) => {
 
 
         })
+    console.log("job listed")
     //successful submission pop up
-    shaydetest.classList.add("is-hidden");
+    configure_message_bar('Job successfully listed!');
 
-    success.classList.remove('is-hidden');
-
+    // *TODO: LOAD MYACCOUNT PAGE TO UPDATE JOBS LISTED
 
 });
 
-//successful submission pop up close and return to home
-
-function successSub() {
-    success.classList.add('is-hidden');
-
-}
 
 
 // let closesubmission = document.querySelector('closesubmission');
@@ -427,7 +441,7 @@ function load_jobs() {
         // console.log("loading jobs");
         if (docs.length == 0) {
             jobs_data.innerHTML = "Search yielded no results";
-            jobslength.innerHTML = 'No results';
+            jobslength.innerHTML = 'No';
         }
 
         if (docs.length > 1) {
@@ -505,68 +519,75 @@ function search_job() {
 
 // FILTER
 
-function load_data_conditions(field, operator, val) {
+// function filterjob(field, operator, val) {
 
-    let query = db.collection("jobs").where(field, operator, val);
+//     let alljobs = db.collection("jobs")
+    
+//     // if filtering by category
+//     if (field=='Category'){
+//         alljobs.filter(job => {
+//             return job.category == field && job.name == 'Carl';
+//         });
+//     }
+// }
 
-    query.get().then((response) => {
-        let docs = response.docs;
-        let html = '';
+// function load_data_conditions(field, operator, val) {
 
-        if (docs.length == 0) {
-            restaurant_data.innerHTML = "Search yielded no results";
-            restaurantslength.innerHTML = 'No results';
-        }
+//     // let query = db.collection("jobs").where(field, operator, val);
+    
+//     let alljobs = db.collection("jobs")
+    
+//     // if filtering by category
+//     if (field=='Category'){
+//         alljobs.filter(job => {
+//             return job.category == field && job.name == 'Carl';
+//         });
+//     }
+    
 
-        if (docs.length == 1) {
-            restaurantslength.innerHTML = `${docs.length}` + ' result';
+//     query.get().then((response) => {
+//         let docs = response.docs;
+//         let html = '';
 
-        }
+//         docs.forEach(doc => {
+//             // console.log(doc.data().title, "=>", doc.data().description);
+//             let rating = '';
+//             for (let i = 0; i < doc.data().best_rating; i++) {
+//                 if (doc.data().best_rating - i < 1) {
+//                     if (doc.data().best_rating - i >= 0.5) {
+//                         rating += `<i class="fas fa-star-half has-text-warning"></i>`;
+//                     }
+//                 } else {
+//                     rating += `<i class="fas fa-star has-text-warning"></i>`;
+//                 }
+//             }
 
-        if (docs.length > 1) {
-            restaurantslength.innerHTML = `${docs.length}` + ' results';
-
-        }
-
-        docs.forEach(doc => {
-            // console.log(doc.data().title, "=>", doc.data().description);
-            let rating = '';
-            for (let i = 0; i < doc.data().best_rating; i++) {
-                if (doc.data().best_rating - i < 1) {
-                    if (doc.data().best_rating - i >= 0.5) {
-                        rating += `<i class="fas fa-star-half has-text-warning"></i>`;
-                    }
-                } else {
-                    rating += `<i class="fas fa-star has-text-warning"></i>`;
-                }
-            }
-
-            html +=
-                `<div class="card large mb-4" id="${doc.id}" onclick="load_modal('${doc.id}')">
-                <!-- IMAGE -->
-                <div class="card-image">
-                    <figure class="image is-16by9">
-                    <img src="images/restaurant2.jpeg" alt="Restaurant" style="object-fit: cover;">
-                    </figure>
-                </div>
-                <!-- CONTENT -->
-                <div class="card-content">
-                    <div class="media">
-                        <div class="content">
-                            <h1 class="title has-text-weight-bold has-text-primary is-4 mb-1"
-                            style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">${doc.data().name}</h1>
-                            ${rating}
-                            <p class="subtitle is-6 mt-1"><b>${doc.data().best}</b></p>
-                            <p class="subtitle is-6 mb-0"><b>Address: </b>${doc.data().address}, Madison, WI 53703</p>
-                            <p class="subtitle is-6 mb-0"><b>Hours: </b>8AM – 10PM</p>
-                            <p class="subtitle is-6"><b>Phone: </b>${doc.data().phone}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>   
-            `;
-        })
-        // append content to the content variable
-        restaurant_data.innerHTML = html;
-    })
-}
+//             html +=
+//                 `<div class="card large mb-4" id="${doc.id}" onclick="load_modal('${doc.id}')">
+//                 <!-- IMAGE -->
+//                 <div class="card-image">
+//                     <figure class="image is-16by9">
+//                     <img src="images/restaurant2.jpeg" alt="Restaurant" style="object-fit: cover;">
+//                     </figure>
+//                 </div>
+//                 <!-- CONTENT -->
+//                 <div class="card-content">
+//                     <div class="media">
+//                         <div class="content">
+//                             <h1 class="title has-text-weight-bold has-text-primary is-4 mb-1"
+//                             style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">${doc.data().name}</h1>
+//                             ${rating}
+//                             <p class="subtitle is-6 mt-1"><b>${doc.data().best}</b></p>
+//                             <p class="subtitle is-6 mb-0"><b>Address: </b>${doc.data().address}, Madison, WI 53703</p>
+//                             <p class="subtitle is-6 mb-0"><b>Hours: </b>8AM – 10PM</p>
+//                             <p class="subtitle is-6"><b>Phone: </b>${doc.data().phone}</p>
+//                         </div>
+//                     </div>
+//                 </div>
+//             </div>   
+//             `;
+//         })
+//         // append content to the content variable
+//         restaurant_data.innerHTML = html;
+//     })
+// }
