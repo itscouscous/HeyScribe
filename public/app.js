@@ -99,7 +99,7 @@ function navigate(button, destination) {
 navigate(logo, mainpage)
 
 //Click "Let's Go"
-navigate(letsgo, shaydetest)
+navigate(letsgo, signup)
 
 //Click "Find Work"
 navigate(linkwork, searchpage)
