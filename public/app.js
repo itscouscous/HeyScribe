@@ -487,30 +487,19 @@ function search_job() {
     input = input.toLowerCase();
     let x = document.getElementsByClassName('jobs');
     let y = document.getElementsByClassName('cards');
+    let results = 0;
 
     for (i = 0; i < x.length; i++) {
         if (!x[i].innerHTML.toLowerCase().includes(input)) {
             y[i].style.display = "none";
         } else {
-            y[i].style.display = "list-item";
+            y[i].style.display = "flex";
+            results += 1;
+            
         }
     }
-    //*TODO
-
-    // if (docs.length == 0) {
-    //     restaurant_data.innerHTML = "Search yielded no results";
-    //     restaurantslength.innerHTML = 'No results';
-    // }
-
-    // if (docs.length == 1) {
-    //     restaurantslength.innerHTML = `${docs.length}` + ' result';
-
-    // }
-
-    // if (docs.length > 1) {
-    //     restaurantslength.innerHTML = `${docs.length}` + ' results';
-
-    // }
+    // console.log(results);
+    jobslength.innerHTML = results;
 
 }
 
