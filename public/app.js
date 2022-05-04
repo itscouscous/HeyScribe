@@ -459,9 +459,6 @@ function load_jobs() {
                             <!-- APPROVAL REQUIRED *IF REQUIRED, DELETE IS-HIDDEN -->
                             <br><span class="tag is-rounded is-danger mt-2 is-hidden">Approval
                                 Required</span><br>
-                            <a class="button is-primary mt-2" id="btn-sign-up">
-                                <strong class="is-size-7">Accept/Request</strong>
-                            </a>
                         </div>
                     </article>
                 </div>
@@ -518,14 +515,6 @@ function search_job() {
 }
 
 // FILTER
-
-const ages = [32, 33, 16, 40];
-const result = ages.filter(fallsWithin(32, 33));
-
-function fallsWithin(age, min, max) {
-    return age >= min && age <= max;
-}
-console.log(result);
 
 function load_data_conditions(field, operator, val) {
 
