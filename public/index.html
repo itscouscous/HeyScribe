@@ -355,7 +355,7 @@
             [status: available, wip, completed]
             [if accepted: scribe email]
     -->
-    <div id="shaydetest" class="is-hidden m-6 p-6">
+    <div id="shaydetest" class="is-hidden" style="margin: 5% 20%;">
         <!-- Job Submission Form -->
         <form id="jobsubmissionform">
 
@@ -393,6 +393,21 @@
             </div>
 
             <!--Criteria (May add later, skipping for now)-->
+
+            <!-- Approval Required? *TODO Config JS-->
+            <div class="field">
+                <label class="label">Approval Required?</label>
+                <div class="control">
+                    <label class="radio">
+                        <input type="radio" name="answer">
+                        Yes
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="answer">
+                        No
+                    </label>
+                </div>
+            </div>
 
             <!--Pay Rate-->
             <div class="field">
@@ -985,11 +1000,11 @@
     <section class="container is-hidden" style="margin: 5% 20%;" id="client-my-account">
         <!-- WELCOME BACK -->
         <div class="field is-grouped mb-0">
-            <div class="subtitle mb-0">Welcome back, <span id="cprofilename">Samer</span>!</div>
+            <div class="subtitle mb-0">Welcome back, <b><span id="cprofilename">Samer</span>!</b></div>
 
             <div style="margin-left: auto; height: 0px;"></div>
 
-            <button class="button is-black" data-modal="modalOne">
+            <button class="button is-black" id="listajob">
                 <span class="icon is-small">
                     <i class="fas fa-plus"></i>
                 </span>

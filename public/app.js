@@ -58,7 +58,7 @@ let update_submitbtn = document.querySelector("#update_submitbtn")
 //Account Type
 let accounttypeform = document.querySelector("#accounttype_form");
 //My Account (Client)
-let modalone = document.querySelector("#modalOne");
+let listajob = document.querySelector('#listajob');
 let legal = document.querySelector("#legal");
 let entertainment = document.querySelector("#entertainment");
 let education = document.querySelector("#education");
@@ -116,6 +116,7 @@ navigate(closesubmission, mainpage)
 // Click Sign Out brings you back to mainpage
 navigate(btnlogout, mainpage)
 
+navigate(listajob, shaydetest)
 
 //Signup Functionality
 signupform.addEventListener('submit', (e) => {
@@ -270,7 +271,7 @@ btnlogout.addEventListener('click', (e) => {
 })
 
 //update profile info
-//TODO: this doesn't work
+//*TODO: this doesn't work
 linkupdateprofile.addEventListener('click', () => {
     updatemodal.classList.add('is-active');
 });
