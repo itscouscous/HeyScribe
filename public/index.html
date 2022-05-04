@@ -342,18 +342,16 @@
 
             <!--Criteria (May add later, skipping for now)-->
 
-            <!-- Approval Required? *TODO Config JS-->
+            <!-- Approval Required?-->
             <div class="field">
-                <label class="label">Approval Required?</label>
+                <label class="label">Require Approval?</label>
                 <div class="control">
-                    <label class="radio">
-                        <input type="radio" name="answer">
-                        Yes
-                    </label>
-                    <label class="radio">
-                        <input type="radio" name="answer">
-                        No
-                    </label>
+                    <div class="select">
+                        <select id="approvalselect">
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
                 </div>
             </div>
 

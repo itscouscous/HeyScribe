@@ -332,6 +332,7 @@ joblistingsubmitbtn.addEventListener('click', (e) => {
     let job_description = document.querySelector("#jobdescription").value;
     let job_category = document.querySelector('#categoryselect').value;
     //let job_criteria = document.querySelector('#jobcriteria').value; What is this for?
+    let approval_req = document.querySelector('#approvalselect').value;
     let job_payrate_number = document.querySelector('#payrate').value;
     let job_deadline = document.querySelector('#deadline').value;
     let file = document.querySelector('#audioupload').files[0];
@@ -349,6 +350,7 @@ joblistingsubmitbtn.addEventListener('click', (e) => {
                 description: job_description,
                 category: job_category,
                 //criteria: job_criteria,
+                approval: approval_req,
                 payrate: job_payrate_number,
                 deadline: job_deadline,
                 client_email: auth.currentUser.email,
@@ -361,8 +363,6 @@ joblistingsubmitbtn.addEventListener('click', (e) => {
             console.log(job);
 
             save_data('jobs', job);
-
-
         })
     console.log("job listed")
     //successful submission pop up
@@ -454,8 +454,11 @@ function load_jobs() {
 
                 // restaurantslength.innerHTML = `${load_data_conditions('restaurants', 'name', '==', 'Mediterranean Cafe').length}` + "Results";
                 // *TODO: If requires approval, remove is-hidden for approval tag
+
+                // if (${doc.data().client_email}==)**APPROVAL
+
                 html +=
-                    `
+                `
                 <div class="column is-half cards" id="${doc.id}" onclick="load_modal('${doc.id}')">
                     <article class="card is-shady">
                         <figure class="card-image"
@@ -464,13 +467,12 @@ function load_jobs() {
                         <div class="card-content pt-0 px-3">
                             <div class="mb-2">
                                 <span class="tag is-rounded mt-2">${doc.data().category}</span>
-                                <span class="tag is-rounded mt-2">Due: ${doc.data().deadline}</span>
-                                <span class="tag is-rounded mt-2">${doc.data().payrate}</span>
+                                <span class="tag is-rounded mt-2">$${doc.data().payrate}/min</span>
+                                <span class="tag is-rounded mt-2">Due ${doc.data().deadline}</span>
                             </div>
                             <p class="jobs">${doc.data().title}</p>
                             <p class="is-size-7">${doc.data().client_email}</p>
                             <a href="" class="has-text-primary is-size-7"> <u>Details</u></a>
-                            <!-- APPROVAL REQUIRED *IF REQUIRED, DELETE IS-HIDDEN -->
                             <br><span class="tag is-rounded is-danger mt-2 is-hidden">Approval
                                 Required</span><br>
                         </div>
