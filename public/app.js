@@ -451,45 +451,61 @@ function load_jobs() {
 
         docs.forEach(doc => {
             if (docs.length != 0) {
-
-                // restaurantslength.innerHTML = `${load_data_conditions('restaurants', 'name', '==', 'Mediterranean Cafe').length}` + "Results";
-                // *TODO: If requires approval, remove is-hidden for approval tag
-
-                // if (${doc.data().client_email}==)**APPROVAL
-
-                html +=
-                `
-                <div class="column is-half cards" id="${doc.id}" onclick="load_modal('${doc.id}')">
-                    <article class="card is-shady">
-                        <figure class="card-image"
-                            style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: 80%;">
-                        </figure>
-                        <div class="card-content pt-0 px-3">
-                            <div class="mb-2">
-                                <span class="tag is-rounded mt-2">${doc.data().category}</span>
-                                <span class="tag is-rounded mt-2">$${doc.data().payrate}/min</span>
-                                <span class="tag is-rounded mt-2">Due ${doc.data().deadline}</span>
+                if (doc.data().approval=='1'){
+                    html +=
+                    `
+                    <div class="column is-half cards" id="${doc.id}" onclick="load_modal('${doc.id}')">
+                        <article class="card is-shady">
+                            <figure class="card-image"
+                                style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: 80%;">
+                            </figure>
+                            <div class="card-content pt-0 px-3">
+                                <div class="mb-2">
+                                    <span class="tag is-rounded mt-2">${doc.data().category}</span>
+                                    <span class="tag is-rounded mt-2">$${doc.data().payrate}/min</span>
+                                    <span class="tag is-rounded mt-2">Due ${doc.data().deadline}</span>
+                                </div>
+                                <p class="jobs">${doc.data().title}</p>
+                                <p class="is-size-7">${doc.data().client_email}</p>
+                                <a href="" class="has-text-primary is-size-7"> <u>Details</u></a>
+                                <br><span class="tag is-rounded is-danger mt-2">Approval
+                                    Required</span><br>
                             </div>
-                            <p class="jobs">${doc.data().title}</p>
-                            <p class="is-size-7">${doc.data().client_email}</p>
-                            <a href="" class="has-text-primary is-size-7"> <u>Details</u></a>
-                            <br><span class="tag is-rounded is-danger mt-2 is-hidden">Approval
-                                Required</span><br>
-                        </div>
-                    </article>
-                </div>
-                `
+                        </article>
+                    </div>
+                    `
+                }else{
+                    html +=
+                    `
+                    <div class="column is-half cards" id="${doc.id}" onclick="load_modal('${doc.id}')">
+                        <article class="card is-shady">
+                            <figure class="card-image"
+                                style="height: 100px; background-image: url(https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png); background-position: center; background-size: 80%;">
+                            </figure>
+                            <div class="card-content pt-0 px-3">
+                                <div class="mb-2">
+                                    <span class="tag is-rounded mt-2">${doc.data().category}</span>
+                                    <span class="tag is-rounded mt-2">$${doc.data().payrate}/min</span>
+                                    <span class="tag is-rounded mt-2">Due ${doc.data().deadline}</span>
+                                </div>
+                                <p class="jobs">${doc.data().title}</p>
+                                <p class="is-size-7">${doc.data().client_email}</p>
+                                <a href="" class="has-text-primary is-size-7"> <u>Details</u></a>
+                                <br><span class="tag is-rounded is-danger mt-2 is-hidden">Approval
+                                    Required</span><br>
+                            </div>
+                        </article>
+                    </div>
+                    `
+                }
             } else {
                 html =
                     `<div class="has-text-centered has-text-weight-bold has-text-grey-light my-6 signedincontent">
                 <i class="fas fa-seedling is-size-4 mr-2"></i>
                 <p>No jobs currently available!</p>
                 </div>`;
-
             }
         })
-
-
         // append content to the content variable
         jobs_data.innerHTML = html;
     })
