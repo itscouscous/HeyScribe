@@ -515,6 +515,8 @@ load_jobs();
 
 // SEARCH
 function search_job() {
+    filter_form_industry.reset();
+    filter_form_rates.reset();
     let input = document.getElementById('search_bar').value
     input = input.toLowerCase();
     let x = document.getElementsByClassName('job_title');
