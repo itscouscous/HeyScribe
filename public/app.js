@@ -75,6 +75,13 @@ let shaydetest = document.querySelector("#shaydetest")
 let closesubmission = document.querySelector('#closesubmission');
 //Job Info Modal
 let modaljobinfo = document.querySelector("#modal-job-info");
+let modaltitle = document.querySelector(".modaltitle");
+let modalposter = document.querySelector(".modalposter");
+let modalcategory = document.querySelector(".modalcategory");
+let modalrate = document.querySelector(".modalrate");
+let modaldeadline = document.querySelector(".modaldeadline");
+let modalapproval = document.querySelector(".modalapproval");
+let modaldescription = document.querySelector(".modaldescription");
 
 //My Account (Scribe)
 
@@ -635,168 +642,174 @@ function reset_filter() {
 
 function load_modal(jobid) {
     // saves ratings like [4,5,5]
-    let ratings_dairy = [];
-    let ratings_eggs = [];
-    let ratings_nuts = [];
-    let ratings_seafood = [];
-    let ratings_halal = [];
-    let ratings_kosher = [];
-    let ratings_vegan = [];
-    let ratings_vegetarian = [];
-    let ratings_wheelchair = [];
-    let ratings_animal = [];
-    let needs = ["Dairy", "Eggs", "Nuts", "Seafood", "Halal", "Kosher", "Vegan", "Vegetarian", "Wheelchair", "Service Animal"]
+    // let ratings_dairy = [];
+    // let ratings_eggs = [];
+    // let ratings_nuts = [];
+    // let ratings_seafood = [];
+    // let ratings_halal = [];
+    // let ratings_kosher = [];
+    // let ratings_vegan = [];
+    // let ratings_vegetarian = [];
+    // let ratings_wheelchair = [];
+    // let ratings_animal = [];
+    // let needs = ["Dairy", "Eggs", "Nuts", "Seafood", "Halal", "Kosher", "Vegan", "Vegetarian", "Wheelchair", "Service Animal"]
 
-    let largest = 0;
-    let largest_index = 0;
+    // let largest = 0;
+    // let largest_index = 0;
     // alert('outside the nested db' + restaurantid);
 
-    db.collection("restaurants").get().then((response) => {
+    db.collection("jobs").get().then((response) => {
         let docs = response.docs;
         docs.forEach(doc => {
-            if (doc.id == restaurantid) {
-                // change modal title
-                modal_title.innerHTML = `
-                <div style="margin: 3% 1% 0% 1%">
-                    <h1 class="title has-text-weight-bold has-text-white is-4 mb-1"
-                    style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">${doc.data().name}</h1>
-                </div>
-                <button class="delete mb-auto ml-auto" id="btn-restaurant-x" aria-label="close" onclick="modal_restaurant.classList.remove('is-active')"></button>
-                `;
+            if (doc.id == jobid) {
+                
+                // change job details
+                modaltitle.innerHTML = `${doc.data().title}`;
+                modalposter.innerHTML = `${doc.data().client_email}`;
+                modalcategory.innerHTML = `${doc.data().category}`;
+                modalrate.innerHTML = `${doc.data().payrate}`;
+                modaldeadline.innerHTML = `Due ${doc.data().deadline}`;
+                modaldescription.innerHTML = `${doc.data().description}`;
 
+                // if approval==1, remove is-hidden
+                // if approval==0, ensure is-hidden
+                modalapproval.innerHTML = `${doc.data().approval}`;
 
+                // LOAD LOWER CONTENT BASED ON JOB STATUS & USERTYPE
 
                 // load reviews
-                db.collection("reviews").get().then((response) => {
-                    let docs = response.docs;
-                    let html = '';
-                    docs.forEach(doc => {
-                        // alert(typeof(doc.data().restaurant) + " <=> "+ typeof(restaurantid));
-                        if (doc.data().restaurant === restaurantid) {
-                            // alert('hello');
-                            // console.log(doc.data().needs);
+                // db.collection("reviews").get().then((response) => {
+                //     let docs = response.docs;
+                //     let html = '';
+                //     docs.forEach(doc => {
+                //         // alert(typeof(doc.data().restaurant) + " <=> "+ typeof(restaurantid));
+                //         if (doc.data().restaurant === restaurantid) {
+                //             // alert('hello');
+                //             // console.log(doc.data().needs);
                             
-                            if (doc.data().needs == "Dairy") {
-                                ratings_dairy.push(parseInt(doc.data().rating));
-                            }
-                            if (doc.data().needs == "Eggs") {
-                                ratings_eggs.push(parseInt(doc.data().rating));
-                            }
-                            if (doc.data().needs == "Nuts") {
-                                ratings_nuts.push(parseInt(doc.data().rating));
-                            }
-                            if (doc.data().needs == "Seafood") {
-                                ratings_seafood.push(parseInt(doc.data().rating));
-                            }
-                            if (doc.data().needs == "Halal") {
-                                ratings_halal.push(parseInt(doc.data().rating));
-                            }
-                            if (doc.data().needs == "Kosher") {
-                                ratings_kosher.push(parseInt(doc.data().rating));
-                            }
-                            if (doc.data().needs == "Vegan") {
-                                // console.log("hi");
-                                ratings_vegan.push(parseInt(doc.data().rating));
-                                // console.log('test test test ' + ratings_vegan[0]);
-                            }
-                            if (doc.data().needs == "Vegetarian") {
-                                ratings_vegetarian.push(parseInt(doc.data().rating));
-                            }
-                            if (doc.data().needs == "Wheelchair") {
-                                ratings_wheelchair.push(parseInt(doc.data().rating));
-                            }
-                            if (doc.data().needs == "Service Animal") {
-                                ratings_animal.push(parseInt(doc.data().rating));
-                            }
+                //             if (doc.data().needs == "Dairy") {
+                //                 ratings_dairy.push(parseInt(doc.data().rating));
+                //             }
+                //             if (doc.data().needs == "Eggs") {
+                //                 ratings_eggs.push(parseInt(doc.data().rating));
+                //             }
+                //             if (doc.data().needs == "Nuts") {
+                //                 ratings_nuts.push(parseInt(doc.data().rating));
+                //             }
+                //             if (doc.data().needs == "Seafood") {
+                //                 ratings_seafood.push(parseInt(doc.data().rating));
+                //             }
+                //             if (doc.data().needs == "Halal") {
+                //                 ratings_halal.push(parseInt(doc.data().rating));
+                //             }
+                //             if (doc.data().needs == "Kosher") {
+                //                 ratings_kosher.push(parseInt(doc.data().rating));
+                //             }
+                //             if (doc.data().needs == "Vegan") {
+                //                 // console.log("hi");
+                //                 ratings_vegan.push(parseInt(doc.data().rating));
+                //                 // console.log('test test test ' + ratings_vegan[0]);
+                //             }
+                //             if (doc.data().needs == "Vegetarian") {
+                //                 ratings_vegetarian.push(parseInt(doc.data().rating));
+                //             }
+                //             if (doc.data().needs == "Wheelchair") {
+                //                 ratings_wheelchair.push(parseInt(doc.data().rating));
+                //             }
+                //             if (doc.data().needs == "Service Animal") {
+                //                 ratings_animal.push(parseInt(doc.data().rating));
+                //             }
 
-                            let rating = '';
-                            for (let i = 0; i < doc.data().rating; i++) {
-                                rating += `<i class="fas fa-star has-text-warning"></i>`;
-                            }
+                //             let rating = '';
+                //             for (let i = 0; i < doc.data().rating; i++) {
+                //                 rating += `<i class="fas fa-star has-text-warning"></i>`;
+                //             }
 
-                            html += `
-                            <div class="card large mb-4">
-                                <div class="card-content">
-                                    <div class="media">
-                                        <div class="content is-left">
-                                            <h1 class="has-text-weight-bold has-text-dark is-size-5 mb-2"
-                                                style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">${doc.data().user_email}</h1>
-                                            ${rating}
-                                            <p class="subtitle is-6 mt-1"><b>Rated for:&nbsp; </b>${doc.data().needs}</p>
-                                            <p class="subtitle is-6 mt-2">${doc.data().comments}</p>
-                                        </div>
-                                        <div class="content is-right ml-auto">
-                                            <image width="200" src="${doc.data().url}" alt="Image"/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            `;
+                //             html += `
+                //             <div class="card large mb-4">
+                //                 <div class="card-content">
+                //                     <div class="media">
+                //                         <div class="content is-left">
+                //                             <h1 class="has-text-weight-bold has-text-dark is-size-5 mb-2"
+                //                                 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">${doc.data().user_email}</h1>
+                //                             ${rating}
+                //                             <p class="subtitle is-6 mt-1"><b>Rated for:&nbsp; </b>${doc.data().needs}</p>
+                //                             <p class="subtitle is-6 mt-2">${doc.data().comments}</p>
+                //                         </div>
+                //                         <div class="content is-right ml-auto">
+                //                             <image width="200" src="${doc.data().url}" alt="Image"/>
+                //                         </div>
+                //                     </div>
+                //                 </div>
+                //             </div>
+                //             `;
 
-                        }
-                        //inner then
+                //         }
+                //         //inner then
 
-                        // alert(average([1,2,3]));
-                        let averages = [];
+                //         // alert(average([1,2,3]));
+                //         let averages = [];
 
-                        // alert(ratings_dairy);
+                //         // alert(ratings_dairy);
 
-                        // console.log(ratings_vegan);
+                //         // console.log(ratings_vegan);
 
-                        averages.push(average(ratings_dairy));
-                        averages.push(average(ratings_eggs));
-                        averages.push(average(ratings_nuts));
-                        averages.push(average(ratings_seafood));
-                        averages.push(average(ratings_halal));
-                        averages.push(average(ratings_kosher));
-                        averages.push(average(ratings_vegan));
-                        averages.push(average(ratings_vegetarian));
-                        averages.push(average(ratings_wheelchair));
-                        averages.push(average(ratings_animal));
+                //         averages.push(average(ratings_dairy));
+                //         averages.push(average(ratings_eggs));
+                //         averages.push(average(ratings_nuts));
+                //         averages.push(average(ratings_seafood));
+                //         averages.push(average(ratings_halal));
+                //         averages.push(average(ratings_kosher));
+                //         averages.push(average(ratings_vegan));
+                //         averages.push(average(ratings_vegetarian));
+                //         averages.push(average(ratings_wheelchair));
+                //         averages.push(average(ratings_animal));
 
-                        // console.log(averages);
-                        for (var i = 0; i < averages.length; i++) {
-                            if (largest < averages[i]) {
-                                largest = averages[i];
-                                largest_index = i;
-                            }
-                        }
+                //         // console.log(averages);
+                //         for (var i = 0; i < averages.length; i++) {
+                //             if (largest < averages[i]) {
+                //                 largest = averages[i];
+                //                 largest_index = i;
+                //             }
+                //         }
 
-                        // console.log(largest);
-                        // console.log(largest_index);
+                //         // console.log(largest);
+                //         // console.log(largest_index);
 
-                        // change modal stats based on reviews
-                        modal_stats.innerHTML = `
-                        <p class="subtitle is-6 my-0"><b>${needs[largest_index]}</b> ${largest.toFixed(2)}</p>
-                        `;
+                //         // change modal stats based on reviews
+                //         modal_stats.innerHTML = `
+                //         <p class="subtitle is-6 my-0"><b>${needs[largest_index]}</b> ${largest.toFixed(2)}</p>
+                //         `;
 
-                        db.collection("restaurants").doc(restaurantid).update({
-                            best: needs[largest_index],
-                            best_rating: largest.toFixed(2)
-                        })
+                //         db.collection("restaurants").doc(restaurantid).update({
+                //             best: needs[largest_index],
+                //             best_rating: largest.toFixed(2)
+                //         })
 
 
-                    })
-                    //outside then but also outside loop
+                //     })
+                //     //outside then but also outside loop
 
-                    if (html.length == 0) {
-                        review_data.innerHTML = `
-                        <div class="has-text-centered has-text-weight-bold has-text-grey-light my-6 signedincontent">
-                        <i class="fas fa-seedling is-size-4 mr-2"></i>
-                        <p>No reviews currently available!</p>
-                        </div>
-                        `;
-                    } else {
-                        review_data.innerHTML = html;
-                    }
-                })
+                //     if (html.length == 0) {
+                //         review_data.innerHTML = `
+                //         <div class="has-text-centered has-text-weight-bold has-text-grey-light my-6 signedincontent">
+                //         <i class="fas fa-seedling is-size-4 mr-2"></i>
+                //         <p>No reviews currently available!</p>
+                //         </div>
+                //         `;
+                //     } else {
+                //         review_data.innerHTML = html;
+                //     }
+                // })
             }
         })
     })
-    modal_restaurant.classList.add('is-active');
+    modaljobinfo.classList.add('is-active');
 }
 
 
 
 
-
+function acceptjob(){
+    // *TODO
+}
