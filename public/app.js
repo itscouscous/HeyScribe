@@ -4,6 +4,7 @@ let signedin = document.querySelectorAll(".signedin")
 let signedout = document.querySelectorAll(".signedout")
 //clients/scribes exclusive (for links)
 let scribesonly = document.querySelectorAll(".scribesonly")
+let clientsonly = document.querySelectorAll(".clientsonly")
 //Page Declarations
 let mainpage = document.querySelector("#main-page"); //this is our "home page"
 let signup = document.querySelector("#sign-up");
@@ -72,7 +73,8 @@ let sprofilename = document.querySelector("#sprofilename")
 let joblistingsubmitbtn = document.querySelector("#joblistsubmitbtn");
 let shaydetest = document.querySelector("#shaydetest")
 let closesubmission = document.querySelector('#closesubmission');
-
+//Job Info Modal
+let modaljobinfo = document.querySelector("#modal-job-info");
 
 //My Account (Scribe)
 
@@ -210,11 +212,21 @@ function isSignedIn() {
                     e.classList.remove('is-hidden')
                 }
             })
+            clientsonly.forEach(e => {
+                if (!e.classList.contains('is-hidden')) {
+                    e.classList.add('is-hidden')
+                }
+            })
         } else {
             navigate(useremail, myaccountclient)
             scribesonly.forEach(e => {
                 if (!e.classList.contains('is-hidden')) {
                     e.classList.add('is-hidden')
+                }
+            })
+            clientsonly.forEach(e => {
+                if (e.classList.contains('is-hidden')) {
+                    e.classList.remove('is-hidden')
                 }
             })
         }
@@ -572,7 +584,7 @@ function filter_job() {
     let cards = document.getElementsByClassName('cards'); //[]
     // let results = 0;
     if(cat.length!=0 && rate.length!=0){
-        console.log("if");
+        // console.log("if");
         for (i = 0; i < cattag.length; i++) {
             if (cattag[i].innerHTML==cat && parseFloat(ratetag[i].innerHTML)<=(rate*2) && parseFloat(ratetag[i].innerHTML)>=(rate*2-2)) {
                 cards[i].style.display = "flex";
@@ -582,7 +594,7 @@ function filter_job() {
             }
         }
     } else if(cat.length!=0 && rate.length==0){
-        console.log("cat");
+        // console.log("cat");
         for (i = 0; i < cattag.length; i++) {
             if (cattag[i].innerHTML==cat) {
                 cards[i].style.display = "flex";
@@ -592,7 +604,7 @@ function filter_job() {
             }
         }
     } else if(cat.length==0 && rate.length!=0){
-        console.log("rate");
+        // console.log("rate");
         for (i = 0; i < cattag.length; i++) {
             if (parseFloat(ratetag[i].innerHTML)<=(rate*2) && parseFloat(ratetag[i].innerHTML)>=(rate*2-2)) {
                 cards[i].style.display = "flex";
@@ -602,7 +614,7 @@ function filter_job() {
             }
         }
     } else {
-        console.log("else");
+        // console.log("else");
         for (i = 0; i < cattag.length; i++) {
             cards[i].style.display = "flex";
             results += 1;
@@ -621,65 +633,170 @@ function reset_filter() {
     filter_job();
 }
 
-// FILTER
+function load_modal(jobid) {
+    // saves ratings like [4,5,5]
+    let ratings_dairy = [];
+    let ratings_eggs = [];
+    let ratings_nuts = [];
+    let ratings_seafood = [];
+    let ratings_halal = [];
+    let ratings_kosher = [];
+    let ratings_vegan = [];
+    let ratings_vegetarian = [];
+    let ratings_wheelchair = [];
+    let ratings_animal = [];
+    let needs = ["Dairy", "Eggs", "Nuts", "Seafood", "Halal", "Kosher", "Vegan", "Vegetarian", "Wheelchair", "Service Animal"]
 
-// function filterjob(field, operator, val) {
-    
-//     // if filtering by category
-//     if (field=='Category'){
-//         alljobs.filter(job => {
-//             return job.category == field && job.name == 'Carl';
-//         });
-//     }
-// }
+    let largest = 0;
+    let largest_index = 0;
+    // alert('outside the nested db' + restaurantid);
 
-// function load_data_conditions(field, operator, val) {
+    db.collection("restaurants").get().then((response) => {
+        let docs = response.docs;
+        docs.forEach(doc => {
+            if (doc.id == restaurantid) {
+                // change modal title
+                modal_title.innerHTML = `
+                <div style="margin: 3% 1% 0% 1%">
+                    <h1 class="title has-text-weight-bold has-text-white is-4 mb-1"
+                    style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">${doc.data().name}</h1>
+                </div>
+                <button class="delete mb-auto ml-auto" id="btn-restaurant-x" aria-label="close" onclick="modal_restaurant.classList.remove('is-active')"></button>
+                `;
 
-//     // let query = db.collection("jobs").where(field, operator, val);
-    
-//     query.get().then((response) => {
-//         let docs = response.docs;
-//         let html = '';
 
-//         docs.forEach(doc => {
-//             // console.log(doc.data().title, "=>", doc.data().description);
-//             let rating = '';
-//             for (let i = 0; i < doc.data().best_rating; i++) {
-//                 if (doc.data().best_rating - i < 1) {
-//                     if (doc.data().best_rating - i >= 0.5) {
-//                         rating += `<i class="fas fa-star-half has-text-warning"></i>`;
-//                     }
-//                 } else {
-//                     rating += `<i class="fas fa-star has-text-warning"></i>`;
-//                 }
-//             }
 
-//             html +=
-//                 `<div class="card large mb-4" id="${doc.id}" onclick="load_modal('${doc.id}')">
-//                 <!-- IMAGE -->
-//                 <div class="card-image">
-//                     <figure class="image is-16by9">
-//                     <img src="images/restaurant2.jpeg" alt="Restaurant" style="object-fit: cover;">
-//                     </figure>
-//                 </div>
-//                 <!-- CONTENT -->
-//                 <div class="card-content">
-//                     <div class="media">
-//                         <div class="content">
-//                             <h1 class="title has-text-weight-bold has-text-primary is-4 mb-1"
-//                             style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">${doc.data().name}</h1>
-//                             ${rating}
-//                             <p class="subtitle is-6 mt-1"><b>${doc.data().best}</b></p>
-//                             <p class="subtitle is-6 mb-0"><b>Address: </b>${doc.data().address}, Madison, WI 53703</p>
-//                             <p class="subtitle is-6 mb-0"><b>Hours: </b>8AM – 10PM</p>
-//                             <p class="subtitle is-6"><b>Phone: </b>${doc.data().phone}</p>
-//                         </div>
-//                     </div>
-//                 </div>
-//             </div>   
-//             `;
-//         })
-//         // append content to the content variable
-//         restaurant_data.innerHTML = html;
-//     })
-// }
+                // load reviews
+                db.collection("reviews").get().then((response) => {
+                    let docs = response.docs;
+                    let html = '';
+                    docs.forEach(doc => {
+                        // alert(typeof(doc.data().restaurant) + " <=> "+ typeof(restaurantid));
+                        if (doc.data().restaurant === restaurantid) {
+                            // alert('hello');
+                            // console.log(doc.data().needs);
+                            
+                            if (doc.data().needs == "Dairy") {
+                                ratings_dairy.push(parseInt(doc.data().rating));
+                            }
+                            if (doc.data().needs == "Eggs") {
+                                ratings_eggs.push(parseInt(doc.data().rating));
+                            }
+                            if (doc.data().needs == "Nuts") {
+                                ratings_nuts.push(parseInt(doc.data().rating));
+                            }
+                            if (doc.data().needs == "Seafood") {
+                                ratings_seafood.push(parseInt(doc.data().rating));
+                            }
+                            if (doc.data().needs == "Halal") {
+                                ratings_halal.push(parseInt(doc.data().rating));
+                            }
+                            if (doc.data().needs == "Kosher") {
+                                ratings_kosher.push(parseInt(doc.data().rating));
+                            }
+                            if (doc.data().needs == "Vegan") {
+                                // console.log("hi");
+                                ratings_vegan.push(parseInt(doc.data().rating));
+                                // console.log('test test test ' + ratings_vegan[0]);
+                            }
+                            if (doc.data().needs == "Vegetarian") {
+                                ratings_vegetarian.push(parseInt(doc.data().rating));
+                            }
+                            if (doc.data().needs == "Wheelchair") {
+                                ratings_wheelchair.push(parseInt(doc.data().rating));
+                            }
+                            if (doc.data().needs == "Service Animal") {
+                                ratings_animal.push(parseInt(doc.data().rating));
+                            }
+
+                            let rating = '';
+                            for (let i = 0; i < doc.data().rating; i++) {
+                                rating += `<i class="fas fa-star has-text-warning"></i>`;
+                            }
+
+                            html += `
+                            <div class="card large mb-4">
+                                <div class="card-content">
+                                    <div class="media">
+                                        <div class="content is-left">
+                                            <h1 class="has-text-weight-bold has-text-dark is-size-5 mb-2"
+                                                style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">${doc.data().user_email}</h1>
+                                            ${rating}
+                                            <p class="subtitle is-6 mt-1"><b>Rated for:&nbsp; </b>${doc.data().needs}</p>
+                                            <p class="subtitle is-6 mt-2">${doc.data().comments}</p>
+                                        </div>
+                                        <div class="content is-right ml-auto">
+                                            <image width="200" src="${doc.data().url}" alt="Image"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            `;
+
+                        }
+                        //inner then
+
+                        // alert(average([1,2,3]));
+                        let averages = [];
+
+                        // alert(ratings_dairy);
+
+                        // console.log(ratings_vegan);
+
+                        averages.push(average(ratings_dairy));
+                        averages.push(average(ratings_eggs));
+                        averages.push(average(ratings_nuts));
+                        averages.push(average(ratings_seafood));
+                        averages.push(average(ratings_halal));
+                        averages.push(average(ratings_kosher));
+                        averages.push(average(ratings_vegan));
+                        averages.push(average(ratings_vegetarian));
+                        averages.push(average(ratings_wheelchair));
+                        averages.push(average(ratings_animal));
+
+                        // console.log(averages);
+                        for (var i = 0; i < averages.length; i++) {
+                            if (largest < averages[i]) {
+                                largest = averages[i];
+                                largest_index = i;
+                            }
+                        }
+
+                        // console.log(largest);
+                        // console.log(largest_index);
+
+                        // change modal stats based on reviews
+                        modal_stats.innerHTML = `
+                        <p class="subtitle is-6 my-0"><b>${needs[largest_index]}</b> ${largest.toFixed(2)}</p>
+                        `;
+
+                        db.collection("restaurants").doc(restaurantid).update({
+                            best: needs[largest_index],
+                            best_rating: largest.toFixed(2)
+                        })
+
+
+                    })
+                    //outside then but also outside loop
+
+                    if (html.length == 0) {
+                        review_data.innerHTML = `
+                        <div class="has-text-centered has-text-weight-bold has-text-grey-light my-6 signedincontent">
+                        <i class="fas fa-seedling is-size-4 mr-2"></i>
+                        <p>No reviews currently available!</p>
+                        </div>
+                        `;
+                    } else {
+                        review_data.innerHTML = html;
+                    }
+                })
+            }
+        })
+    })
+    modal_restaurant.classList.add('is-active');
+}
+
+
+
+
+

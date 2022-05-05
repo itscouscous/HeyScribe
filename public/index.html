@@ -146,14 +146,14 @@
     </div>
 
     <!-- Job Info Modal (*TO DO: create query selectors)-->
-    <div class="modal" id="modal-job-info">
-        <div class="modal-background"></div>
+    <div class="modal is-active" id="modal-job-info">
+        <div class="modal-background" onclick="modaljobinfo.classList.remove('is-active')"></div>
         <div class="modal-card">
             <!-- HEADER -->
-            <header class="modal-card-head has-background-black" id="modal_title">
+            <header class="modal-card-head has-background-black">
                 <p class="modal-card-title has-text-white">Job Information</p>
-                <button class="delete" id="btn-restaurant-x" aria-label="close"
-                    onclick="modal_job_info.classList.remove('is-active')"></button>
+                <button class="delete" id="btn-job-x" aria-label="close"
+                    onclick="modaljobinfo.classList.remove('is-active')"></button>
             </header>
             <!-- CONTENT -->
             <section class="modal-card-body py-3 px-5">
@@ -167,22 +167,23 @@
                             </div>
                             <!-- title and description -->
                             <p class="mb-0">
-                                <strong>My Dissertation</strong> <small>samer@wisc.edu | 4/28/22</small>
+                                <strong class="modaltitle">My Dissertation</strong>
+                                <small class="modalposter">samer@wisc.edu</small>
                                 <br>
-                                <small>This is my Description.</small>
                             </p>
                             <div class="mb-2">
-                                <span class="tag is-rounded mt-2">Legal</span>
-                                <span class="tag is-rounded mt-2">8:53</span>
-                                <span class="tag is-rounded mt-2">$1.50/min</span>
-                                <span class="tag is-rounded mt-2 is-danger">Approval Required</span>
+                                <span class="tag is-rounded mt-2"> <p class="modalcategory">Legal</p> </span>
+                                <span class="tag is-rounded mt-2">$<p class="modalrate">1.50</p>/min</span>
+                                <span class="tag is-rounded mt-2">due <p class="modaldate">4/28/22</p></span>
+                                <span class="tag is-rounded mt-2 is-danger" name="modalapproval">Approval Required</span>
                             </div>
+                            <small class="modaldescription">This is my Description. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique aperiam eveniet a iste, animi error amet quibusdam quisquam qui explicabo!</small>
                         </div>
                         <!-- IF USER = SCRIBE (REMOVE IS-HIDDEN) -->
                         <div class="">
 
                             <!-- ACCEPT/REQUEST BUTTON -->
-                            <a class="button is-primary" id="accept-or-request">
+                            <a class="button is-primary scribesonly" id="accept-or-request">
                                 <strong class="is-size-7">Accept/Request</strong>
                             </a>
 
