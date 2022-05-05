@@ -641,22 +641,7 @@ function reset_filter() {
 }
 
 function load_modal(jobid) {
-    // saves ratings like [4,5,5]
-    // let ratings_dairy = [];
-    // let ratings_eggs = [];
-    // let ratings_nuts = [];
-    // let ratings_seafood = [];
-    // let ratings_halal = [];
-    // let ratings_kosher = [];
-    // let ratings_vegan = [];
-    // let ratings_vegetarian = [];
-    // let ratings_wheelchair = [];
-    // let ratings_animal = [];
-    // let needs = ["Dairy", "Eggs", "Nuts", "Seafood", "Halal", "Kosher", "Vegan", "Vegetarian", "Wheelchair", "Service Animal"]
-
-    // let largest = 0;
-    // let largest_index = 0;
-    // alert('outside the nested db' + restaurantid);
+    // alert('outside the nested db' + jobid);
 
     db.collection("jobs").get().then((response) => {
         let docs = response.docs;
@@ -673,7 +658,22 @@ function load_modal(jobid) {
 
                 // if approval==1, remove is-hidden
                 // if approval==0, ensure is-hidden
-                modalapproval.innerHTML = `${doc.data().approval}`;
+                if (doc.data().approval=='1'){
+                    console.log('1');
+                    if (modalapproval.classList.contains("is-hidden")) {
+                        modalapproval.classList.remove('is-hidden');
+                    } else {
+                        return;
+                    }
+                }
+                if (doc.data().approval=='0'||doc.data().approval==null){
+                    console.log('0');
+                    if (modalapproval.classList.contains("is-hidden")) {
+                        return;
+                    } else {
+                        modalapproval.classList.add('is-hidden');
+                    }
+                }
 
                 // LOAD LOWER CONTENT BASED ON JOB STATUS & USERTYPE
 
