@@ -292,6 +292,7 @@
 
     <!--JOB SUBMISSION FORM-->
     <!--
+        Client Email
         Title
         Description (text)
         Category (legal, medical, education, entertainment, other)
@@ -1508,104 +1509,77 @@
                         <!-- CATEGORY -->
                         <label class="label mt-5">Category</label>
                         <label class="radio">
-                            <input type="radio" name="filter" value="Legal" class="category"
-                                onclick="load_data_conditions('category', '==', 'Legal')">
+                            <input type="radio" name="category" value="Legal"
+                                onclick="filter_job()">
                             Legal
                         </label> <br>
                         <label class="radio">
-                            <input type="radio" name="filter" value="Medical" class="category"
-                                onclick="load_data_conditions('restaurants','category', '==', 'Medical')">
+                            <input type="radio" name="category" value="Medical"
+                                onclick="filter_job()">
                             Medical
                         </label> <br>
                         <label class="radio">
-                            <input type="radio" name="filter" value="Educational" class="category"
-                                onclick="load_data_conditions('restaurants','category', '==', 'Educational')">
-                            Educational
+                            <input type="radio" name="category" value="Education"
+                                onclick="filter_job()">
+                            Education
                         </label> <br>
                         <label class="radio">
-                            <input type="radio" name="filter" value="Entertainment" class="category"
-                                onclick="load_data_conditions('restaurants','category', '==', 'Entertainment')">
+                            <input type="radio" name="category" value="Entertainment"
+                                onclick="filter_job()">
                             Entertainment
                         </label> <br>
                         <label class="radio">
-                            <input type="radio" name="filter" value="Other" class="category"
-                                onclick="load_data_conditions('restaurants','category', '==', 'Entertainment')">
+                            <input type="radio" name="category" value="Other"
+                                onclick="filter_job()">
                             Other
                         </label>
                     </div>
                 </form>
-                <!-- <form class="mb-0" id="filter_form_duration">
-                    <div class="control">
-                        DURATION
-                        <label class="label mt-5">Duration</label>
-                        <label class="radio">
-                            <input type="radio" name="filter" value="30" class="duration"
-                                onclick="load_data_conditions('restaurants','best', '==', '30')">
-                            Under 30 min
-                        </label> <br>
-                        <label class="radio">
-                            <input type="radio" name="filter" value="60" class="duration"
-                                onclick="load_data_conditions('restaurants','best', '==', '60')">
-                            30 - 60 min
-                        </label> <br>
-                        <label class="radio">
-                            <input type="radio" name="filter" value="120" class="duration"
-                                onclick="load_data_conditions('restaurants','best', '==', '120')">
-                            60 - 120 min
-                        </label> <br>
-                        <label class="radio">
-                            <input type="radio" name="filter" value="999" class="duration"
-                                onclick="load_data_conditions('restaurants','best', '==', '999')">
-                            Over 120 min
-                        </label>
-                    </div>
-                </form> -->
                 <form class="mb-0" id="filter_form_rates">
                     <div class="control">
                         <!-- RATES $$$ -->
                         <label class="label mt-5">Rates</label>
                         <label class="radio">
-                            <input type="radio" name="filter" value="1" class="rates"
-                                onclick="load_data_conditions('restaurants','best', '==', '1')">
+                            <input type="radio" name="rates" value="1"
+                                onclick="filter_job()">
                             Under $2 per min
                         </label> <br>
                         <label class="radio">
-                            <input type="radio" name="filter" value="2" class="rates"
-                                onclick="load_data_conditions('restaurants','best', '==', '2')">
+                            <input type="radio" name="rates" value="2"
+                                onclick="filter_job()">
                             $2 - $4 per min
                         </label> <br>
                         <label class="radio">
-                            <input type="radio" name="filter" value="3" class="rates"
-                                onclick="load_data_conditions('restaurants','best', '==', '3')">
+                            <input type="radio" name="rates" value="3"
+                                onclick="filter_job()">
                             $4 - $6 per min
                         </label> <br>
                         <label class="radio">
-                            <input type="radio" name="filter" value="4" class="rates"
-                                onclick="load_data_conditions('restaurants','best', '==', '4')">
+                            <input type="radio" name="rates" value="4"
+                                onclick="filter_job()">
                             Over $6 per min
                         </label>
                     </div>
                 </form>
-                <form class="mb-0" id="filter_form_approval">
+                <!-- <form class="mb-0" id="filter_form_approval">
                     <div class="control">
-                        <!-- APPROVAL -->
+                        APPROVAL
                         <label class="label mt-5">Approval Required</label>
                         <label class="radio">
-                            <input type="radio" name="filter" value="1" class="approval"
-                                onclick="load_data_conditions('restaurants','best', '==', '1')">
+                            <input type="radio" name="approvals" value="1"
+                                onclick="filter_job()">
                             Yes
                         </label>
                         <label class="radio">
-                            <input type="radio" name="filter" value="0" class="approval"
-                                onclick="load_data_conditions('restaurants','best', '==', '0')">
+                            <input type="radio" name="approvals" value="0"
+                                onclick="filter_job()">
                             No
                         </label>
                     </div>
-                </form>
+                </form> -->
                 <!-- SUBMIT & RESET -->
                 <div class="field is-grouped">
-                    <button class="button is-black has-text-weight-bold mt-4" id="search_button">Search</button>
-                    <button class="button mt-4 ml-2" id="reset_button">Reset</button>
+                    <button class="button is-black has-text-weight-bold mt-4" id="reset_button" onclick="reset_filter()">Reset</button>
                 </div>
                 <!-- <a class="button is-block is-primary is-fullwidth is-rounded mt-6" href="#">Submit</a> -->
                 </form>

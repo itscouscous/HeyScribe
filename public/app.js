@@ -461,11 +461,11 @@ function load_jobs() {
                             </figure>
                             <div class="card-content pt-0 px-3">
                                 <div class="mb-2">
-                                    <span class="tag is-rounded mt-2">${doc.data().category}</span>
-                                    <span class="tag is-rounded mt-2">$${doc.data().payrate}/min</span>
+                                    <span class="tag is-rounded mt-2"><p class="cattag">${doc.data().category}</p></span>
+                                    <span class="tag is-rounded mt-2">$<p class="ratetag">${doc.data().payrate}</p>/min</span>
                                     <span class="tag is-rounded mt-2">Due ${doc.data().deadline}</span>
                                 </div>
-                                <p class="jobs">${doc.data().title}</p>
+                                <p class="job_title">${doc.data().title}</p>
                                 <p class="is-size-7">${doc.data().client_email}</p>
                                 <a href="" class="has-text-primary is-size-7"> <u>Details</u></a>
                                 <br><span class="tag is-rounded is-danger mt-2">Approval
@@ -484,11 +484,11 @@ function load_jobs() {
                             </figure>
                             <div class="card-content pt-0 px-3">
                                 <div class="mb-2">
-                                    <span class="tag is-rounded mt-2">${doc.data().category}</span>
-                                    <span class="tag is-rounded mt-2">$${doc.data().payrate}/min</span>
+                                    <span class="tag is-rounded mt-2"><p class="cattag">${doc.data().category}</p></span>
+                                    <span class="tag is-rounded mt-2">$<p class="ratetag">${doc.data().payrate}</p>/min</span>
                                     <span class="tag is-rounded mt-2">Due ${doc.data().deadline}</span>
                                 </div>
-                                <p class="jobs">${doc.data().title}</p>
+                                <p class="job_title">${doc.data().title}</p>
                                 <p class="is-size-7">${doc.data().client_email}</p>
                                 <a href="" class="has-text-primary is-size-7"> <u>Details</u></a>
                                 <br><span class="tag is-rounded is-danger mt-2 is-hidden">Approval
@@ -517,7 +517,7 @@ load_jobs();
 function search_job() {
     let input = document.getElementById('search_bar').value
     input = input.toLowerCase();
-    let x = document.getElementsByClassName('jobs');
+    let x = document.getElementsByClassName('job_title');
     let y = document.getElementsByClassName('cards');
     let results = 0;
 
@@ -536,10 +536,92 @@ function search_job() {
 }
 
 // FILTER
+function filter_job() {
+    //RESET SEARCH FIRST
+    document.getElementById('search_bar').value = '';
+    // filter w radio: 
+    // get selected radios from each criteria
+    // if val==null, select any
+
+    let results = 0;
+    console.log("filtering");
+    var cat = '';
+    var rate = '';
+    var app = '';
+    var categories = document.getElementsByName("category");
+    var sel_cat = Array.from(categories).find(category => category.checked);
+    var rates = document.getElementsByName("rates");
+    var sel_rate = Array.from(rates).find(rate => rate.checked);
+
+    if (sel_cat!=null){
+        // console.log(sel_cat.value);
+        cat = sel_cat.value;
+    }
+    if (sel_rate!=null){
+        // console.log(sel_rate.value);
+        rate = parseFloat(sel_rate.value);
+    }
+    
+    console.log([cat, rate]);
+    // cattag, ratetag
+
+    let cattag = document.getElementsByClassName('cattag'); //[]
+    let ratetag = document.getElementsByClassName('ratetag'); //[]
+    let cards = document.getElementsByClassName('cards'); //[]
+    // let results = 0;
+    if(cat.length!=0 && rate.length!=0){
+        console.log("if");
+        for (i = 0; i < cattag.length; i++) {
+            if (cattag[i].innerHTML==cat && parseFloat(ratetag[i].innerHTML)<=(rate*2) && parseFloat(ratetag[i].innerHTML)>=(rate*2-2)) {
+                cards[i].style.display = "flex";
+                results += 1;
+            } else {
+                cards[i].style.display = "none";
+            }
+        }
+    } else if(cat.length!=0 && rate.length==0){
+        console.log("cat");
+        for (i = 0; i < cattag.length; i++) {
+            if (cattag[i].innerHTML==cat) {
+                cards[i].style.display = "flex";
+                results += 1;
+            } else {
+                cards[i].style.display = "none";
+            }
+        }
+    } else if(cat.length==0 && rate.length!=0){
+        console.log("rate");
+        for (i = 0; i < cattag.length; i++) {
+            if (parseFloat(ratetag[i].innerHTML)<=(rate*2) && parseFloat(ratetag[i].innerHTML)>=(rate*2-2)) {
+                cards[i].style.display = "flex";
+                results += 1;
+            } else {
+                cards[i].style.display = "none";
+            }
+        }
+    } else {
+        console.log("else");
+        for (i = 0; i < cattag.length; i++) {
+            cards[i].style.display = "flex";
+            results += 1;
+        }
+    }
+
+    // console.log(results);
+    jobslength.innerHTML = results;
+}
+
+// RESET FILTER
+function reset_filter() {
+    // console.log("filter reset");
+    filter_form_industry.reset();
+    filter_form_rates.reset();
+    filter_job();
+}
+
+// FILTER
 
 // function filterjob(field, operator, val) {
-
-//     let alljobs = db.collection("jobs")
     
 //     // if filtering by category
 //     if (field=='Category'){
@@ -553,16 +635,6 @@ function search_job() {
 
 //     // let query = db.collection("jobs").where(field, operator, val);
     
-//     let alljobs = db.collection("jobs")
-    
-//     // if filtering by category
-//     if (field=='Category'){
-//         alljobs.filter(job => {
-//             return job.category == field && job.name == 'Carl';
-//         });
-//     }
-    
-
 //     query.get().then((response) => {
 //         let docs = response.docs;
 //         let html = '';
