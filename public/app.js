@@ -376,7 +376,11 @@ joblistingsubmitbtn.addEventListener('click', (e) => {
                 post_time: +new Date(),
                 //duration: audio_duration,
                 audio: url,
-                status: 'available'
+                status: 'available',
+                upload: '',
+                rating: [],
+                requests: [],
+                accept: '',
             };
 
             console.log(job);
@@ -409,6 +413,7 @@ joblistingsubmitbtn.addEventListener('click', (e) => {
 //Loading Data
 //Load Data function
 function load_data(collection_name, contentid, i) {
+    // *TODO: ONLY ALLOW JOBS WHERE status=='available'
     db.collection(`${collection_name}`).orderBy("post_time", "asc").limit(100).get().then((response) => {
         let docs = response.docs;
         let snapshot = response.docs[i]
@@ -469,6 +474,7 @@ function load_jobs() {
         }
 
         docs.forEach(doc => {
+            // *TODO: ONLY ALLOW JOBS WHERE status=='available'
             if (docs.length != 0) {
                 if (doc.data().approval=='1'){
                     html +=
@@ -640,6 +646,8 @@ function reset_filter() {
     filter_job();
 }
 
+let acceptorrequest = document.querySelector("#acceptorrequest");
+
 function load_modal(jobid) {
     // alert('outside the nested db' + jobid);
 
@@ -655,6 +663,15 @@ function load_modal(jobid) {
                 modalrate.innerHTML = `${doc.data().payrate}`;
                 modaldeadline.innerHTML = `Due ${doc.data().deadline}`;
                 modaldescription.innerHTML = `${doc.data().description}`;
+                // acceptorrequest button changes job status to inprogress
+                console.log(jobid);
+                console.log(acceptorrequest);
+                acceptorrequest.innerHTML = 
+                `
+                <a class="button is-primary scribesonly" onclick="acceptjob(${jobid})">
+                    <strong class="is-size-7">Accept/Request</strong>
+                </a>
+                `
 
                 // if approval==1, remove is-hidden
                 // if approval==0, ensure is-hidden
@@ -662,21 +679,21 @@ function load_modal(jobid) {
                     console.log('1');
                     if (modalapproval.classList.contains("is-hidden")) {
                         modalapproval.classList.remove('is-hidden');
-                    } else {
-                        return;
                     }
                 }
                 if (doc.data().approval=='0'||doc.data().approval==null){
                     console.log('0');
-                    if (modalapproval.classList.contains("is-hidden")) {
-                        return;
-                    } else {
+                    if (!modalapproval.classList.contains("is-hidden")) {
                         modalapproval.classList.add('is-hidden');
                     }
                 }
 
                 // LOAD LOWER CONTENT BASED ON JOB STATUS & USERTYPE
-
+                
+                
+                
+                
+                
                 // load reviews
                 // db.collection("reviews").get().then((response) => {
                 //     let docs = response.docs;
@@ -810,6 +827,28 @@ function load_modal(jobid) {
 
 
 
-function acceptjob(){
-    // *TODO
+function acceptjob(jobid){
+    // console.log("accept button clicked");
+    // console.log(jobid.getAttribute('id'));
+    db.collection("jobs").get().then((response) => {
+        let docs = response.docs;
+        docs.forEach(doc => {
+            if (doc.id == jobid.getAttribute('id')) {
+                console.log("found the right doc, changing status to inprogress")
+                doc.ref.update({status: "inprogress"});
+            }
+        })
+    })
+}
+
+function submitjob(jobid){
+    db.collection("jobs").get().then((response) => {
+        let docs = response.docs;
+        docs.forEach(doc => {
+            if (doc.id == jobid.getAttribute('id')) {
+                console.log("found the right doc, changing status to complete")
+                doc.ref.update({status: "complete"});
+            }
+        })
+    })
 }
