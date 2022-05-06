@@ -82,7 +82,7 @@ let modalrate = document.querySelector(".modalrate");
 let modaldeadline = document.querySelector(".modaldeadline");
 let modalapproval = document.querySelector(".modalapproval");
 let modaldescription = document.querySelector(".modaldescription");
-
+let acceptorrequest = document.querySelector("#acceptorrequest");
 //My Account (Scribe)
 
 //todo: profile page for other users or modify myaccount to show other users' info
@@ -645,8 +645,6 @@ function reset_filter() {
     filter_form_rates.reset();
     filter_job();
 }
-
-let acceptorrequest = document.querySelector("#acceptorrequest");
 
 function load_modal(jobid) {
     // alert('outside the nested db' + jobid);
